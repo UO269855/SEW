@@ -1,0 +1,117 @@
+/*****************************
+  Álex Caso Díaz - UO269855
+  Descripción de los estilos
+*****************************/
+
+/*001*/
+body {
+  font: 0.625em Arial, monospace;
+  background-color: #97bafc;
+  color: #000000;
+  text-align: justify;
+}
+
+/*001*/
+h1 {
+  font: 4em Arial, monospace;
+  border-radius: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #F97B98;
+}
+
+/*001*/
+nav {
+  font: 1.5em Arial, monospace;
+  border-radius: 1em;
+  text-align: center;
+  width: 8.25em;
+}
+
+/*001*/
+h2 {
+  font: 3em Arial, monospace;
+  border-radius: 1em;
+  text-align: center;
+  background-color: #51e48c;
+}
+
+/*001*/
+h3 {
+  font: 2em Arial, monospace;
+  border-radius: 1em;
+  text-align: center;
+  background-color: #fdf85c;
+}
+
+/*001*/
+p {
+  text-align: justify;
+  padding: 0.75em;
+}
+
+/*002*/
+nav a {
+  font: 1.25em Arial, monospace;
+  text-align: center;
+  display: inline-block;
+  height: 5em;
+  max-width: 6em;
+  padding: 0.25em;
+  text-decoration: none;
+  color: #000000;
+}
+
+/*012*/
+nav a:link,
+nav a:visited {
+  color: #030C45;
+}
+
+/*012*/
+nav a:hover,
+nav a:active {
+  background-color: #7B1943;
+  color: white;
+  border-radius: 1.5rem;
+}
+
+/*001*/
+blockquote {
+  background-color: #d1d1d1;
+  border: 0.1rem solid #000000;
+  padding: 0.3rem;
+  font
+}
+
+/*001*/
+img {
+  max-height: 22em;
+  max-width: 22em;
+}
+
+/*001*/
+video {
+  max-height: 22em;
+  max-width: 22em;
+}
+
+/*001*/
+table,
+th,
+td {
+  border: 0.06rem solid #000000;
+  padding: 0.3rem;
+}
+
+/*001*/
+li {
+  list-style-type: none;
+  margin-bottom: 2.5rem;
+  font: 1.25rem Arial, monospace;
+}
+
+/*001*/
+footer {
+  text-align: center;
+}
