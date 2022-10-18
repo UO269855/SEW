@@ -18,6 +18,7 @@ h1 {
   text-transform: uppercase;
   text-align: center;
   background-color: #F97B98;
+  color: #000000;
 }
 
 /*001*/
@@ -34,6 +35,7 @@ h2 {
   border-radius: 1em;
   text-align: center;
   background-color: #51e48c;
+  color: #000000;
 }
 
 /*001*/
@@ -42,6 +44,7 @@ h3 {
   border-radius: 1em;
   text-align: center;
   background-color: #fdf85c;
+  color: #000000;
 }
 
 /*001*/
@@ -59,6 +62,7 @@ nav a {
   max-width: 6em;
   padding: 0.25em;
   text-decoration: none;
+  background-color: #E083EC;
   color: #000000;
 }
 
@@ -66,6 +70,7 @@ nav a {
 nav a:link,
 nav a:visited {
   color: #030C45;
+  background-color: #E083EC;
 }
 
 /*012*/
@@ -79,9 +84,11 @@ nav a:active {
 /*001*/
 blockquote {
   background-color: #d1d1d1;
+  color: #000000;
   border: 0.1rem solid #000000;
   padding: 0.3rem;
-  font
+  font: 1.25em Arial, monospace;
+  font-style: italic;
 }
 
 /*001*/
@@ -114,4 +121,9 @@ li {
 /*001*/
 footer {
   text-align: center;
+}
+
+form{
+  border: 0.15rem solid #000000;
+  padding: 0.3rem;
 }
