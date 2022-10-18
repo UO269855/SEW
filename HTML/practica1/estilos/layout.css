@@ -44,8 +44,8 @@ footer {
 
 /*001*/
 footer {
-    grid-column: 5;
-    column-count: 5;
+    grid-column: 3;
+    column-count: 3;
 }
 
 /*001*/
