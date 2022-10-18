@@ -1,199 +1,126 @@
 <!DOCTYPE html>
 
 <html lang="es">
-  <head>
-    <!-- Datos que describen el documento -->
-    <meta charset="UTF-8" />
 
-    <meta name="author" content="Álex Caso Díaz" />
-    <meta
-      name="description"
-      content="Página web que contiene un formulario para recopilar información sobre Bootstrap"
-    />
-    <meta
-      name="keywords"
-      content="Bootstrap, Front End, HTML, CSS, JavaScript, OpenSource, Formulario, Encuesta"
-    />
+<head>
+  <!-- Datos que describen el documento -->
+  <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Álex Caso Díaz" />
+  <meta name="description" content="Página web que contiene un formulario para recopilar información sobre Bootstrap" />
+  <meta name="keywords" content="Bootstrap, Front End, HTML, CSS, JavaScript, OpenSource, Formulario, Encuesta" />
 
-    <title>Encuesta Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" type="text/css" href="estilos/estilo.css" />
-    <link rel="stylesheet" type="text/css" href="estilos/layout.css" />
-  </head>
+  <title>Encuesta Bootstrap</title>
 
-  <body>
-    <!-- Datos con el contenidos que aparece en el navegador -->
-    <header>
-      <h1>Framework Bootstrap</h1>
-      <picture>
-        <source
-          media="(max-width:799px)"
-          srcset="multimedia/bootstrap-icons-400.png"
-        />
-        <source
-          media="(min-width:800px)"
-          srcset="multimedia/bootstrap-icons.png"
-        />
-        <img alt="Bootstrap foto" src="multimedia/bootstrap-icons.png" />
-      </picture>
-    </header>
+  <link rel="stylesheet" type="text/css" href="estilos/estilo.css" />
+  <link rel="stylesheet" type="text/css" href="estilos/layout.css" />
+</head>
 
-    <nav class="sidebar">
-      <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
-      <a href="paginas.html" accesskey="P" tabindex="2">Páginas</a>
-      <a href="versiones.html" accesskey="V" tabindex="3">Versiones</a>
-      <a href="encuesta.html" accesskey="E" tabindex="4">Encuesta</a>
-    </nav>
+<body>
+  <!-- Datos con el contenidos que aparece en el navegador -->
+  <header>
+    <h1>Framework Bootstrap</h1>
+    <picture>
+      <source media="(max-width:799px)" srcset="multimedia/bootstrap-icons-400.png" />
+      <source media="(min-width:800px)" srcset="multimedia/bootstrap-icons.png" />
+      <img alt="Bootstrap foto" src="multimedia/bootstrap-icons.png" />
+    </picture>
+  </header>
 
-    <main>
-      <h2>Encuestra sobre uso de Bootstrap</h2>
+  <nav class="sidebar">
+    <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
+    <a href="paginas.html" accesskey="P" tabindex="2">Páginas</a>
+    <a href="versiones.html" accesskey="V" tabindex="3">Versiones</a>
+    <a href="encuesta.html" accesskey="E" tabindex="4">Encuesta</a>
+  </nav>
+
+  <main>
+    <h2>Encuestra sobre uso de Bootstrap</h2>
+    <p>
+      Rellene estos datos de la encuesta con información sobre el uso que ha
+      hecho con Boostrap. Estos datos se recopilarán de manera interna para
+      ver qué clase de usuarios son más propensos a usar este framework.
+      Recuerde que todos los campos son obligatorios.
+    </p>
+    <form name="encuesta">
       <p>
-        Rellene estos datos de la encuesta con información sobre el uso que ha
-        hecho con Boostrap. Estos datos se recopilarán de manera interna para
-        ver qué clase de usuarios son más propensos a usar este framework.
-        Recuerde que todos los campos son obligatorios.
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" type="text" placeholder="Indique su nombre" required />
       </p>
-      <form name="encuesta">
+      <p>
+        <label for="apellido">Apellidos:</label>
+        <input id="apellido" type="text" placeholder="Indique sus apellidos" required />
+      </p>
+      <p>
+        <label for="correo">Correo Electrónico:</label>
+        <input id="correo" type="email" placeholder="Indique su Correo Electrónico" required />
+      </p>
+      <fieldset name="genero">
+        <legend>Por favor, indique su género</legend>
         <p>
-          <label for="nombre">Nombre:</label>
-          <input
-            id="nombre"
-            type="text"
-            placeholder="Indique su nombre"
-            required
-          />
+          <label for="genero-hombre"></label>
+          <input id="genero-hombre" type="radio" name="genero" value="hombre" required />
+          Hombre
         </p>
         <p>
-          <label for="apellido">Apellidos:</label>
-          <input
-            id="apellido"
-            type="text"
-            placeholder="Indique sus apellidos"
-            required
-          />
+          <label for="genero-mujer"></label>
+          <input id="genero-mujer" type="radio" name="genero" value="mujer" />
+          Mujer
         </p>
         <p>
-          <label for="correo">Correo Electrónico:</label>
-          <input
-            id="correo"
-            type="email"
-            placeholder="Indique su Correo Electrónico"
-            required
-          />
+          <label for="genero-nobinario"></label>
+          <input id="genero-nobinario" type="radio" name="genero" value="nobinario" />
+          No binario
         </p>
-        <fieldset name="genero">
-          <legend>Por favor, indique su género</legend>
-          <p>
-            <label for="genero-hombre"></label>
-            <input
-              id="genero-hombre"
-              type="radio"
-              name="género-h"
-              value="hombre"
-              required
-            />
-            Hombre
-          </p>
-          <p>
-            <label for="genero-mujer"></label>
-            <input
-              id="genero-mujer"
-              type="radio"
-              name="género-m"
-              value="mujer"
-            />
-            Mujer
-          </p>
-          <p>
-            <label for="genero-nobinario"></label>
-            <input
-              id="genero-nobinario"
-              type="radio"
-              name="género-nb"
-              value="nobinario"
-            />
-            No binario
-          </p>
-          <p>
-            <label for="genero-nocontestar"></label>
-            <input
-              id="genero-nocontestar"
-              type="radio"
-              name="género-nc"
-              value="nocontestar"
-            />
-            No contestar
-          </p>
-        </fieldset>
-        <fieldset name="lenguajes">
-          <legend>
-            ¿Cuáles de estos lenguajes de programación has usado anteriormente?
-          </legend>
-          <p>
-            <label for="lenguajes-Java"></label>
-            <input
-              id="lenguajes-Java"
-              type="checkbox"
-              name="Lenguajes-Java"
-              value="java"
-            />
-            Java
-          </p>
-          <p>
-            <label for="lenguajes-css"></label>
-            <input
-              id="lenguajes-css"
-              type="checkbox"
-              name="Lenguajes-css"
-              value="css"
-            />
-            Css
-          </p>
-          <p>
-            <label for="lenguajes-python"></label>
-            <input
-              id="lenguajes-python"
-              type="checkbox"
-              name="Lenguajes-python"
-              value="python"
-            />
-            Python
-          </p>
-          <p>
-            <label for="lenguajes-cmasmas"></label>
-            <input
-              id="lenguajes-cmasmas"
-              type="checkbox"
-              name="Lenguajes-cmasmas"
-              value="cmasmas"
-            />
-            C++
-          </p>
-          <p>
-            <label for="lenguajes-javascript"></label>
-            <input
-              id="lenguajes-javascript"
-              type="checkbox"
-              name="Lenguajes-javascript"
-              value="javascript"
-            />
-            JavaScript
-          </p>
-        </fieldset>
         <p>
-          <label for="grado"
-            >Indique cuánto le gusta Boostrap moviendo la barra inferior.</label
-          >
-          <input id="grado" type="range" />
+          <label for="genero-nocontestar"></label>
+          <input id="genero-nocontestar" type="radio" name="genero" value="nocontestar" />
+          No contestar
         </p>
-        <p><input type="submit" value="Enviar" /></p>
-      </form>
-    </main>
-    <footer>
-      <p>Software y estándares para la web</p>
-      <p>Álex Caso Díaz - UO269855</p>
-    </footer>
-  </body>
+      </fieldset>
+      <fieldset name="lenguajes">
+        <legend>
+          ¿Cuáles de estos lenguajes de programación has usado anteriormente?
+        </legend>
+        <p>
+          <label for="lenguajes-Java"></label>
+          <input id="lenguajes-Java" type="checkbox" name="Lenguajes-Java" value="java" />
+          Java
+        </p>
+        <p>
+          <label for="lenguajes-css"></label>
+          <input id="lenguajes-css" type="checkbox" name="Lenguajes-css" value="css" />
+          Css
+        </p>
+        <p>
+          <label for="lenguajes-python"></label>
+          <input id="lenguajes-python" type="checkbox" name="Lenguajes-python" value="python" />
+          Python
+        </p>
+        <p>
+          <label for="lenguajes-cmasmas"></label>
+          <input id="lenguajes-cmasmas" type="checkbox" name="Lenguajes-cmasmas" value="cmasmas" />
+          C++
+        </p>
+        <p>
+          <label for="lenguajes-javascript"></label>
+          <input id="lenguajes-javascript" type="checkbox" name="Lenguajes-javascript" value="javascript" />
+          JavaScript
+        </p>
+      </fieldset>
+      <p>
+        <label for="grado">Indique cuánto le gusta Boostrap moviendo la barra inferior.</label>
+        <input id="grado" type="range" />
+      </p>
+      <p><input type="submit" value="Enviar" /></p>
+    </form>
+  </main>
+  <footer>
+    <p>Software y estándares para la web</p>
+    <p>Álex Caso Díaz - UO269855</p>
+  </footer>
+</body>
+
 </html>
