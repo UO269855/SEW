@@ -5,8 +5,8 @@
 
 /*001*/
 body {
-  font: 12px Arial, monospace;
-  background-color: #97bafc;
+  font: 1.25em Arial, monospace;
+  background-color: #afcbff;
   color: #000000;
   text-align: center;
 }
@@ -22,9 +22,7 @@ body h1 {
 /*001*/
 body nav {
   font: 1.5em Arial, monospace;
-  border-radius: 1em;
-  width: 8.25em;
-  background-color: #fc97bf;
+  border-radius: 0.5em;
 }
 
 /*002*/
@@ -42,17 +40,20 @@ body main h3 {
 }
 
 /*001*/
+body p {
+  padding: 0.75em;
+}
+
+/*001*/
 body main p {
   padding: 0.75em;
 }
 
 /*002*/
-body nav a {
-  height: 5em;
-  width: 5em;
+nav a {
   padding: 0.25em;
-  border-radius: 1.5rem;
   background-color: #E083EC;
+  display: block;
 }
 
 /*012*/
@@ -67,7 +68,6 @@ nav a:hover,
 nav a:active {
   background-color: #7B1943;
   color: white;
-  border-radius: 1.5rem;
 }
 
 /*001*/
@@ -95,10 +95,9 @@ td {
 }
 
 /*001*/
-li {
+body li {
   list-style-type: none;
   margin-bottom: 2.5rem;
-  font: 1.25rem Arial, monospace;
 }
 
 /*001*/
