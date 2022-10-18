@@ -5,10 +5,10 @@
 
 /*001*/
 body {
-  font: 0.625em Arial, monospace;
+  font: 1.25em Arial, monospace;
   background-color: #97bafc;
   color: #000000;
-  text-align: justify;
+  text-align: center;
 }
 
 /*001*/
@@ -59,7 +59,7 @@ nav a {
   text-align: center;
   display: inline-block;
   height: 5em;
-  max-width: 6em;
+  width: 5em;
   padding: 0.25em;
   text-decoration: none;
   background-color: #E083EC;
@@ -92,12 +92,6 @@ blockquote {
 }
 
 /*001*/
-img {
-  max-height: 22em;
-  max-width: 22em;
-}
-
-/*001*/
 video {
   max-height: 22em;
   max-width: 22em;
@@ -119,11 +113,7 @@ li {
 }
 
 /*001*/
-footer {
-  text-align: center;
-}
-
-form{
+form {
   border: 0.15rem solid #000000;
   padding: 0.3rem;
 }

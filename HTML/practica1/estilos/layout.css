@@ -18,43 +18,18 @@ main {
     grid-area: main;
 }
 
+footer {
+    grid-area: footer;
+}
+
 /*001*/
 body {
     display: grid;
+    grid-template-columns: 1fr 4fr;
     grid-template-areas:
-        'header header header header'
-        'menu main main main'
-        'menu main main main'
-        'footer footer footer footer';
+        'header header'
+        'menu main'
+        'menu footer';
     gap: 0.5em 0.5em;
-    padding: 5em;
-}
-
-/*001*/
-header,
-nav,
-main,
-footer {
-    text-align: center;
     padding: 1.25em;
-    font-size: 1.875em;
-    background-color: #E083EC;
-    color: rgb(0, 0, 0);
-}
-
-/*001*/
-footer {
-    grid-column: 3;
-    column-count: 3;
-}
-
-/*001*/
-nav {
-    grid-column: 1;
-}
-
-/*002*/
-nav a {
-    display: block;
-    width: 10em;
 }
