@@ -49,9 +49,8 @@ body main p {
 
 /*002*/
 nav a {
-  padding: 0.75em;
+  padding: 0.75em 0em;
   background-color: #E083EC;
-  display: block;
 }
 
 /*012*/
