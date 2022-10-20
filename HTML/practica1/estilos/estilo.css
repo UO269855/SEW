@@ -13,7 +13,7 @@ body {
 
 /*002*/
 body h1 {
-  font: 2.25em Arial, monospace;
+  font: 2em Arial, monospace;
   text-transform: uppercase;
   background-color: #F97B98;
 }
@@ -29,7 +29,7 @@ body nav {
 
 /*002*/
 body main h2 {
-  font: 1.75em Arial, monospace;
+  font: 1.5em Arial, monospace;
   border-radius: 1em;
   background-color: #51e48c;
   color: #000000;
@@ -37,7 +37,7 @@ body main h2 {
 
 /*002*/
 body main h3 {
-  font: 1.5em Arial, monospace;
+  font: 1.25em Arial, monospace;
   border-radius: 1em;
   background-color: #fdf85c;
   color: #000000;
@@ -48,13 +48,14 @@ body p {
   padding: 0.75em;
 }
 
-/*001*/
+/*003*/
 body main p {
   padding: 0.75em;
 }
 
-nav a{
-  font: 1.25em Arial, monospace;
+/*002*/
+nav a {
+  padding: 0.5em 0em;
 }
 
 /*012*/
