@@ -20,11 +20,9 @@ body h1 {
 
 /*001*/
 body nav {
-  font: 1em Arial, monospace;
+  font: 1.1em Arial, monospace;
   background-color: #E083EC;
   color: #000000;
-  display: flex;
-  flex-direction: column;
 }
 
 /*002*/
@@ -84,8 +82,8 @@ body main blockquote {
 
 /*001*/
 video {
-  max-height: 22em;
-  max-width: 22em;
+  height: 60vw;
+  width: 60vw;
 }
 
 /*001*/
@@ -109,5 +107,5 @@ form {
 }
 
 body main audio {
-  width: 60vw;
+  width: 55vw;
 }

@@ -11,6 +11,8 @@ header {
 /*001*/
 nav {
     grid-area: menu;
+    display: flex;
+    flex-direction: column;
 }
 
 /*001*/
@@ -31,5 +33,5 @@ body {
         'menu main'
         'menu footer';
     gap: 0.5em 0.5em;
-    padding: 1.5em;
+    padding: 1.25em;
 }
