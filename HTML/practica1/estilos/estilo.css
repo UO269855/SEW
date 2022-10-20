@@ -60,14 +60,14 @@ nav a {
 nav a:link,
 nav a:visited {
   color: #030C45;
-  background-color: #f6aeff;
+  background-color: #ffaef3;
 }
 
 /*012*/
 nav a:hover,
 nav a:active {
-  background-color: #330A1D;
-  color: white;
+  background-color: #E4D6FF;
+  color: rgb(0, 0, 0);
 }
 
 /*001*/
