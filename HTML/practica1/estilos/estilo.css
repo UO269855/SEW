@@ -21,7 +21,7 @@ body h1 {
 /*001*/
 body nav {
   font: 1.1em Arial, monospace;
-  background-color: #E083EC;
+  background-color: #f6aeff;
   color: #000000;
 }
 
@@ -60,13 +60,13 @@ nav a {
 nav a:link,
 nav a:visited {
   color: #030C45;
-  background-color: #E083EC;
+  background-color: #f6aeff;
 }
 
 /*012*/
 nav a:hover,
 nav a:active {
-  background-color: #7B1943;
+  background-color: #330A1D;
   color: white;
 }
 
