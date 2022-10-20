@@ -1,126 +1,134 @@
 <!DOCTYPE html>
 
 <html lang="es">
+  <head>
+    <!-- Datos que describen el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
 
-<head>
-  <!-- Datos que describen el documento -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="UTF-8" />
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta
+      name="description"
+      content="Página web que muestra información sobre el Framework Bootstrap"
+    />
+    <meta
+      name="keywords"
+      content="Bootstrap, Front End, HTML, CSS, JavaScript, OpenSource"
+    />
 
-  <meta name="author" content="Álex Caso Díaz" />
-  <meta name="description" content="Página web que muestra información sobre el Framework Bootstrap" />
-  <meta name="keywords" content="Bootstrap, Front End, HTML, CSS, JavaScript, OpenSource" />
+    <title>Framework Bootstrap</title>
 
-  <title>Framework Bootstrap</title>
+    <link rel="stylesheet" type="text/css" href="estilos/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilos/layout.css" />
+  </head>
 
+  <body>
+    <!-- Datos con el contenidos que aparece en el navegador -->
+    <header>
+      <h1>Framework Bootstrap</h1>
+      <picture>
+        <source
+          media="(max-width:799px)"
+          srcset="multimedia/bootstrap-icons-400.png"
+        />
+        <source
+          media="(min-width:800px)"
+          srcset="multimedia/bootstrap-icons.png"
+        />
+        <img alt="Bootstrap foto" src="multimedia/bootstrap-icons.png" />
+      </picture>
+    </header>
 
+    <nav>
+      <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
+      <a href="paginas.html" accesskey="P" tabindex="2">Páginas</a>
+      <a href="versiones.html" accesskey="V" tabindex="3">Versiones</a>
+      <a href="encuesta.html" accesskey="E" tabindex="4">Encuesta</a>
+    </nav>
 
-  <link rel="stylesheet" type="text/css" href="estilos/estilo.css" />
-  <link rel="stylesheet" type="text/css" href="estilos/layout.css" />
-</head>
-
-<body>
-  <!-- Datos con el contenidos que aparece en el navegador -->
-  <header>
-    <h1>Framework Bootstrap</h1>
-    <picture>
-      <source media="(max-width:799px)" srcset="multimedia/bootstrap-icons-400.png" />
-      <source media="(min-width:800px)" srcset="multimedia/bootstrap-icons.png" />
-      <img alt="Bootstrap foto" src="multimedia/bootstrap-icons.png" />
-    </picture>
-  </header>
-
-  <nav>
-    <p><a href="index.html" accesskey="I" tabindex="1">Inicio</a></p>
-    <p><a href="paginas.html" accesskey="P" tabindex="2">Páginas</a></p>
-    <p><a href="versiones.html" accesskey="V" tabindex="3">Versiones</a></p>
-    <p><a href="encuesta.html" accesskey="E" tabindex="4">Encuesta</a></p>
-  </nav>
-
-  <main>
-    <h2>Introducción a Bootstrap</h2>
-    <audio src="multimedia/audio1.mp3" controls></audio>
-    <p>
-      Bootstrap es una biblioteca multiplataforma milenaria o conjunto de
-      herramientas de código abierto para diseño de sitios y aplicaciones web.
-      Contiene plantillas de diseño con tipografía, formularios, botones,
-      cuadros, menús de navegación y otros elementos de diseño basado en HTML
-      y CSS, así como extensiones de JavaScript adicionales. A diferencia de
-      muchos frameworks web, solo se ocupa del desarrollo front-end.
-    </p>
-
-    <h2>Origen</h2>
-    <p>
-      Bootstrap es el segundo proyecto más destacado en GitHub​ y es usado por
-      la NASA y la MSNBC, entre otras organizaciones. Bootstrap, originalmente
-      llamado Blueprint de Twitter, fue desarrollado por Mark Otto y Jacob
-      Thornton de Twitter, como un marco de trabajo (framework) para fomentar
-      la consistencia entre las herramientas internas. Antes de Bootstrap, se
-      usaron varias bibliotecas para el desarrollo de interfaces de usuario,
-      lo que generó inconsistencias y una gran carga de trabajo en su
-      mantenimiento. Según el desarrollador de Twitter, Mark Otto, frente a
-      esos desafíos:
-    </p>
-    <blockquote class="flexquote">
+    <main>
+      <h2>Introducción a Bootstrap</h2>
+      <audio src="multimedia/audio1.mp3" controls></audio>
       <p>
-        "...un grupo súper pequeño de desarrolladores y yo nos reunimos para
-        diseñar y construir una nueva herramienta interna y vimos la
-        oportunidad de hacer algo más. A través de ese proceso, nos vimos
-        construyendo algo mucho más sustancial que otra herramienta interna.
-        Meses después terminamos con una primera versión de Bootstrap como una
-        manera de documentar y compartir activos y patrones de diseño comunes
-        dentro de la compañía."
+        Bootstrap es una biblioteca multiplataforma milenaria o conjunto de
+        herramientas de código abierto para diseño de sitios y aplicaciones web.
+        Contiene plantillas de diseño con tipografía, formularios, botones,
+        cuadros, menús de navegación y otros elementos de diseño basado en HTML
+        y CSS, así como extensiones de JavaScript adicionales. A diferencia de
+        muchos frameworks web, solo se ocupa del desarrollo front-end.
       </p>
-      <p>Mark Otto - Desarrollador de Bootstrap</p>
-    </blockquote>
-    <p>
-      El primer desarrollo en condiciones reales ocurrió durante la primera
-      «Semana de Hackeo (Hackweek) de Twitter». Mark Otto mostró a algunos
-      colegas cómo acelerar el desarrollo de sus proyectos con la ayuda de la
-      herramienta de trabajo. Como resultado, decenas de temas se han
-      introducido en el marco de trabajo. En agosto del 2011, Twitter liberó
-      Bootstrap como código abierto. En febrero del 2012, se convirtió en el
-      proyecto de desarrollo más popular de GitHub.
-    </p>
 
-    <h2>Presentación del Framework</h2>
-    <p>
-      A continuación presentaremos el framework comentando las distintas
-      características que tiene, además de poniendo un ejemplo mostrando cómo
-      funciona y cómo es su estructura.
-    </p>
-    <video src="multimedia/video1.mp4" controls preload="auto"></video>
-    <h3>Características</h3>
-    <p>
-      Bootstrap tiene un soporte relativamente incompleto para HTML5 y CSS3,
-      pero es compatible con la mayoría de los navegadores web. La información
-      básica de compatibilidad de sitios web o aplicaciones está disponible
-      para todos los dispositivos y navegadores. Existe un concepto de
-      compatibilidad parcial que hace disponible la información básica de un
-      sitio web para todos los dispositivos y navegadores. Por ejemplo, las
-      propiedades introducidas en CSS3 para las esquinas redondeadas,
-      gradientes y sombras son usadas por Bootstrap a pesar de la falta de
-      soporte de navegadores antiguos. Esto extiende la funcionalidad de la
-      herramienta, pero no es requerida para su uso.
-    </p>
-    <h3>Función y estructura</h3>
-    <p>
-      Bootstrap es modular y consiste esencialmente en una serie de hojas de
-      estilo LESS que implementan la variedad de componentes de la
-      herramienta. Una hoja de estilo llamada bootstrap.less incluye los
-      componentes de las hojas de estilo. Los desarrolladores pueden adaptar
-      el mismo archivo de Bootstrap, seleccionando los componentes que deseen
-      usar en su proyecto. Los ajustes son posibles en una medida limitada a
-      través de una hoja de estilo de configuración central. Los cambios más
-      profundos son posibles mediante las declaraciones LESS. El uso del
-      lenguaje de hojas de estilo LESS permite el uso de variables, funciones
-      y operadores, selectores anidados, así como clases mixin.
-    </p>
-  </main>
-  <footer>
-    <p>Software y estándares para la web</p>
-    <p>Álex Caso Díaz - UO269855</p>
-  </footer>
-</body>
+      <h2>Origen</h2>
+      <p>
+        Bootstrap es el segundo proyecto más destacado en GitHub​ y es usado por
+        la NASA y la MSNBC, entre otras organizaciones. Bootstrap, originalmente
+        llamado Blueprint de Twitter, fue desarrollado por Mark Otto y Jacob
+        Thornton de Twitter, como un marco de trabajo (framework) para fomentar
+        la consistencia entre las herramientas internas. Antes de Bootstrap, se
+        usaron varias bibliotecas para el desarrollo de interfaces de usuario,
+        lo que generó inconsistencias y una gran carga de trabajo en su
+        mantenimiento. Según el desarrollador de Twitter, Mark Otto, frente a
+        esos desafíos:
+      </p>
+      <blockquote class="flexquote">
+        <p>
+          "...un grupo súper pequeño de desarrolladores y yo nos reunimos para
+          diseñar y construir una nueva herramienta interna y vimos la
+          oportunidad de hacer algo más. A través de ese proceso, nos vimos
+          construyendo algo mucho más sustancial que otra herramienta interna.
+          Meses después terminamos con una primera versión de Bootstrap como una
+          manera de documentar y compartir activos y patrones de diseño comunes
+          dentro de la compañía."
+        </p>
+        <p>Mark Otto - Desarrollador de Bootstrap</p>
+      </blockquote>
+      <p>
+        El primer desarrollo en condiciones reales ocurrió durante la primera
+        «Semana de Hackeo (Hackweek) de Twitter». Mark Otto mostró a algunos
+        colegas cómo acelerar el desarrollo de sus proyectos con la ayuda de la
+        herramienta de trabajo. Como resultado, decenas de temas se han
+        introducido en el marco de trabajo. En agosto del 2011, Twitter liberó
+        Bootstrap como código abierto. En febrero del 2012, se convirtió en el
+        proyecto de desarrollo más popular de GitHub.
+      </p>
 
+      <h2>Presentación del Framework</h2>
+      <p>
+        A continuación presentaremos el framework comentando las distintas
+        características que tiene, además de poniendo un ejemplo mostrando cómo
+        funciona y cómo es su estructura.
+      </p>
+      <video src="multimedia/video1.mp4" controls preload="auto"></video>
+      <h3>Características</h3>
+      <p>
+        Bootstrap tiene un soporte relativamente incompleto para HTML5 y CSS3,
+        pero es compatible con la mayoría de los navegadores web. La información
+        básica de compatibilidad de sitios web o aplicaciones está disponible
+        para todos los dispositivos y navegadores. Existe un concepto de
+        compatibilidad parcial que hace disponible la información básica de un
+        sitio web para todos los dispositivos y navegadores. Por ejemplo, las
+        propiedades introducidas en CSS3 para las esquinas redondeadas,
+        gradientes y sombras son usadas por Bootstrap a pesar de la falta de
+        soporte de navegadores antiguos. Esto extiende la funcionalidad de la
+        herramienta, pero no es requerida para su uso.
+      </p>
+      <h3>Función y estructura</h3>
+      <p>
+        Bootstrap es modular y consiste esencialmente en una serie de hojas de
+        estilo LESS que implementan la variedad de componentes de la
+        herramienta. Una hoja de estilo llamada bootstrap.less incluye los
+        componentes de las hojas de estilo. Los desarrolladores pueden adaptar
+        el mismo archivo de Bootstrap, seleccionando los componentes que deseen
+        usar en su proyecto. Los ajustes son posibles en una medida limitada a
+        través de una hoja de estilo de configuración central. Los cambios más
+        profundos son posibles mediante las declaraciones LESS. El uso del
+        lenguaje de hojas de estilo LESS permite el uso de variables, funciones
+        y operadores, selectores anidados, así como clases mixin.
+      </p>
+    </main>
+    <footer>
+      <p>Software y estándares para la web</p>
+      <p>Álex Caso Díaz - UO269855</p>
+    </footer>
+  </body>
 </html>
