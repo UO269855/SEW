@@ -1,6 +1,8 @@
 /*****************************
   Álex Caso Díaz - UO269855
-  Descripción de los estilos
+  Hoja de estilos que aplica
+  los elementos visuales de 
+  la página.
 *****************************/
 
 /*001*/
@@ -8,7 +10,6 @@ body {
   font: 16px Arial, monospace;
   background-color: #afcbff;
   color: #000000;
-  text-align: center;
 }
 
 /*002*/
@@ -16,14 +17,6 @@ body h1 {
   font: 2em Arial, monospace;
   text-transform: uppercase;
   background-color: #F97B98;
-  color: #000000;
-}
-
-/*002*/
-body nav {
-  font: 1.1em Arial, monospace;
-  background-color: #f6aeff;
-  color: #000000;
 }
 
 /*003*/
@@ -31,7 +24,6 @@ body main h2 {
   font: 1.5em Arial, monospace;
   border-radius: 1em;
   background-color: #51e48c;
-  color: #000000;
 }
 
 /*003*/
@@ -39,12 +31,6 @@ body main h3 {
   font: 1.25em Arial, monospace;
   border-radius: 1em;
   background-color: #fdf85c;
-  color: #000000;
-}
-
-/*002*/
-body p {
-  padding: 0.75em;
 }
 
 /*003*/
@@ -53,20 +39,26 @@ body main p {
 }
 
 /*002*/
-nav a {
+body nav {
+  font: 1.1em Arial, monospace;
+  background-color: #f6aeff;
+}
+
+/*003*/
+body nav a {
   padding: 0.5em 0em;
 }
 
-/*012*/
-nav a:link,
-nav a:visited {
+/*013*/
+body nav a:link,
+body nav a:visited {
   color: #030C45;
   background-color: #ffaef3;
 }
 
-/*012*/
-nav a:hover,
-nav a:active {
+/*013*/
+body nav a:hover,
+body nav a:active {
   background-color: #E4D6FF;
   color: rgb(0, 0, 0);
 }
@@ -74,7 +66,6 @@ nav a:active {
 /*003*/
 body main blockquote {
   background-color: #d1d1d1;
-  color: #000000;
   border: 0.1rem solid #000000;
   padding: 0.3rem;
   font: 1em Arial, monospace;
@@ -95,19 +86,19 @@ td {
   padding: 0.2em;
 }
 
-/*002*/
-body li {
+/*003*/
+body main li {
   list-style-type: none;
   margin-bottom: 2.5em;
 }
 
 /*001*/
-form {
+body main form {
   border: 0.15em solid #000000;
   padding: 0.3em;
 }
 
-/*003*/
-body main audio {
+/*001*/
+audio {
   width: 55vw;
 }
