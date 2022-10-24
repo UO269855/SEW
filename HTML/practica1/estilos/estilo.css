@@ -13,64 +13,65 @@ body {
 
 /*002*/
 body h1 {
-  font: 2.25em Arial, monospace;
+  font: 2em Arial, monospace;
   text-transform: uppercase;
   background-color: #F97B98;
-}
-
-/*001*/
-body nav {
-  font: 1em Arial, monospace;
-  background-color: #E083EC;
   color: #000000;
 }
 
 /*002*/
+body nav {
+  font: 1.1em Arial, monospace;
+  background-color: #f6aeff;
+  color: #000000;
+}
+
+/*003*/
 body main h2 {
-  font: 1.75em Arial, monospace;
+  font: 1.5em Arial, monospace;
   border-radius: 1em;
   background-color: #51e48c;
   color: #000000;
 }
 
-/*002*/
+/*003*/
 body main h3 {
-  font: 1.5em Arial, monospace;
+  font: 1.25em Arial, monospace;
   border-radius: 1em;
   background-color: #fdf85c;
   color: #000000;
 }
 
-/*001*/
+/*002*/
 body p {
   padding: 0.75em;
 }
 
-/*001*/
+/*003*/
 body main p {
   padding: 0.75em;
 }
 
 /*002*/
 nav a {
-  padding: 0.25em 0em;
+  padding: 0.5em 0em;
 }
 
 /*012*/
 nav a:link,
 nav a:visited {
   color: #030C45;
-  background-color: #E083EC;
+  background-color: #ffaef3;
 }
 
 /*012*/
 nav a:hover,
 nav a:active {
-  background-color: #7B1943;
-  color: white;
+  background-color: #E4D6FF;
+  color: rgb(0, 0, 0);
 }
 
-/*001*/
+/*003*/
 body main blockquote {
   background-color: #d1d1d1;
   color: #000000;
@@ -82,30 +83,31 @@ body main blockquote {
 
 /*001*/
 video {
-  max-height: 22em;
-  max-width: 22em;
+  height: 36vw;
+  width: 60vw;
 }
 
 /*001*/
 table,
 th,
 td {
-  border: 0.06rem solid #000000;
-  padding: 0.25rem;
+  border: 0.06em solid #000000;
+  padding: 0.2em;
 }
 
-/*001*/
+/*002*/
 body li {
   list-style-type: none;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.5em;
 }
 
 /*001*/
 form {
-  border: 0.15rem solid #000000;
-  padding: 0.3rem;
+  border: 0.15em solid #000000;
+  padding: 0.3em;
 }
 
+/*003*/
 body main audio {
-  width: 60vw;
+  width: 55vw;
 }
