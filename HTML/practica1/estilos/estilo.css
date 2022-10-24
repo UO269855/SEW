@@ -7,35 +7,35 @@
 
 /*001*/
 body {
-  font: 16px Arial, monospace;
+  font: 16px Arial, sans-serif;
   background-color: #afcbff;
   color: #000000;
 }
 
 /*002*/
 body h1 {
-  font: 2em Arial, monospace;
+  font: 2.5em Arial, sans-serif;
+  font-weight: bold;
   text-transform: uppercase;
   background-color: #F97B98;
 }
 
 /*003*/
 body main h2 {
-  font: 1.5em Arial, monospace;
-  border-radius: 1em;
+  font: 1.5em Arial, monospace, bold;
+  font-weight: bold;
   background-color: #51e48c;
 }
 
 /*003*/
 body main h3 {
   font: 1.25em Arial, monospace;
-  border-radius: 1em;
   background-color: #fdf85c;
 }
 
 /*003*/
 body main p {
-  padding: 0.75em;
+  padding: 0.5em;
 }
 
 /*002*/
@@ -50,10 +50,9 @@ body nav a {
 }
 
 /*013*/
-body nav a:link,
-body nav a:visited {
+a:link,
+a:visited {
   color: #030C45;
-  background-color: #ffaef3;
 }
 
 /*013*/
@@ -66,8 +65,8 @@ body nav a:active {
 /*003*/
 body main blockquote {
   background-color: #d1d1d1;
-  border: 0.1rem solid #000000;
-  padding: 0.3rem;
+  border: 0.1em solid #000000;
+  padding: 0.3em;
   font: 1em Arial, monospace;
   font-style: italic;
 }

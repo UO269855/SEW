@@ -9,7 +9,7 @@ header {
     grid-area: header;
     display: flex;
     flex-direction: column;
-    justify-self: stretch;
+    justify-content: center;
     align-items: center;
 }
 
@@ -27,14 +27,14 @@ main {
     grid-area: main;
     display: flex;
     flex-direction: column;
-    justify-self: stretch;
+    justify-self: center;
     align-items: center;
 }
 
 footer {
     grid-area: footer;
     display: flex;
-    column-count: 2;
+    column-count: 3;
     justify-self: center;
     align-items: center;
     gap: 0.75em 0.75em;
