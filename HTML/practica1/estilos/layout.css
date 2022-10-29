@@ -6,6 +6,8 @@
 /*001*/
 header {
     grid-area: header;
+    justify-self: stretch;
+    align-items: center;
 }
 
 /*001*/
@@ -13,15 +15,19 @@ nav {
     grid-area: menu;
     display: flex;
     flex-direction: column;
+    justify-self: stretch;
+    align-content: center;
 }
 
 /*001*/
 main {
     grid-area: main;
+    justify-self: stretch;
 }
 
 footer {
     grid-area: footer;
+    justify-self: stretch;
 }
 
 /*001*/
