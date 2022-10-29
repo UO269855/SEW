@@ -1,12 +1,15 @@
 /*****************************
   Álex Caso Díaz - UO269855
-  Descripción de los estilos
+  Hoja de estilos que aplica
+  el layout de la página.
 *****************************/
 
 /*001*/
 header {
     grid-area: header;
-    justify-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -17,17 +20,28 @@ nav {
     flex-direction: column;
     justify-self: stretch;
     align-content: center;
+
 }
 
 /*001*/
 main {
     grid-area: main;
-    justify-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+
 }
 
 footer {
     grid-area: footer;
-    justify-self: stretch;
+
+    display: flex;
+    column-count: 3;
+    justify-self: center;
+    align-items: center;
+    gap: 0.75em 0.75em;
+
 }
 
 /*001*/
