@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <persona xmlns="http://www.uniovi.es" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uniovi.es redSocial.xsd"
-nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
+nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="2000-11-03">
 
     <lugarNacimiento nombre="Oviedo">
         <coordenadas latitud="43.3603" longitud="-5.84476" altitud="238"/>
@@ -12,18 +12,22 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
     </lugarResidencia>
 
     <fotografias>
-        <fotografia enlace=""/>
+        <fotografia enlace="https://ibb.co/mBmPWTh"/>
+        <fotografia enlace="https://ibb.co/ZxgQPcv"/>
+        <fotografia enlace="https://ibb.co/6PxQ0qz"/>
     </fotografias>
 
     <videos>
-        <video enlace=""/>
+        <video enlace="https://youtu.be/HEp7zGIH9PA"/>
     </videos>
 
     <comentarios>
-        <comentario comentario=""/>
+        <comentario comentario="Estudiante de la universidad"/>
+        <comentario comentario="Le gustan los coches"/>
+        <comentario comentario="Fan de Mclaren"/>
     </comentarios>
 
-    <persona nombre="Carlos" apellidos="Vazquez Castro" fechaNacimiento="13/10/1990">
+    <persona nombre="Carlos" apellidos="Vazquez Castro" fechaNacimiento="1990-10-13">
     
         <lugarNacimiento nombre="Madrid">
             <coordenadas latitud="40.4167" longitud="-3.70325" altitud="659"/>
@@ -34,18 +38,18 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
         </lugarResidencia>
 
         <fotografias>
-            <fotografia enlace=""/>
+            <fotografia enlace="https://ibb.co/wccDj9y"/>
         </fotografias>
 
         <videos>
-            <video enlace=""/>
+            <video enlace="https://youtu.be/c_GDGniGT3w"/>
         </videos>
 
         <comentarios>
-            <comentario comentario=""/>
+            <comentario comentario="Piloto de carreras"/>
         </comentarios>
 
-        <persona nombre="Lucas" apellidos="Perez Garcia" fechaNacimiento="06/07/1996">
+        <persona nombre="Lucas" apellidos="Perez Garcia" fechaNacimiento="1996-07-06">
     
             <lugarNacimiento nombre="Laviana">
                 <coordenadas latitud="43.2149" longitud="-5.54073" altitud="478"/>
@@ -56,20 +60,19 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace=""/>
+                <fotografia enlace="https://ibb.co/BHD937b"/>
             </fotografias>
 
             <videos>
-                <video enlace=""/>
+                <video enlace="https://youtu.be/8fR8NztLkMk"/>
             </videos>
 
             <comentarios>
-                <comentario comentario=""/>
             </comentarios>
 
         </persona>
 
-        <persona nombre="Pedro" apellidos="Riesco Lopez" fechaNacimiento="23/01/2000">
+        <persona nombre="Pedro" apellidos="Riesco Lopez" fechaNacimiento="2000-01-23">
     
             <lugarNacimiento nombre="Barcelona">
                 <coordenadas latitud="41.38879" longitud="2.15899" altitud="12"/>
@@ -80,20 +83,19 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace=""/>
+                <fotografia enlace="https://ibb.co/RzcbSwB"/>
             </fotografias>
 
             <videos>
-                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario comentario=""/>
+                <comentario comentario="Estudia en Granada"/>
             </comentarios>
 
         </persona>
 
-        <persona nombre="Deva" apellidos="Leal Vazquez" fechaNacimiento="12/04/2000">
+        <persona nombre="Deva" apellidos="Leal Vazquez" fechaNacimiento="2000-04-12">
     
             <lugarNacimiento nombre="Vigo">
                 <coordenadas latitud="-8.7226400" longitud="42.2328200" altitud="6"/>
@@ -104,22 +106,21 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace=""/>
+                <fotografia enlace="https://ibb.co/74R2c3w"/>
             </fotografias>
 
             <videos>
-                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario comentario=""/>
+                <comentario comentario="Se ha ido de erasmus a Islandia"/>
             </comentarios>
 
         </persona>
 
     </persona>
 
-    <persona nombre="Luis" apellidos="Alvaredo Fernandez" fechaNacimiento="03/03/1995">
+    <persona nombre="Luis" apellidos="Alvaredo Fernandez" fechaNacimiento="1995-03-03">
     
         <lugarNacimiento nombre="Aviles">
             <coordenadas latitud="43.5547300" longitud="-5.9248300" altitud="10"/>
@@ -130,18 +131,18 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
         </lugarResidencia>
 
         <fotografias>
-            <fotografia enlace=""/>
+            <fotografia enlace="https://ibb.co/Hg1w5nJ"/>
         </fotografias>
 
         <videos>
-            <video enlace=""/>
+            <video enlace="https://youtu.be/oy-zC1TAUD4"/>
         </videos>
 
         <comentarios>
-            <comentario comentario=""/>
+            <comentario comentario="Quiere ser arquitecto"/>
         </comentarios>
 
-        <persona nombre="Silvia" apellidos="Perez Garcia" fechaNacimiento="16/02/1998">
+        <persona nombre="Silvia" apellidos="Perez Garcia" fechaNacimiento="1998-02-16">
     
             <lugarNacimiento nombre="Mallorca">
                 <coordenadas latitud="39.56939" longitud="2.65024" altitud="13"/>
@@ -152,20 +153,21 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace=""/>
+                <fotografia enlace="https://ibb.co/ydc2XLn"/>
             </fotografias>
 
             <videos>
-                <video enlace=""/>
+                <video enlace="https://youtu.be/3v90O75rhNk"/>
+                <video enlace="https://youtu.be/izX7Wf438LU"/>
+                <video enlace="https://youtu.be/0lmbW6elpxQ"/>
             </videos>
 
             <comentarios>
-                <comentario comentario=""/>
             </comentarios>
 
         </persona>
 
-        <persona nombre="Pau" apellidos="Estape Dominguez" fechaNacimiento="05/11/1997">
+        <persona nombre="Pau" apellidos="Estape Dominguez" fechaNacimiento="1997-11-05">
     
             <lugarNacimiento nombre="Valencia">
                 <coordenadas latitud="39.4697500" longitud="-0.3773900" altitud="15"/>
@@ -176,20 +178,19 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace=""/>
+                <fotografia enlace="https://ibb.co/Sc2H42Q"/>
             </fotografias>
 
             <videos>
-                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario comentario=""/>
+                <comentario comentario="Tiene familia en Alemania"/>
             </comentarios>
 
         </persona>
 
-        <persona nombre="Paula" apellidos="Suarez Perez" fechaNacimiento="24/10/2000">
+        <persona nombre="Paula" apellidos="Suarez Perez" fechaNacimiento="2000-10-24">
     
             <lugarNacimiento nombre="Santander">
                 <coordenadas latitud="43.46472" longitud="-3.80444" altitud="350"/>
@@ -200,22 +201,21 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace=""/>
+                <fotografia enlace="https://ibb.co/sCR1Qxg"/>
             </fotografias>
 
             <videos>
-                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario comentario=""/>
+                <comentario comentario="Le gusta la lluvia"/>
             </comentarios>
 
         </persona>
 
     </persona>
 
-    <persona nombre="Elias" apellidos="Llera García" fechaNacimiento="11/11/1997">
+    <persona nombre="Elias" apellidos="Llera García" fechaNacimiento="1997-02-22">
     
         <lugarNacimiento nombre="Riaño">
             <coordenadas latitud="43.2957" longitud="-5.6842" altitud="219"/>
@@ -226,18 +226,19 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
         </lugarResidencia>
 
         <fotografias>
-            <fotografia enlace=""/>
+            <fotografia enlace="https://ibb.co/qCZkW54"/>
         </fotografias>
 
         <videos>
-            <video enlace=""/>
+            <video enlace="https://youtu.be/jXq6pv3WrZU"/>
         </videos>
 
         <comentarios>
-            <comentario comentario=""/>
+            <comentario comentario="Hace Surf"/>
+            <comentario comentario="Monta en moto"/>
         </comentarios>
 
-        <persona nombre="Antonio" apellidos="Crespo Suarez" fechaNacimiento="08/07/1999">
+        <persona nombre="Antonio" apellidos="Crespo Suarez" fechaNacimiento="1999-04-30">
     
             <lugarNacimiento nombre="Burgos">
                 <coordenadas latitud="42.34106" longitud="-3.70184" altitud="865"/>
@@ -248,20 +249,20 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace=""/>
+                <fotografia enlace="https://ibb.co/HC5MJ7L"/>
+                <fotografia enlace="https://ibb.co/JBKNMkW"/>
             </fotografias>
 
             <videos>
-                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario comentario=""/>
+                <comentario comentario="Burgos es una ciudad"/>
             </comentarios>
 
         </persona>
 
-        <persona nombre="Celia" apellidos="Melendi Sopeña" fechaNacimiento="01/09/2001">
+        <persona nombre="Celia" apellidos="Melendi Sopeña" fechaNacimiento="2001-09-01">
     
             <lugarNacimiento nombre="Toledo">
                 <coordenadas latitud="39.8581000" longitud="-4.0226300" altitud="529"/>
@@ -272,20 +273,21 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace=""/>
+                <fotografia enlace="https://ibb.co/JByxTwT"/>
             </fotografias>
 
             <videos>
-                <video enlace=""/>
+                <video enlace="https://youtu.be/oQm8Df4UYNw"/>
+                <video enlace="https://youtu.be/gKijkM15Fso"/>
             </videos>
 
             <comentarios>
-                <comentario comentario=""/>
+                <comentario comentario="Le gusta dibujar"/>
             </comentarios>
 
         </persona>
 
-        <persona nombre="Alberto" apellidos="Monteiro Iniesta" fechaNacimiento="10/04/2001">
+        <persona nombre="Alberto" apellidos="Monteiro Iniesta" fechaNacimiento="2001-04-10">
     
             <lugarNacimiento nombre="Oporto">
                 <coordenadas latitud="41.14961" longitud="-8.61099" altitud="104"/>
@@ -296,15 +298,15 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace=""/>
+                <fotografia enlace="https://ibb.co/qjSw073"/>
+                <fotografia enlace="https://ibb.co/kmqGWJY"/>
             </fotografias>
 
             <videos>
-                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario comentario=""/>
+                <comentario comentario="Quiere volver a vivir en Portugal"/>
             </comentarios>
 
         </persona>
