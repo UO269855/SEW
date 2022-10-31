@@ -1,69 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persona nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
-    
+
+<persona xmlns="http://www.uniovi.es" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uniovi.es redSocial.xsd"
+nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="03/11/2000">
+
     <lugarNacimiento nombre="Oviedo">
-        <coordenadas latitud="43.3603" logitud="-5.84476" altitud="238"/>
+        <coordenadas latitud="43.3603" longitud="-5.84476" altitud="238"/>
     </lugarNacimiento>
 
     <lugarResidencia nombre="El Entrego">
-        <coordenadas latitud="43.28726995" logitud="-5.64469123297325" altitud="230"/>
+        <coordenadas latitud="43.28726995" longitud="-5.64469123297325" altitud="230"/>
     </lugarResidencia>
 
     <fotografias>
-        <fotografia/>
+        <fotografia enlace=""/>
     </fotografias>
 
     <videos>
-
-        <video/>
+        <video enlace=""/>
     </videos>
 
     <comentarios>
-        <comentario/>
+        <comentario comentario=""/>
     </comentarios>
 
     <persona nombre="Carlos" apellidos="Vazquez Castro" fechaNacimiento="13/10/1990">
     
         <lugarNacimiento nombre="Madrid">
-            <coordenadas latitud="40.4167" logitud="-3.70325" altitud="659"/>
+            <coordenadas latitud="40.4167" longitud="-3.70325" altitud="659"/>
         </lugarNacimiento>
 
         <lugarResidencia nombre="La Felguera">
-            <coordenadas latitud="43.2964" logitud="-5.68254" altitud="214"/>
+            <coordenadas latitud="43.2964" longitud="-5.68254" altitud="214"/>
         </lugarResidencia>
 
         <fotografias>
-            <fotografia/>
+            <fotografia enlace=""/>
         </fotografias>
 
         <videos>
-            <video/>
+            <video enlace=""/>
         </videos>
 
         <comentarios>
-            <comentario/>
+            <comentario comentario=""/>
         </comentarios>
 
         <persona nombre="Lucas" apellidos="Perez Garcia" fechaNacimiento="06/07/1996">
     
             <lugarNacimiento nombre="Laviana">
-                <coordenadas latitud="43.2149" logitud="-5.54073" altitud="478"/>
+                <coordenadas latitud="43.2149" longitud="-5.54073" altitud="478"/>
             </lugarNacimiento>
 
             <lugarResidencia nombre="Barredos">
-                <coordenadas latitud="43.259900" logitud="-5.573500" altitud="275"/>
+                <coordenadas latitud="43.259900" longitud="-5.573500" altitud="275"/>
             </lugarResidencia>
 
             <fotografias>
-                <fotografia/>
+                <fotografia enlace=""/>
             </fotografias>
 
             <videos>
-                <video/>
+                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario/>
+                <comentario comentario=""/>
             </comentarios>
 
         </persona>
@@ -71,23 +72,23 @@
         <persona nombre="Pedro" apellidos="Riesco Lopez" fechaNacimiento="23/01/2000">
     
             <lugarNacimiento nombre="Barcelona">
-                <coordenadas latitud="41.38879" logitud="2.15899" altitud="12"/>
+                <coordenadas latitud="41.38879" longitud="2.15899" altitud="12"/>
             </lugarNacimiento>
 
             <lugarResidencia nombre="Granada">
-                <coordenadas latitud="-61.6667000" logitud="12.1167000" altitud="738"/>
+                <coordenadas latitud="-61.6667000" longitud="12.1167000" altitud="738"/>
             </lugarResidencia>
 
             <fotografias>
-                <fotografia/>
+                <fotografia enlace=""/>
             </fotografias>
 
             <videos>
-                <video/>
+                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario/>
+                <comentario comentario=""/>
             </comentarios>
 
         </persona>
@@ -95,23 +96,23 @@
         <persona nombre="Deva" apellidos="Leal Vazquez" fechaNacimiento="12/04/2000">
     
             <lugarNacimiento nombre="Vigo">
-                <coordenadas latitud="-8.7226400" logitud="42.2328200" altitud="6"/>
+                <coordenadas latitud="-8.7226400" longitud="42.2328200" altitud="6"/>
             </lugarNacimiento>
 
             <lugarResidencia nombre="Logroño">
-                <coordenadas latitud="42.46667" logitud="-2.45" altitud="384"/>
+                <coordenadas latitud="42.46667" longitud="-2.45" altitud="384"/>
             </lugarResidencia>
 
             <fotografias>
-                <fotografia/>
+                <fotografia enlace=""/>
             </fotografias>
 
             <videos>
-                <video/>
+                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario/>
+                <comentario comentario=""/>
             </comentarios>
 
         </persona>
@@ -121,45 +122,45 @@
     <persona nombre="Luis" apellidos="Alvaredo Fernandez" fechaNacimiento="03/03/1995">
     
         <lugarNacimiento nombre="Aviles">
-            <coordenadas latitud="43.5547300" logitud="-5.9248300" altitud="10"/>
+            <coordenadas latitud="43.5547300" longitud="-5.9248300" altitud="10"/>
         </lugarNacimiento>
 
         <lugarResidencia nombre="San Claudio">
-            <coordenadas latitud="43.35" logitud="-5.9167" altitud="183"/>
+            <coordenadas latitud="43.35" longitud="-5.9167" altitud="183"/>
         </lugarResidencia>
 
         <fotografias>
-            <fotografia/>
+            <fotografia enlace=""/>
         </fotografias>
 
         <videos>
-            <video/>
+            <video enlace=""/>
         </videos>
 
         <comentarios>
-            <comentario/>
+            <comentario comentario=""/>
         </comentarios>
 
         <persona nombre="Silvia" apellidos="Perez Garcia" fechaNacimiento="16/02/1998">
     
             <lugarNacimiento nombre="Mallorca">
-                <coordenadas latitud="39.56939" logitud="2.65024" altitud="13"/>
+                <coordenadas latitud="39.56939" longitud="2.65024" altitud="13"/>
             </lugarNacimiento>
 
             <lugarResidencia nombre="Leon">
-                <coordenadas latitud="42.6000300" logitud="-5.5703200" altitud="837"/>
+                <coordenadas latitud="42.6000300" longitud="-5.5703200" altitud="837"/>
             </lugarResidencia>
 
             <fotografias>
-                <fotografia/>
+                <fotografia enlace=""/>
             </fotografias>
 
             <videos>
-                <video/>
+                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario/>
+                <comentario comentario=""/>
             </comentarios>
 
         </persona>
@@ -167,23 +168,23 @@
         <persona nombre="Pau" apellidos="Estape Dominguez" fechaNacimiento="05/11/1997">
     
             <lugarNacimiento nombre="Valencia">
-                <coordenadas latitud="39.4697500" logitud="-0.3773900" altitud="15"/>
+                <coordenadas latitud="39.4697500" longitud="-0.3773900" altitud="15"/>
             </lugarNacimiento>
 
             <lugarResidencia nombre="Alicante">
-                <coordenadas latitud="38.34517" logitud="-0.48149" altitud="3"/>
+                <coordenadas latitud="38.34517" longitud="-0.48149" altitud="3"/>
             </lugarResidencia>
 
             <fotografias>
-                <fotografia/>
+                <fotografia enlace=""/>
             </fotografias>
 
             <videos>
-                <video/>
+                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario/>
+                <comentario comentario=""/>
             </comentarios>
 
         </persona>
@@ -191,23 +192,23 @@
         <persona nombre="Paula" apellidos="Suarez Perez" fechaNacimiento="24/10/2000">
     
             <lugarNacimiento nombre="Santander">
-                <coordenadas latitud="" logitud="" altitud=""/>
+                <coordenadas latitud="43.46472" longitud="-3.80444" altitud="350"/>
             </lugarNacimiento>
 
             <lugarResidencia nombre="Villoria">
-                <coordenadas latitud="" logitud="" altitud=""/>
+                <coordenadas latitud="43.21563" longitud="-5.565584" altitud="339"/>
             </lugarResidencia>
 
             <fotografias>
-                <fotografia/>
+                <fotografia enlace=""/>
             </fotografias>
 
             <videos>
-                <video/>
+                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario/>
+                <comentario comentario=""/>
             </comentarios>
 
         </persona>
@@ -217,45 +218,45 @@
     <persona nombre="Elias" apellidos="Llera García" fechaNacimiento="11/11/1997">
     
         <lugarNacimiento nombre="Riaño">
-            <coordenadas latitud="" logitud="" altitud=""/>
+            <coordenadas latitud="43.2957" longitud="-5.6842" altitud="219"/>
         </lugarNacimiento>
 
         <lugarResidencia nombre="Celorio">
-            <coordenadas latitud="" logitud="" altitud=""/>
+            <coordenadas latitud="43.348995" longitud="-5.084258" altitud="24"/>
         </lugarResidencia>
 
         <fotografias>
-            <fotografia/>
+            <fotografia enlace=""/>
         </fotografias>
 
         <videos>
-            <video/>
+            <video enlace=""/>
         </videos>
 
         <comentarios>
-            <comentario/>
+            <comentario comentario=""/>
         </comentarios>
 
         <persona nombre="Antonio" apellidos="Crespo Suarez" fechaNacimiento="08/07/1999">
     
             <lugarNacimiento nombre="Burgos">
-                <coordenadas latitud="" logitud="" altitud=""/>
+                <coordenadas latitud="42.34106" longitud="-3.70184" altitud="865"/>
             </lugarNacimiento>
 
             <lugarResidencia nombre="La Fresneda">
-                <coordenadas latitud="" logitud="" altitud=""/>
+                <coordenadas latitud="43.4120284" longitud="-5.7902107" altitud="170"/>
             </lugarResidencia>
 
             <fotografias>
-                <fotografia/>
+                <fotografia enlace=""/>
             </fotografias>
 
             <videos>
-                <video/>
+                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario/>
+                <comentario comentario=""/>
             </comentarios>
 
         </persona>
@@ -263,23 +264,23 @@
         <persona nombre="Celia" apellidos="Melendi Sopeña" fechaNacimiento="01/09/2001">
     
             <lugarNacimiento nombre="Toledo">
-                <coordenadas latitud="" logitud="" altitud=""/>
+                <coordenadas latitud="39.8581000" longitud="-4.0226300" altitud="529"/>
             </lugarNacimiento>
 
             <lugarResidencia nombre="Pola de Siero">
-                <coordenadas latitud="" logitud="" altitud=""/>
+                <coordenadas latitud="43.391049" longitud="-5.661695" altitud="220"/>
             </lugarResidencia>
 
             <fotografias>
-                <fotografia/>
+                <fotografia enlace=""/>
             </fotografias>
 
             <videos>
-                <video/>
+                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario/>
+                <comentario comentario=""/>
             </comentarios>
 
         </persona>
@@ -287,23 +288,23 @@
         <persona nombre="Alberto" apellidos="Monteiro Iniesta" fechaNacimiento="10/04/2001">
     
             <lugarNacimiento nombre="Oporto">
-                <coordenadas latitud="" logitud="" altitud=""/>
+                <coordenadas latitud="41.14961" longitud="-8.61099" altitud="104"/>
             </lugarNacimiento>
 
             <lugarResidencia nombre="Badajoz">
-                <coordenadas latitud="" logitud="" altitud=""/>
+                <coordenadas latitud="38.87789" longitud="-6.97061" altitud="185"/>
             </lugarResidencia>
 
             <fotografias>
-                <fotografia/>
+                <fotografia enlace=""/>
             </fotografias>
 
             <videos>
-                <video/>
+                <video enlace=""/>
             </videos>
 
             <comentarios>
-                <comentario/>
+                <comentario comentario=""/>
             </comentarios>
 
         </persona>
