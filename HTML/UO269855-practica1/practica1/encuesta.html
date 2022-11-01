@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta
+      name="description"
+      content="Página web que contiene un formulario para recopilar información sobre Bootstrap"
+    />
+    <meta
+      name="keywords"
+      content="Bootstrap, Front End, HTML, CSS, JavaScript, OpenSource, Formulario, Encuesta"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Encuesta Bootstrap</title>
+
+    <link rel="stylesheet" type="text/css" href="estilos/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilos/layout.css" />
+  </head>
+
+  <body>
+    <!-- Datos con el contenidos que aparece en el navegador -->
+    <header>
+      <h1>Framework Bootstrap</h1>
+      <picture>
+        <source
+          media="(max-width:799px)"
+          srcset="multimedia/bootstrap-icons-400.png"
+        />
+        <source
+          media="(min-width:800px)"
+          srcset="multimedia/bootstrap-icons.png"
+        />
+        <img alt="Bootstrap foto" src="multimedia/bootstrap-icons.png" />
+      </picture>
+    </header>
+
+    <nav>
+      <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
+      <a href="paginas.html" accesskey="P" tabindex="2">Páginas</a>
+      <a href="versiones.html" accesskey="V" tabindex="3">Versiones</a>
+      <a href="encuesta.html" accesskey="E" tabindex="4">Encuesta</a>
+    </nav>
+
+    <main>
+      <h2>Encuestra sobre uso de Bootstrap</h2>
+      <p>
+        Rellene estos datos de la encuesta con información sobre el uso que ha
+        hecho con Boostrap. Estos datos se recopilarán de manera interna para
+        ver qué clase de usuarios son más propensos a usar este framework.
+        Recuerde que todos los campos son obligatorios.
+      </p>
+      <form name="encuesta">
+        <p>
+          <label for="nombre">Nombre:</label>
+          <input
+            id="nombre"
+            type="text"
+            placeholder="Indique su nombre"
+            required
+          />
+        </p>
+        <p>
+          <label for="apellido">Apellidos:</label>
+          <input
+            id="apellido"
+            type="text"
+            placeholder="Indique sus apellidos"
+            required
+          />
+        </p>
+        <p>
+          <label for="correo">Correo Electrónico:</label>
+          <input
+            id="correo"
+            type="email"
+            placeholder="Indique su Correo Electrónico"
+            required
+          />
+        </p>
+        <fieldset name="genero">
+          <legend>Por favor, indique su género</legend>
+          <input
+            id="genero-hombre"
+            type="radio"
+            name="genero"
+            value="hombre"
+            required
+          />
+          <label for="genero-hombre">Hombre</label>
+
+          <input id="genero-mujer" type="radio" name="genero" value="mujer" />
+          <label for="genero-mujer">Mujer</label>
+
+          <input
+            id="genero-nobinario"
+            type="radio"
+            name="genero"
+            value="nobinario"
+          />
+          <label for="genero-nobinario">No binario</label>
+
+          <input
+            id="genero-nocontestar"
+            type="radio"
+            name="genero"
+            value="nocontestar"
+          />
+          <label for="genero-nocontestar">No contestar</label>
+        </fieldset>
+        <fieldset name="lenguajes">
+          <legend>
+            ¿Cuáles de estos lenguajes de programación has usado anteriormente?
+          </legend>
+
+          <input
+            id="lenguajes-Java"
+            type="checkbox"
+            name="Lenguajes-Java"
+            value="java"
+          />
+          <label for="lenguajes-Java">Java</label>
+
+          <input
+            id="lenguajes-css"
+            type="checkbox"
+            name="Lenguajes-css"
+            value="css"
+          />
+          <label for="lenguajes-css">Css</label>
+
+          <input
+            id="lenguajes-python"
+            type="checkbox"
+            name="Lenguajes-python"
+            value="python"
+          />
+          <label for="lenguajes-python">Python</label>
+
+          <input
+            id="lenguajes-cmasmas"
+            type="checkbox"
+            name="Lenguajes-cmasmas"
+            value="cmasmas"
+          />
+          <label for="lenguajes-cmasmas">C++</label>
+
+          <input
+            id="lenguajes-javascript"
+            type="checkbox"
+            name="Lenguajes-javascript"
+            value="javascript"
+          />
+          <label for="lenguajes-javascript">JavaScript</label>
+        </fieldset>
+        <p>
+          <label for="grado"
+            >Indique cuánto le gusta Boostrap moviendo la barra inferior.</label
+          >
+          <input id="grado" type="range" />
+        </p>
+        <p><input type="submit" value="Enviar" /></p>
+      </form>
+    </main>
+    <footer>
+      <p>Software y estándares para la web</p>
+      <p>Álex Caso Díaz - UO269855</p>
+      <p>Universidad de Oviedo</p>
+    </footer>
+  </body>
+</html>
