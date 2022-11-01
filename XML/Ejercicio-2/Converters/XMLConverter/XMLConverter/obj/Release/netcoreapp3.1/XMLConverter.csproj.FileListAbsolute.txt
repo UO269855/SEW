@@ -1,0 +1,14 @@
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\bin\Release\netcoreapp3.1\XMLConverter.exe
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\bin\Release\netcoreapp3.1\XMLConverter.deps.json
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\bin\Release\netcoreapp3.1\XMLConverter.runtimeconfig.json
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\bin\Release\netcoreapp3.1\XMLConverter.runtimeconfig.dev.json
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\bin\Release\netcoreapp3.1\XMLConverter.dll
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\bin\Release\netcoreapp3.1\XMLConverter.pdb
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\obj\Release\netcoreapp3.1\XMLConverter.csproj.AssemblyReference.cache
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\obj\Release\netcoreapp3.1\XMLConverter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\obj\Release\netcoreapp3.1\XMLConverter.AssemblyInfoInputs.cache
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\obj\Release\netcoreapp3.1\XMLConverter.AssemblyInfo.cs
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\obj\Release\netcoreapp3.1\XMLConverter.csproj.CoreCompileInputs.cache
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\obj\Release\netcoreapp3.1\XMLConverter.dll
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\obj\Release\netcoreapp3.1\XMLConverter.pdb
+C:\Users\aleex\Desktop\Cole\SEW\lab\XMLConverter\XMLConverter\obj\Release\netcoreapp3.1\XMLConverter.genruntimeconfig.cache
