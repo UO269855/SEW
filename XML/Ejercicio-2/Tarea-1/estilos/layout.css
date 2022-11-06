@@ -1,0 +1,44 @@
+/*****************************
+  Álex Caso Díaz - UO269855
+  Hoja de estilos que aplica
+  el layout de la página.
+*****************************/
+
+/*001*/
+header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*001*/
+main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    column-count: 3;
+    justify-self: center;
+    align-items: center;
+    gap: 0.75em 0.75em;
+}
+
+/*001*/
+body {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas:
+        'header'
+        'main'
+        'footer';
+    gap: 0.5em 0.5em;
+    padding: 1.25em;
+}

@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<svg width = "20cm" height = "20cm" viewBox = "0 0 2500 2800" xmlns="http://www.w3.org/2000/svg" version="2.0">
+<svg width = "20cm" height = "25cm" viewBox = "0 0 3000 3400" xmlns="http://www.w3.org/2000/svg" version="2.0">
 <title> Red Social </title>
 <desc> Red Social partiendo del usuario Alex Caso Diaz </desc>
-CarlosCaso Diaz
-LuisCaso Diaz
-EliasCaso Diaz
+<rect x="100" y="100" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="150" y="200" font-family="Verdana" font-size="45" >Alex Caso Diaz</text>
+<line x1="700" y1="200" x2="800" y2="200" stroke="blue" stroke-width="4" />
+<rect x="1100" y="100" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="1150" y="200" font-family="Verdana" font-size="45" >Carlos Vazquez Castro</text>
+<line x1="700" y1="200" x2="1100" y2="200" stroke="blue" stroke-width="4" />
+<rect x="2100" y="100" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="2150" y="200" font-family="Verdana" font-size="45" >Lucas Perez Garcia</text>
+<line x1="1700" y1="200" x2="2100" y2="200" stroke="blue" stroke-width="4" />
+<rect x="2100" y="400" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="2150" y="500" font-family="Verdana" font-size="45" >Pedro Riesco Lopez</text>
+<line x1="1700" y1="200" x2="2100" y2="500" stroke="blue" stroke-width="4" />
+<rect x="2100" y="700" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="2150" y="800" font-family="Verdana" font-size="45" >Deva Leal Vazquez</text>
+<line x1="1700" y1="200" x2="2100" y2="800" stroke="blue" stroke-width="4" />
+<rect x="1100" y="1300" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="1150" y="1400" font-family="Verdana" font-size="45" >Luis Alvaredo Fernandez</text>
+<line x1="700" y1="200" x2="1100" y2="1400" stroke="blue" stroke-width="4" />
+<rect x="2100" y="1300" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="2150" y="1400" font-family="Verdana" font-size="45" >Silvia Perez Garcia</text>
+<line x1="1700" y1="1400" x2="2100" y2="1400" stroke="blue" stroke-width="4" />
+<rect x="2100" y="1600" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="2150" y="1700" font-family="Verdana" font-size="45" >Pau Estape Dominguez</text>
+<line x1="1700" y1="1400" x2="2100" y2="1700" stroke="blue" stroke-width="4" />
+<rect x="2100" y="1900" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="2150" y="2000" font-family="Verdana" font-size="45" >Paula Suarez Perez</text>
+<line x1="1700" y1="1400" x2="2100" y2="2000" stroke="blue" stroke-width="4" />
+<rect x="1100" y="2500" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="1150" y="2600" font-family="Verdana" font-size="45" >Elias Llera García</text>
+<line x1="700" y1="200" x2="1100" y2="2600" stroke="blue" stroke-width="4" />
+<rect x="2100" y="2500" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="2150" y="2600" font-family="Verdana" font-size="45" >Antonio Crespo Suarez</text>
+<line x1="1700" y1="2600" x2="2100" y2="2600" stroke="blue" stroke-width="4" />
+<rect x="2100" y="2800" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="2150" y="2900" font-family="Verdana" font-size="45" >Celia Melendi Sopeña</text>
+<line x1="1700" y1="2600" x2="2100" y2="2900" stroke="blue" stroke-width="4" />
+<rect x="2100" y="3100" width="600" height="200" fill="white" stroke-width="4" stroke="black" />
+<text x="2150" y="3200" font-family="Verdana" font-size="45" >Alberto Monteiro Iniesta</text>
+<line x1="1700" y1="2600" x2="2100" y2="3200" stroke="blue" stroke-width="4" />
 </svg>

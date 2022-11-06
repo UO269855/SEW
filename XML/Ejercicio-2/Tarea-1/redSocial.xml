@@ -13,7 +13,7 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="2000-11-03">
 
     <fotografias>
         <fotografia enlace="Multimedia/spa1.jpg"/>
-        <fotografia enlace="Multimedia/spa2.jpeg"/>
+        <fotografia enlace="Multimedia/spa2.jpg"/>
         <fotografia enlace="Multimedia/svr.jpg"/>
     </fotografias>
 
@@ -38,7 +38,7 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="2000-11-03">
         </lugarResidencia>
 
         <fotografias>
-            <fotografia enlace="Multimedia/baku.webp"/>
+            <fotografia enlace="Multimedia/baku.jpg"/>
         </fotografias>
 
         <videos>
@@ -59,7 +59,7 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="2000-11-03">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="Multimedia/hock.jfif"/>
+                <fotografia enlace="Multimedia/hock.jpg"/>
             </fotografias>
 
             <videos>
@@ -195,7 +195,7 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="2000-11-03">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="Multimedia/nur.jfif"/>
+                <fotografia enlace="Multimedia/nur.jpg"/>
             </fotografias>
 
             <videos>
@@ -220,7 +220,7 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="2000-11-03">
         </lugarResidencia>
 
         <fotografias>
-            <fotografia enlace="Multimedia/por.jpeg"/>
+            <fotografia enlace="Multimedia/por.jpg"/>
         </fotografias>
 
         <videos>
@@ -268,7 +268,7 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="2000-11-03">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="Multimedia/shangai.webp"/>
+                <fotografia enlace="Multimedia/shangai.jpg"/>
             </fotografias>
 
             <videos>
@@ -292,8 +292,8 @@ nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="2000-11-03">
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="Multimedia/singapur.webp"/>
-                <fotografia enlace="Multimedia/suzurka.jpg"/>
+                <fotografia enlace="Multimedia/singapur.jpg"/>
+                <fotografia enlace="Multimedia/suzuka.jpg"/>
             </fotografias>
 
             <videos>
