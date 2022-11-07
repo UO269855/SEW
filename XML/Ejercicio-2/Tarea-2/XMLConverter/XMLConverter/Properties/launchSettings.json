@@ -1,9 +1,0 @@
-{
-  "profiles": {
-    "XMLConverter": {
-      "commandName": "Executable",
-      "executablePath": "C:\\Users\\aleex\\Desktop\\Cole\\SEW\\lab\\SEW\\XML\\Ejercicio-2\\Tarea-1\\XMLConverter.exe",
-      "commandLineArgs": "html C:\\Users\\aleex\\Desktop\\Cole\\SEW\\lab\\SEW\\XML\\Ejercicio-2\\Tarea-1\\redSocial.xml C:\\Users\\aleex\\Desktop\\Cole\\SEW\\lab\\SEW\\XML\\Ejercicio-2\\Tarea-1\\redSocial.html"
-    }
-  }
-}
