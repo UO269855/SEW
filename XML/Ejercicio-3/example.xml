@@ -1,51 +1,171 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<sos:GetObservationResponse xmlns:sos="http://www.opengis.net/sos/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:om="http://www.opengis.net/om/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:wml2="http://www.opengis.net/waterml/2.0" xsi:schemaLocation="http://www.opengis.net/waterml/2.0 http://schemas.opengis.net/waterml/2.0/waterml2.xsd http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosGetObservation.xsd http://www.opengis.net/waterml-dr/2.0 http://schemas.opengis.net/waterml/2.0/domain-range-informative/timeseries-domain-range.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd http://www.opengis.net/gmlcov/1.0 http://schemas.opengis.net/gmlcov/1.0/gmlcovAll.xsd http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd">  
-<sos:observationData>
-      
-<om:OM_Observation gml:id="o_63425FF441F4AB8307AAE0673886AA882CD81298"> 
-    <om:phenomenonTime>  
-        <gml:TimePeriod gml:id="phenomenonTime_1"> 
-            <gml:beginPosition>2012-11-19T13:00:00.000Z</gml:beginPosition>  
-            <gml:endPosition>2012-11-19T13:09:00.000Z</gml:endPosition>  
-        </gml:TimePeriod> 
-     </om:phenomenonTime> 
-    <om:resultTime> 
-        <gml:TimeInstant gml:id="ti_3AD9AE058FCA54D35609386C41EDDCE2A1F505C3">  
-            <gml:timePosition>2012-11-19T13:01:00.000Z</gml:timePosition>  
-        </gml:TimeInstant>  
-    </om:resultTime>  
+<?xml version="1.0" encoding="UTF-8"?>
 
-    <om:procedure xlink:href="http://www.52north.org/test/procedure/1"/>  
-</om:procedure>
-    <om:observedProperty xlink:href="http://www.52north.org/test/observableProperty/1"/>  
-    <om:observedProperty
-    <om:featureOfInterest xlink:href="http://www.52north.org/test/featureOfInterest/1"/>  
-    <om:featureOfInterest
-    <om:result>  
-</om:result> 
-    <wml2:MeasurementTimeseries gml:id="timeseries.1">  
-    </wml2:MeasurementTimeseries >  
-    <wml2:metadata>  
-        <wml2:TimeseriesMetadata>  
-            <wml2:temporalExtent xlink:href="#phenomenonTime_1"/>  
-        </wml2:TimeseriesMetadata>  
-    </wml2:metadata> 
-    <wml2:defaultPointMetadata>
-        <wml2:DefaultTVPMeasurementMetadata> 
-            <wml2:uom code="test_unit_1"/> 
-            <wml2:interpolationType xlink:href="http://www.opengis.net/def/timeseriesType/WaterML/2.0/continuous" xlink:title="Continuous"/>  
-        </wml2:DefaultTVPMeasurementMetadata>  
-    </wml2:defaultPointMetadata>  
-    <wml2:point>  
-        <wml2:MeasurementTVP> 
-            <wml2:time>2012-11-19T13:00:00.000Z</wml2:time>
-            <wml2:value>1.0</wml2:value> 
-        </wml2:MeasurementTVP>
-    </wml2:point> 
-    <wml2:point>  
-        <wml2:MeasurementTVP> 
-            <wml2:time>2012-11-19T13:01:00.000Z</wml2:time>
-            <wml2:value>1.1</wml2:value> 
-        </wml2:MeasurementTVP>
-    </wml2:point>
-</om:OM_Observation>
+<wml2:MeasurementTimeseries xmlns:wml2="http://www.opengis.net/waterml/2.0"
+  xmlns:gml="http://www.opengis.net/gml/3.2"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:swe="http://www.opengis.net/swe/2.0"
+  xmlns:sf="http://www.opengis.net/sampling/2.0"
+  xmlns:sams="http://www.opengis.net/samplingSpatial/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.opengis.net/waterml/2.0
+  http://schemas.opengis.net/waterml/2.0/waterml2.xsd" gml:id="ts_id33">
+  <gml:description>Resumen de las medidas tomadas como ejemplo ofrecidas por la empresa 52North. Estas medidas fueron tomadas en el Río Nilo en Deddington, Tasmania, Australia. 
+  </gml:description>
+  <wml2:metadata>
+    <wml2:MeasurementTimeseriesMetadata>
+      <wml2:temporalExtent>
+        <gml:TimePeriod gml:id="tp_1">
+          <gml:beginPosition>2010-10-01T00:00:00</gml:beginPosition>
+          <gml:endPosition>2011-10-31T00:00:00</gml:endPosition>
+        </gml:TimePeriod>
+      </wml2:temporalExtent>
+      <wml2:cumulative>false</wml2:cumulative>
+    </wml2:MeasurementTimeseriesMetadata>
+  </wml2:metadata>
+
+  <wml2:samplingFeatureMember>
+    <wml2:MonitoringPoint gml:id="monitoring_point_llewellyn_continuous">
+      <gml:description>Río Nilo en Deddington, Tasmania</gml:description>
+      <gml:name codeSpace="http://www.csiro.au/">Deddington</gml:name>
+      <sf:sampledFeature xlink:href="http://csiro.au/features/rivers/south_esk/deddington"/>
+      <sams:shape>
+        <gml:Point gml:id="location_deddington">
+          <gml:pos srsName="urn:ogc:def:crs:EPSG::4326">-41.814935 147.568517 </gml:pos>
+        </gml:Point>
+      </sams:shape>
+      <wml2:verticalDatum xlink:href="urn:ogc:def:crs:EPSG::5711" xlink:title="Australian height datum"/>
+      <wml2:timeZone>
+        <wml2:TimeZone>
+          <wml2:zoneOffset>+11:00</wml2:zoneOffset>
+          <wml2:zoneAbbreviation>AEDT</wml2:zoneAbbreviation>
+        </wml2:TimeZone>
+      </wml2:timeZone>
+    </wml2:MonitoringPoint>
+  </wml2:samplingFeatureMember>
+
+  <wml2:defaultPointMetadata>
+    <wml2:DefaultTVPMeasurementMetadata>
+      <wml2:quality xlink:href="http://www.opengis.net/def/waterml/2.0/quality/suspect"
+        xlink:title="suspect"/>
+      <wml2:uom code="m"/>
+      <wml2:interpolationType xlink:href="http://www.opengis.net/def/waterml/2.0/interpolationType/Continuous"
+        xlink:title="continuous"/>
+    </wml2:DefaultTVPMeasurementMetadata>
+  </wml2:defaultPointMetadata>
+
+  <wml2:point>
+    <wml2:MeasurementTVP>
+      <wml2:time>2011-11-16T00:00:00+11:00</wml2:time>
+      <wml2:value>2.0</wml2:value>
+      <wml2:metadata>
+        <wml2:TVPMeasurementMetadata>
+          <wml2:quality xlink:href="http://www.opengis.net/def/waterml/2.0/quality/suspect"
+            xlink:title="suspect"/>
+          <wml2:interpolationType/>
+          <wml2:accuracy>
+            <swe:Quantity definition="http://sweet.jpl.nasa.gov/2.0/sciUncertainty.owl#Accuracy">
+              <swe:label>Relative Accuracy</swe:label>
+              <swe:uom code="%"/>
+              <swe:value>2</swe:value>
+            </swe:Quantity>
+          </wml2:accuracy>
+        </wml2:TVPMeasurementMetadata>
+      </wml2:metadata>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+
+  <wml2:point>
+    <wml2:MeasurementTVP>
+      <wml2:time>2011-12-16T00:00:00+11:00</wml2:time>
+      <wml2:value>0.72</wml2:value>
+      <wml2:metadata>
+        <wml2:TVPMeasurementMetadata>
+          <wml2:qualifier>
+            <swe:Quantity definition="#qualifier_v_offset">
+              <swe:uom code="m"/>
+              <swe:value>3.0</swe:value>
+            </swe:Quantity>
+          </wml2:qualifier>
+        </wml2:TVPMeasurementMetadata>
+      </wml2:metadata>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+  <wml2:point>
+    <wml2:MeasurementTVP>
+      <wml2:time>2012-01-16T00:00:00+11:00</wml2:time>
+      <wml2:value>0.588</wml2:value>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+  <wml2:point>
+    <wml2:MeasurementTVP>
+      <wml2:time>2012-02-16T00:00:00+11:00</wml2:time>
+      <wml2:value>0.506</wml2:value>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+  <wml2:point>
+    <wml2:MeasurementTVP>
+        <wml2:time>2012-03-16T00:00:00+11:00</wml2:time>
+      <wml2:value>0.298</wml2:value>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+  <wml2:point>
+    <wml2:MeasurementTVP>
+        <wml2:time>2012-04-16T00:00:00+11:00</wml2:time>
+      <wml2:value>0.209</wml2:value>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+  <wml2:point>
+    <wml2:MeasurementTVP>
+        <wml2:time>2012-05-16T00:00:00+11:00</wml2:time>
+        <wml2:value>0.319</wml2:value>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+  <wml2:point>
+    <wml2:MeasurementTVP>
+        <wml2:time>2012-06-16T00:00:00+11:00</wml2:time>
+      <wml2:value>0.529</wml2:value>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+  <wml2:point>
+    <wml2:MeasurementTVP>
+        <wml2:time>2012-07-16T00:00:00+11:00</wml2:time>
+      <wml2:value>0.524</wml2:value>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+  <wml2:point>
+    <wml2:MeasurementTVP>
+        <wml2:time>2012-08-16T00:00:00+11:00</wml2:time>
+      <wml2:value>0.791</wml2:value>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+  <wml2:point>
+    <wml2:MeasurementTVP>
+        <wml2:time>2012-09-16T00:00:00+11:00</wml2:time>
+      <wml2:value>1.102</wml2:value>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+  <wml2:point>
+    <wml2:MeasurementTVP>
+        <wml2:time>2012-10-16T00:00:00+11:00</wml2:time>
+      <wml2:value>2.901</wml2:value>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+  <wml2:point>
+    <wml2:MeasurementTVP>
+        <wml2:time>2012-11-16T00:00:00+11:00</wml2:time>
+      <wml2:value>0.827</wml2:value>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+  <wml2:point>
+    <wml2:MeasurementTVP>
+        <wml2:time>2012-12-16T00:00:00+11:00</wml2:time>
+      <wml2:value>0.625</wml2:value>
+      <wml2:metadata>
+        <wml2:TVPMeasurementMetadata>
+          <wml2:comment>Medida parcial, faltan los últimos 5 días</wml2:comment>
+          <wml2:qualifier xlink:href="http://youragency.example.com/yourvocabularies/qualifier/partial_statistic" xlink:title="partial statistic"/>     </wml2:TVPMeasurementMetadata>
+      </wml2:metadata>
+    </wml2:MeasurementTVP>
+  </wml2:point>
+
+</wml2:MeasurementTimeseries>

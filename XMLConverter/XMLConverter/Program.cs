@@ -341,28 +341,61 @@ namespace XMLConverter
             String time = "";
             switch (xml.Name)
             {
-                case "gml:beginPosition":
-                    
+                case "gml:description":
+                    if (points == 0)
+                    {
+                        value = xml.ReadElementContentAsString();
+                        outputFile.AppendLine("\t\t\t<p>" + value +"\t\t\t</p>");
+                        points += 1;
+                    }
+                    else
+                    {
+                        value = xml.ReadElementContentAsString();
+                        outputFile.AppendLine("\t\t\t<h2>" + value + "</h2>");
+                    }
+
+                    break;
+                case "gml:beginPosition":                
                     value = xml.ReadElementContentAsString();
-                    Console.WriteLine(value);
-                    //day = value.Substring(0, 10);
-                    //time = value.Substring(11, 8);
-                    outputFile.AppendLine("Las mediciones han comenzado el día " + value + " a las " + time + "h");
+                    day = value.Substring(0, 10);
+                    time = value.Substring(11, 8);
+                    outputFile.AppendLine("\t\t\t<h3>Las mediciones han comenzado el día " + day + " a las " + time + "h</h3>");
                     break;
                 case "gml:endPosition":
-                    value = xml.Value;
-                    //day = value.Substring(0, 10);
-                    //time = value.Substring(11, 8);
-                    outputFile.AppendLine("Las mediciones han terminado el día " + day + " a las " + time + "h");
+                    value = xml.ReadElementContentAsString();
+                    day = value.Substring(0, 10);
+                    time = value.Substring(11, 8);
+                    outputFile.AppendLine("\t\t\t<h3>Las mediciones han terminado el día " + day + " a las " + time + "h</h3>");
                     break;
                 case "wml2:point":
                     points = points + 1;
                     break;
                 case "wml2:time":
-                    outputFile.AppendLine("Medida número " + points +" realizada a las " + xml.Value);
+                    value = xml.ReadElementContentAsString();
+                    day = value.Substring(0, 10);
+                    time = value.Substring(11, 8);
+                    outputFile.AppendLine("\t\t\t\t<h4>Medida número " + (points-1) + " realizada el día " + day + " a las " + time + "h</h4>");
                     break;
                 case "wml2:value":
-                    outputFile.AppendLine("Con valor: " + xml.Value);
+                    outputFile.AppendLine("\t\t\t\t<p>Con valor: " + xml.ReadElementContentAsString() + "</p>");
+                    break;
+                case "gml:pos":
+                    value = xml.ReadElementContentAsString();
+                    String lat = value.Substring(0, 10);
+                    String longitud = value.Substring(11, 8);
+                    outputFile.AppendLine("\t\t\t<h3>Cuya Latitud es " + lat + " y su Longitud es " + longitud + "</h3>");
+                    break;
+                case "wml2:zoneOffset":
+                    value = xml.ReadElementContentAsString();
+                    outputFile.AppendLine("\t\t\t<h3>Cuyo Huso Horario es " + value + "</h3>");
+                    break;
+                case "wml2:zoneAbbreviation":
+                    value = xml.ReadElementContentAsString();
+                    outputFile.AppendLine("\t\t\t<h3>Cuya Zona Horaria es " + value + "</h3>");
+                    break;
+                case "wml2:comment":
+                    value = xml.ReadElementContentAsString();
+                    outputFile.AppendLine("\t\t\t\t<p>" + value + "</p>");
                     break;
                 default:
                     break;
@@ -372,15 +405,35 @@ namespace XMLConverter
 
         private static void AddHeaderWML(StringBuilder outputFile)
         {
-            outputFile.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-            outputFile.AppendLine("<svg width = \"20cm\" height = \"25cm\" viewBox = \"0 0 3000 3400\" xmlns=\"http://www.w3.org/2000/svg\" version=\"2.0\">");
-            outputFile.AppendLine("<title> Red Social </title>");
-            outputFile.AppendLine("<desc> Red Social partiendo del usuario Alex Caso Diaz </desc>");
+            outputFile.AppendLine("<!DOCTYPE html>");
+            outputFile.AppendLine("<html lang=\"es\">");
+            outputFile.AppendLine("\t<head>");
+            outputFile.AppendLine("\t\t<meta name=\"viewport\" content=\"width= device-width, initial-scale=1.0\" />");
+            outputFile.AppendLine("\t\t<meta charset=\"UTF-8\" />");
+            outputFile.AppendLine("\t\t<meta name=\"author\" content=\"Álex Caso Díaz\" />");
+            outputFile.AppendLine("\t\t<meta name = \"description\" content=\"Archivo HTML resultado de convertir archivo WaterML\"/> ");
+            outputFile.AppendLine("\t\t<meta name = \"keywords\" content=\"XML, HTML, WaterML, Mediciones\"/> ");
+            outputFile.AppendLine("\t\t<title>Medidas WML</title>");
+            outputFile.AppendLine("\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"estilos/estilo.css\" />");
+            outputFile.AppendLine("\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"estilos/layout.css\" />");
+            outputFile.AppendLine("\t</head>");
+            outputFile.AppendLine("\t<body>");
+            outputFile.AppendLine("\t<header>");
+            outputFile.AppendLine("\t\t<h1>Medidas de tiempo</h1>");
+            outputFile.AppendLine("\t</header>");
+            outputFile.AppendLine("\t\t<main>");
         }
 
         private static void AddFooterWML(StringBuilder outputFile)
         {
-            outputFile.AppendLine("</svg>");
+            outputFile.AppendLine("\t\t</main>");
+            outputFile.AppendLine("\t\t<footer>");
+            outputFile.AppendLine("\t\t\t<p>Software y estándares para la web</p>");
+            outputFile.AppendLine("\t\t\t<p>Álex Caso Díaz - UO269855</p>");
+            outputFile.AppendLine("\t\t\t<p>Universidad de Oviedo</p>");
+            outputFile.AppendLine("\t\t</footer>");
+            outputFile.AppendLine("\t</body>");
+            outputFile.AppendLine("</html>");
         }
     }
 }
