@@ -345,6 +345,7 @@ namespace XMLConverter
                     if (points == 0)
                     {
                         value = xml.ReadElementContentAsString();
+                        outputFile.AppendLine("<h2>Contexto de las Medidas</h2>");
                         outputFile.AppendLine("\t\t\t<p>" + value +"\t\t\t</p>");
                         points += 1;
                     }
@@ -387,7 +388,7 @@ namespace XMLConverter
                     break;
                 case "wml2:zoneOffset":
                     value = xml.ReadElementContentAsString();
-                    outputFile.AppendLine("\t\t\t<h3>Cuyo Huso Horario es " + value + "</h3>");
+                    outputFile.AppendLine("\t\t\t<h3>Cuyo Huso Horario es GMT" + value + "</h3>");
                     break;
                 case "wml2:zoneAbbreviation":
                     value = xml.ReadElementContentAsString();
