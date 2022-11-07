@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "m/Olbns7bwkjLysXUSOMGJPL3tDRdh3lqW8lrUgZmzFvRcDsnUXir/LQpgxDJGmO3MNjYjfkaUgtvg6cG9QWhQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aleex\\Desktop\\Cole\\SEW\\lab\\SEW\\XMLConverter\\XMLConverter\\XMLConverter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aleex\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\3.1.30\\microsoft.netcore.app.runtime.win-x86.3.1.30.nupkg.sha512",
+    "C:\\Users\\aleex\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\3.1.30\\microsoft.windowsdesktop.app.runtime.win-x86.3.1.30.nupkg.sha512",
+    "C:\\Users\\aleex\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\3.1.30\\microsoft.aspnetcore.app.runtime.win-x86.3.1.30.nupkg.sha512"
+  ],
+  "logs": []
+}

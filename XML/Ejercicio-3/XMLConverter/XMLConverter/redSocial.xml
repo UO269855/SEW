@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persona xmlns="http://www.uniovi.es" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uniovi.es redSocial.xsd"
+nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="2000-11-03">
+
+    <lugarNacimiento nombre="Oviedo">
+        <coordenadas latitud="43.3603" longitud="-5.84476" altitud="238"/>
+    </lugarNacimiento>
+
+    <lugarResidencia nombre="El Entrego">
+        <coordenadas latitud="43.28726995" longitud="-5.64469123297325" altitud="230"/>
+    </lugarResidencia>
+
+    <fotografias>
+        <fotografia enlace="Multimedia/spa1.jpg"/>
+        <fotografia enlace="Multimedia/spa2.jpeg"/>
+        <fotografia enlace="Multimedia/svr.jpg"/>
+    </fotografias>
+
+    <videos>
+        <video enlace="Multimedia/video1.mp4"/>
+    </videos>
+
+    <comentarios>
+        <comentario comentario="Estudiante de la universidad"/>
+        <comentario comentario="Le gustan los coches"/>
+        <comentario comentario="Fan de Mclaren"/>
+    </comentarios>
+
+    <persona nombre="Carlos" apellidos="Vazquez Castro" fechaNacimiento="1990-10-13">
+    
+        <lugarNacimiento nombre="Madrid">
+            <coordenadas latitud="40.4167" longitud="-3.70325" altitud="659"/>
+        </lugarNacimiento>
+
+        <lugarResidencia nombre="La Felguera">
+            <coordenadas latitud="43.2964" longitud="-5.68254" altitud="214"/>
+        </lugarResidencia>
+
+        <fotografias>
+            <fotografia enlace="Multimedia/baku.webp"/>
+        </fotografias>
+
+        <videos>
+        </videos>
+
+        <comentarios>
+            <comentario comentario="Piloto de carreras"/>
+        </comentarios>
+
+        <persona nombre="Lucas" apellidos="Perez Garcia" fechaNacimiento="1996-07-06">
+    
+            <lugarNacimiento nombre="Laviana">
+                <coordenadas latitud="43.2149" longitud="-5.54073" altitud="478"/>
+            </lugarNacimiento>
+
+            <lugarResidencia nombre="Barredos">
+                <coordenadas latitud="43.259900" longitud="-5.573500" altitud="275"/>
+            </lugarResidencia>
+
+            <fotografias>
+                <fotografia enlace="Multimedia/hock.jfif"/>
+            </fotografias>
+
+            <videos>
+            </videos>
+
+            <comentarios>
+            </comentarios>
+
+        </persona>
+
+        <persona nombre="Pedro" apellidos="Riesco Lopez" fechaNacimiento="2000-01-23">
+    
+            <lugarNacimiento nombre="Barcelona">
+                <coordenadas latitud="41.38879" longitud="2.15899" altitud="12"/>
+            </lugarNacimiento>
+
+            <lugarResidencia nombre="Granada">
+                <coordenadas latitud="-61.6667000" longitud="12.1167000" altitud="738"/>
+            </lugarResidencia>
+
+            <fotografias>
+                <fotografia enlace="Multimedia/hun1.jpg"/>
+            </fotografias>
+
+            <videos>
+            </videos>
+
+            <comentarios>
+                <comentario comentario="Estudia en Granada"/>
+            </comentarios>
+
+        </persona>
+
+        <persona nombre="Deva" apellidos="Leal Vazquez" fechaNacimiento="2000-04-12">
+    
+            <lugarNacimiento nombre="Vigo">
+                <coordenadas latitud="-8.7226400" longitud="42.2328200" altitud="6"/>
+            </lugarNacimiento>
+
+            <lugarResidencia nombre="Logroño">
+                <coordenadas latitud="42.46667" longitud="-2.45" altitud="384"/>
+            </lugarResidencia>
+
+            <fotografias>
+                <fotografia enlace="Multimedia/mbr.jpg"/>
+            </fotografias>
+
+            <videos>
+            </videos>
+
+            <comentarios>
+                <comentario comentario="Se ha ido de erasmus a Islandia"/>
+            </comentarios>
+
+        </persona>
+
+    </persona>
+
+    <persona nombre="Luis" apellidos="Alvaredo Fernandez" fechaNacimiento="1995-03-03">
+    
+        <lugarNacimiento nombre="Aviles">
+            <coordenadas latitud="43.5547300" longitud="-5.9248300" altitud="10"/>
+        </lugarNacimiento>
+
+        <lugarResidencia nombre="San Claudio">
+            <coordenadas latitud="43.35" longitud="-5.9167" altitud="183"/>
+        </lugarResidencia>
+
+        <fotografias>
+            <fotografia enlace="Multimedia/monza.jpg"/>
+        </fotografias>
+
+        <videos>
+        </videos>
+
+        <comentarios>
+            <comentario comentario="Quiere ser arquitecto"/>
+        </comentarios>
+
+        <persona nombre="Silvia" apellidos="Perez Garcia" fechaNacimiento="1998-02-16">
+    
+            <lugarNacimiento nombre="Mallorca">
+                <coordenadas latitud="39.56939" longitud="2.65024" altitud="13"/>
+            </lugarNacimiento>
+
+            <lugarResidencia nombre="Leon">
+                <coordenadas latitud="42.6000300" longitud="-5.5703200" altitud="837"/>
+            </lugarResidencia>
+
+            <fotografias>
+                <fotografia enlace="Multimedia/mtm1.jpg"/>
+            </fotografias>
+
+            <videos>
+            </videos>
+
+            <comentarios>
+            </comentarios>
+
+        </persona>
+
+        <persona nombre="Pau" apellidos="Estape Dominguez" fechaNacimiento="1997-11-05">
+    
+            <lugarNacimiento nombre="Valencia">
+                <coordenadas latitud="39.4697500" longitud="-0.3773900" altitud="15"/>
+            </lugarNacimiento>
+
+            <lugarResidencia nombre="Alicante">
+                <coordenadas latitud="38.34517" longitud="-0.48149" altitud="3"/>
+            </lugarResidencia>
+
+            <fotografias>
+                <fotografia enlace="Multimedia/mtm2.jpg"/>
+            </fotografias>
+
+            <videos>
+            </videos>
+
+            <comentarios>
+                <comentario comentario="Tiene familia en Alemania"/>
+            </comentarios>
+
+        </persona>
+
+        <persona nombre="Paula" apellidos="Suarez Perez" fechaNacimiento="2000-10-24">
+    
+            <lugarNacimiento nombre="Santander">
+                <coordenadas latitud="43.46472" longitud="-3.80444" altitud="350"/>
+            </lugarNacimiento>
+
+            <lugarResidencia nombre="Villoria">
+                <coordenadas latitud="43.21563" longitud="-5.565584" altitud="339"/>
+            </lugarResidencia>
+
+            <fotografias>
+                <fotografia enlace="Multimedia/nur.jfif"/>
+            </fotografias>
+
+            <videos>
+            </videos>
+
+            <comentarios>
+                <comentario comentario="Le gusta la lluvia"/>
+            </comentarios>
+
+        </persona>
+
+    </persona>
+
+    <persona nombre="Elias" apellidos="Llera García" fechaNacimiento="1997-02-22">
+    
+        <lugarNacimiento nombre="Riaño">
+            <coordenadas latitud="43.2957" longitud="-5.6842" altitud="219"/>
+        </lugarNacimiento>
+
+        <lugarResidencia nombre="Celorio">
+            <coordenadas latitud="43.348995" longitud="-5.084258" altitud="24"/>
+        </lugarResidencia>
+
+        <fotografias>
+            <fotografia enlace="Multimedia/por.jpeg"/>
+        </fotografias>
+
+        <videos>
+            <video enlace="Multimedia/video3.mp4"/>
+            <video enlace="Multimedia/video4.mp4"/>
+        </videos>
+
+        <comentarios>
+            <comentario comentario="Hace Surf"/>
+            <comentario comentario="Monta en moto"/>
+        </comentarios>
+
+        <persona nombre="Antonio" apellidos="Crespo Suarez" fechaNacimiento="1999-04-30">
+    
+            <lugarNacimiento nombre="Burgos">
+                <coordenadas latitud="42.34106" longitud="-3.70184" altitud="865"/>
+            </lugarNacimiento>
+
+            <lugarResidencia nombre="La Fresneda">
+                <coordenadas latitud="43.4120284" longitud="-5.7902107" altitud="170"/>
+            </lugarResidencia>
+
+            <fotografias>
+                <fotografia enlace="Multimedia/rbr1.jpg"/>
+                <fotografia enlace="Multimedia/rbr2.jpg"/>
+            </fotografias>
+
+            <videos>
+            </videos>
+
+            <comentarios>
+                <comentario comentario="Burgos es una ciudad"/>
+            </comentarios>
+
+        </persona>
+
+        <persona nombre="Celia" apellidos="Melendi Sopeña" fechaNacimiento="2001-09-01">
+    
+            <lugarNacimiento nombre="Toledo">
+                <coordenadas latitud="39.8581000" longitud="-4.0226300" altitud="529"/>
+            </lugarNacimiento>
+
+            <lugarResidencia nombre="Pola de Siero">
+                <coordenadas latitud="43.391049" longitud="-5.661695" altitud="220"/>
+            </lugarResidencia>
+
+            <fotografias>
+                <fotografia enlace="Multimedia/shangai.webp"/>
+            </fotografias>
+
+            <videos>
+                <video enlace="Multimedia/video2.mp4"/>
+            </videos>
+
+            <comentarios>
+                <comentario comentario="Le gusta dibujar"/>
+            </comentarios>
+
+        </persona>
+
+        <persona nombre="Alberto" apellidos="Monteiro Iniesta" fechaNacimiento="2001-04-10">
+    
+            <lugarNacimiento nombre="Oporto">
+                <coordenadas latitud="41.14961" longitud="-8.61099" altitud="104"/>
+            </lugarNacimiento>
+
+            <lugarResidencia nombre="Badajoz">
+                <coordenadas latitud="38.87789" longitud="-6.97061" altitud="185"/>
+            </lugarResidencia>
+
+            <fotografias>
+                <fotografia enlace="Multimedia/singapur.webp"/>
+                <fotografia enlace="Multimedia/suzurka.jpg"/>
+            </fotografias>
+
+            <videos>
+            </videos>
+
+            <comentarios>
+                <comentario comentario="Quiere volver a vivir en Portugal"/>
+            </comentarios>
+
+        </persona>
+
+    </persona>
+
+</persona>
