@@ -345,7 +345,7 @@ namespace XMLConverter
                     if (points == 0)
                     {
                         value = xml.ReadElementContentAsString();
-                        outputFile.AppendLine("<h2>Contexto de las Medidas</h2>");
+                        outputFile.AppendLine("\t\t\t<h2>Contexto de las Medidas</h2>");
                         outputFile.AppendLine("\t\t\t<p>" + value +"\t\t\t</p>");
                         points += 1;
                     }
@@ -419,9 +419,9 @@ namespace XMLConverter
             outputFile.AppendLine("\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"estilos/layout.css\" />");
             outputFile.AppendLine("\t</head>");
             outputFile.AppendLine("\t<body>");
-            outputFile.AppendLine("\t<header>");
-            outputFile.AppendLine("\t\t<h1>Medidas de tiempo</h1>");
-            outputFile.AppendLine("\t</header>");
+            outputFile.AppendLine("\t\t<header>");
+            outputFile.AppendLine("\t\t\t<h1>Medidas de tiempo</h1>");
+            outputFile.AppendLine("\t\t</header>");
             outputFile.AppendLine("\t\t<main>");
         }
 
