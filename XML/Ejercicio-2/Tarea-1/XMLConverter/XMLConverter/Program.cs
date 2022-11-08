@@ -21,13 +21,14 @@ namespace XMLConverter
             String output = args[2];
 
             XmlReader xml = XmlReader.Create(xmlInput);
+            XmlReader xml2 = XmlReader.Create(xmlInput);
             StringBuilder outputFile = new StringBuilder();
 
-            ParseDocument(conversion, xml, outputFile);
+            ParseDocument(conversion, xml, xml2, outputFile);
             File.WriteAllText(output, outputFile.ToString());
         }
 
-        private static void ParseDocument(string conversion, XmlReader xml, StringBuilder outputFile)
+        private static void ParseDocument(string conversion, XmlReader xml, XmlReader xml2, StringBuilder outputFile)
         {
             switch (conversion.ToLower())
             {
@@ -38,7 +39,7 @@ namespace XMLConverter
                     ParseToKML(xml, outputFile);
                     break;
                 case "svg":
-                    ParseToSVG(xml, outputFile);
+                    ParseToSVG(xml, xml2, outputFile);
                     break;
                 case "waterml":
                     ParseToWML(xml, outputFile);
@@ -49,12 +50,14 @@ namespace XMLConverter
         private static void ParseToHTML(XmlReader xml, StringBuilder outputFile)
         {
             AddHeaderHTML(outputFile);
+            String name = "";
+            int number = 0;
             while (xml.Read())
             {
                 switch (xml.NodeType)
                 {
                     case XmlNodeType.Element:
-                    AddElementHTML(xml, outputFile);
+                    name = AddElementHTML(xml, outputFile, name, ref number);
                     break;
 
                     default:
@@ -64,13 +67,12 @@ namespace XMLConverter
             AddFooterHTML(outputFile);
         }
 
-        private static void AddElementHTML(XmlReader xml, StringBuilder outputFile)
+        private static String AddElementHTML(XmlReader xml, StringBuilder outputFile, String name, ref int number)
         {
-
             String datosUsuario = "";
-                switch (xml.Name)
+            String nombreUsuario = name;
+            switch (xml.Name)
                 {
-
                     case "persona":
                         if (xml.AttributeCount > 3)
                         {
@@ -78,10 +80,12 @@ namespace XMLConverter
                             xml.MoveToNextAttribute();
                             xml.MoveToNextAttribute();
                         }
+                        number = 0;
                         xml.MoveToNextAttribute();
                         datosUsuario = xml.Value;
                         xml.MoveToNextAttribute();
                         datosUsuario += " " + xml.Value;
+                        nombreUsuario = datosUsuario; 
                         xml.MoveToNextAttribute();
                         datosUsuario += " Nacido el " + xml.Value;
                         outputFile.AppendLine("\t\t\t<h2> Usuario: " + datosUsuario + " </h2>");
@@ -107,8 +111,8 @@ namespace XMLConverter
                         break;
                     case "fotografia":
                         xml.MoveToNextAttribute();
-                        String name = xml.Value.Substring(11); ;
-                        outputFile.AppendLine("\t\t\t<img alt=\"" + name + "\" src=\"" + xml.Value + "\" />");
+                        number += 1;
+                        outputFile.AppendLine("\t\t\t<img alt=\"Fotografia numero " + number + " de " + nombreUsuario + "\" src=\"" + xml.Value + "\" />");
                         break;
                     case "video":
                         xml.MoveToNextAttribute();
@@ -124,6 +128,7 @@ namespace XMLConverter
                     default:
                         break;
                 }
+            return nombreUsuario;
         }
         private static void AddHeaderHTML(StringBuilder outputFile)
         {
@@ -257,46 +262,126 @@ namespace XMLConverter
             outputFile.AppendLine("</kml>");
         }
 
-        private static void ParseToSVG(XmlReader xml, StringBuilder outputFile)
+        private static void ParseToSVG(XmlReader xml, XmlReader xml2, StringBuilder outputFile)
         {
             XmlDocument document = new XmlDocument();
-
-            AddHeaderSVG(outputFile);
+            AddHeaderSVG(outputFile);      
+            int x = 100;
+            int y = 100;
             while (xml.Read())
-            {             
+            {
                 if (xml.NodeType == XmlNodeType.Element && xml.Name == "persona" && xml.AttributeCount > 3)
                 {
                     XmlNode node = document.ReadNode(xml);
-                    int x = 100;
-                    int y = 100;
-                   
-                    outputFile.AppendLine("<rect x=\"" + x + "\" y=\"" + y + "\" width=\"600\" height=\"200\" fill=\"white\" stroke-width=\"4\" stroke=\"black\" />");
-                    String name = node.Attributes["nombre"].Value + " " + node.Attributes["apellidos"].Value;
-                    outputFile.AppendLine("<text x=\"" + (x+50) + "\" y=\""+ (y+100) + "\" font-family=\"Verdana\" font-size=\"45\" >" + name +"</text>");
-                    outputFile.AppendLine("<line x1=\"700\" y1=\"200\" x2=\"800\" y2=\"200\" stroke=\"blue\" stroke-width=\"4\" />");
                     PrintSVGNode(node, outputFile, x, y);
                 }
+                
             }
             AddFooterSVG(outputFile);
         }
 
         private static int PrintSVGNode(XmlNode node, StringBuilder outputFile, int x, int y)
         {
-            int newX = x + 1000;
+            
+            String datosUsuario = node.Attributes["nombre"].Value + " " + node.Attributes["apellidos"].Value + " " + node.Attributes["fechaNacimiento"].Value;
+            outputFile.AppendLine("<rect x=\"" + x + "\" y=\"" + y + "\" width=\"1000\" height=\"2000\" fill=\"white\" stroke-width=\"4\" stroke=\"black\" />");
+            outputFile.AppendLine("<text x=\"" + (x + 50) + "\" y=\"" + (y + 100) + "\" font-family=\"Verdana\" font-size=\"45\" >" + datosUsuario + "</text>");
+            //outputFile.AppendLine("<line x1=\"" + (x + 600) + "\" y1=\"" + (y + 100) + "\" x2=\"" + (newX) + "\" y2=\"" + (newY + 100) + "\" stroke=\"blue\" stroke-width=\"4\" />");            
+            int newX = x;
             int newY = y;
-            for (int i = 0; i < node.ChildNodes.Count; i++)
+            int offset = 100;
+            foreach (XmlNode child in node.ChildNodes)
             {
-                XmlNode childNode = node.ChildNodes.Item(i);
-                if (childNode.Name == "persona")
-                {             
-                outputFile.AppendLine("<rect x=\"" + newX + "\" y=\"" + newY + "\" width=\"600\" height=\"200\" fill=\"white\" stroke-width=\"4\" stroke=\"black\" />");
-                String name = childNode.Attributes["nombre"].Value + " " + childNode.Attributes["apellidos"].Value;
-                outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + 100) + "\" font-family=\"Verdana\" font-size=\"45\" >" + name + "</text>");
-                outputFile.AppendLine("<line x1=\"" + (x+600) + "\" y1=\""+ (y+100) + "\" x2=\""+ (newX) + "\" y2=\"" + (newY + 100) + "\" stroke=\"blue\" stroke-width=\"4\" />");
-                newY = PrintSVGNode(childNode, outputFile, newX, newY);
-                newY = newY + 300;
-                }
+                String value = "";
                 
+                switch (child.Name)
+                {
+                    case "persona":
+                        newY = PrintSVGNode(child, outputFile, newX +1200, newY);
+                        newY += 2100;
+                        break;
+                    case "lugarNacimiento":
+                        offset += 100;
+                        value = "Lugar de nacimiento: " + child.Attributes["nombre"].Value;
+                        outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+
+                        value = "\tLatitud " + child.ChildNodes[1].Attributes["latitud"].Value;
+                        offset += 100;
+                        outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+                        value = "\tLongitud " + child.ChildNodes[1].Attributes["longitud"].Value;
+                        offset += 100;
+                        outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+
+                        value = "\tAltitud " + child.ChildNodes[1].Attributes["altitud"].Value;
+                        offset += 100;
+                        outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+                        break;
+                    case "lugarResidencia":
+                        value = "Lugar de residencia: " + child.Attributes["nombre"].Value;
+                        offset += 100;
+                        outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+
+                        value = "\tLatitud " + child.ChildNodes[1].Attributes["latitud"].Value;
+                        offset += 100;
+                        outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+                        value = "\tLongitud " + child.ChildNodes[1].Attributes["longitud"].Value;
+                        offset += 100;
+                        outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+                        value = "\tAltitud " + child.ChildNodes[1].Attributes["altitud"].Value;
+                        offset += 100;
+                        outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+                        break;
+                    case "fotografias":
+                        offset += 100;
+                        value = "Fotografias";
+                        outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+
+                        foreach (XmlNode child2 in child.ChildNodes)
+                        { 
+                            if (child2.Name == "fotografia")
+                            {
+                                offset += 100;
+                                value = "\t" + child2.Attributes["enlace"].Value;
+                                outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+                            }
+                        }
+
+                        break;
+                    case "videos":
+                        offset += 100;
+                        value = "Videos";
+                        outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+
+                        foreach (XmlNode child2 in child.ChildNodes)
+                        {
+                            if (child2.Name == "video")
+                            {
+                                offset += 100;
+                                value = "\t" + child2.Attributes["enlace"].Value;
+                                outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+                            }
+                        }
+
+                        break;
+                    case "comentarios":
+                        offset += 100;
+                        value = "Comentarios";
+                        outputFile.AppendLine("<text x=\"" + (newX + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+
+                        foreach (XmlNode child2 in child.ChildNodes)
+                        {
+                            if (child2.Name == "comentario")
+                            {
+                                offset += 100;
+                                value = "\t" + child2.Attributes["comentario"].Value;
+                                outputFile.AppendLine("<text x=\"" + (x + 50) + "\" y=\"" + (newY + offset) + "\" font-family=\"Verdana\" font-size=\"45\" >" + value + "</text>");
+                            }
+                        }
+
+                        break;
+                    default:
+                        break;
+                }                
             }
             return newY;
         }
@@ -304,7 +389,7 @@ namespace XMLConverter
         private static void AddHeaderSVG(StringBuilder outputFile)
         {
             outputFile.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-            outputFile.AppendLine("<svg width = \"20cm\" height = \"25cm\" viewBox = \"0 0 3000 3400\" xmlns=\"http://www.w3.org/2000/svg\" version=\"2.0\">");
+            outputFile.AppendLine("<svg width = \"20cm\" height = \"130cm\" viewBox = \"0 0 3600 23000\" xmlns=\"http://www.w3.org/2000/svg\" version=\"2.0\">");
             outputFile.AppendLine("<title> Red Social </title>");
             outputFile.AppendLine("<desc> Red Social partiendo del usuario Alex Caso Diaz </desc>");
         }

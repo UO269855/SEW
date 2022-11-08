@@ -4,7 +4,7 @@
 
 <persona nombre="Alex" apellidos="Caso Diaz" fechaNacimiento="2000-11-03">
 
-     <lugarNacimiento nombre="Oviedo">
+    <lugarNacimiento nombre="Oviedo">
         <coordenadas latitud="43.3603" longitud="-5.84476" altitud="238"/>
     </lugarNacimiento>
 
@@ -13,13 +13,13 @@
     </lugarResidencia>
 
     <fotografias>
-        <fotografia enlace="https://ibb.co/mBmPWTh"/>
-        <fotografia enlace="https://ibb.co/ZxgQPcv"/>
-        <fotografia enlace="https://ibb.co/6PxQ0qz"/>
+        <fotografia enlace="Multimedia/spa1.jpg"/>
+        <fotografia enlace="Multimedia/spa2.jpg"/>
+        <fotografia enlace="Multimedia/svr.jpg"/>
     </fotografias>
 
     <videos>
-        <video enlace="https://youtu.be/HEp7zGIH9PA"/>
+        <video enlace="Multimedia/video1.mp4"/>
     </videos>
 
     <comentarios>
@@ -39,11 +39,10 @@
         </lugarResidencia>
 
         <fotografias>
-            <fotografia enlace="https://ibb.co/wccDj9y"/>
+            <fotografia enlace="Multimedia/baku.jpg"/>
         </fotografias>
 
         <videos>
-            <video enlace="https://youtu.be/c_GDGniGT3w"/>
         </videos>
 
         <comentarios>
@@ -61,11 +60,10 @@
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="https://ibb.co/BHD937b"/>
+                <fotografia enlace="Multimedia/hock.jpg"/>
             </fotografias>
 
             <videos>
-                <video enlace="https://youtu.be/8fR8NztLkMk"/>
             </videos>
 
             <comentarios>
@@ -84,7 +82,7 @@
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="https://ibb.co/RzcbSwB"/>
+                <fotografia enlace="Multimedia/hun1.jpg"/>
             </fotografias>
 
             <videos>
@@ -107,7 +105,7 @@
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="https://ibb.co/74R2c3w"/>
+                <fotografia enlace="Multimedia/mbr.jpg"/>
             </fotografias>
 
             <videos>
@@ -132,11 +130,10 @@
         </lugarResidencia>
 
         <fotografias>
-            <fotografia enlace="https://ibb.co/Hg1w5nJ"/>
+            <fotografia enlace="Multimedia/monza.jpg"/>
         </fotografias>
 
         <videos>
-            <video enlace="https://youtu.be/oy-zC1TAUD4"/>
         </videos>
 
         <comentarios>
@@ -154,13 +151,10 @@
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="https://ibb.co/ydc2XLn"/>
+                <fotografia enlace="Multimedia/mtm1.jpg"/>
             </fotografias>
 
             <videos>
-                <video enlace="https://youtu.be/3v90O75rhNk"/>
-                <video enlace="https://youtu.be/izX7Wf438LU"/>
-                <video enlace="https://youtu.be/0lmbW6elpxQ"/>
             </videos>
 
             <comentarios>
@@ -179,7 +173,7 @@
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="https://ibb.co/Sc2H42Q"/>
+                <fotografia enlace="Multimedia/mtm2.jpg"/>
             </fotografias>
 
             <videos>
@@ -202,7 +196,7 @@
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="https://ibb.co/sCR1Qxg"/>
+                <fotografia enlace="Multimedia/nur.jpg"/>
             </fotografias>
 
             <videos>
@@ -227,11 +221,12 @@
         </lugarResidencia>
 
         <fotografias>
-            <fotografia enlace="https://ibb.co/qCZkW54"/>
+            <fotografia enlace="Multimedia/por.jpg"/>
         </fotografias>
 
         <videos>
-            <video enlace="https://youtu.be/jXq6pv3WrZU"/>
+            <video enlace="Multimedia/video3.mp4"/>
+            <video enlace="Multimedia/video4.mp4"/>
         </videos>
 
         <comentarios>
@@ -250,8 +245,8 @@
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="https://ibb.co/HC5MJ7L"/>
-                <fotografia enlace="https://ibb.co/JBKNMkW"/>
+                <fotografia enlace="Multimedia/rbr1.jpg"/>
+                <fotografia enlace="Multimedia/rbr2.jpg"/>
             </fotografias>
 
             <videos>
@@ -274,12 +269,11 @@
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="https://ibb.co/JByxTwT"/>
+                <fotografia enlace="Multimedia/shangai.jpg"/>
             </fotografias>
 
             <videos>
-                <video enlace="https://youtu.be/oQm8Df4UYNw"/>
-                <video enlace="https://youtu.be/gKijkM15Fso"/>
+                <video enlace="Multimedia/video2.mp4"/>
             </videos>
 
             <comentarios>
@@ -299,8 +293,8 @@
             </lugarResidencia>
 
             <fotografias>
-                <fotografia enlace="https://ibb.co/qjSw073"/>
-                <fotografia enlace="https://ibb.co/kmqGWJY"/>
+                <fotografia enlace="Multimedia/singapur.jpg"/>
+                <fotografia enlace="Multimedia/suzuka.jpg"/>
             </fotografias>
 
             <videos>
