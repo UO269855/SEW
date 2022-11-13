@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <!-- Datos que describen el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta
+      name="description"
+      content="Página web del Ejercicio 3 de JavaScript"
+    />
+
+    <title>Ejercicio 3</title>
+
+    <link rel="stylesheet" type="text/css" href="CalculadoraMilan.css" />
+    <script src="CalculadoraMilan.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Calculadora básica</h1>
+      <input type="text" id="resultado" title="Pantalla:" disabled />
+    </header>
+    <main>
+      <input type="button" value="C" onclick="calculadora.clearAll()" />
+      <input type="button" value="CE" onclick="calculadora.ce()" />
+      <input type="button" value="+/-" onclick="calculadora.changeSign()" />
+      <input type="button" value="√" onclick="calculadora.raiz()" />
+      <input type="button" value="%" onclick="calculadora.porcentaje()" />
+
+      <input type="button" value="7" onclick="calculadora.addNumber(7)" />
+      <input type="button" value="8" onclick="calculadora.addNumber(8)" />
+      <input type="button" value="9" onclick="calculadora.addNumber(9)" />
+      <input type="button" value="X" onclick="calculadora.multiply()" />
+      <input type="button" value="/" onclick="calculadora.divide()" />
+
+      <input type="button" value="4" onclick="calculadora.addNumber(4)" />
+      <input type="button" value="5" onclick="calculadora.addNumber(5)" />
+      <input type="button" value="6" onclick="calculadora.addNumber(6)" />
+      <input type="button" value="-" onclick="calculadora.substract()" />
+      <input type="button" value="MRC" onclick="calculadora.mrc()" />
+
+      <input type="button" value="1" onclick="calculadora.addNumber(1)" />
+      <input type="button" value="2" onclick="calculadora.addNumber(2)" />
+      <input type="button" value="3" onclick="calculadora.addNumber(3)" />
+      <input type="button" value="+" onclick="calculadora.add()" />
+      <input type="button" value="M-" onclick="calculadora.mminus()" />
+
+      <input type="button" value="0" onclick="calculadora.addNumber(0)" />
+      <input type="button" value="." onclick="calculadora.point()" />
+      <input type="button" value="=" onclick="calculadora.equals()" />
+      <input type="button" value="M+" onclick="calculadora.mplus()" />
+    </main>
+    <footer>
+      <p>Práctica JavaScript</p>
+    </footer>
+  </body>
+</html>

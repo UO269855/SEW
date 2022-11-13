@@ -1,0 +1,26 @@
+/*001*/
+body {
+    font: 16px Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+/*001*/
+h1 {
+    font: 2.5em Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff2828;
+}
+  
+/*001*/
+h2 {
+    font: 1.75em Arial, monospace, bold;
+    font-weight: bold;
+    color: #1b3dff;
+}
+  
+/*001*/
+p {
+    padding: 0.5em;
+}
