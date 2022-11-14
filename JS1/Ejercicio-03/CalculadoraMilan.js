@@ -2,24 +2,23 @@
 class Calculator {
   constructor() {
     this.screen = "";
+    this.operand1 = 0;
+    this.operand2 = 0;
+    this.lastOperand = "";
     this.memory = 0;
-    this.usingMemory = false;
   }
 
   clearAll() {
-    this.usingMemory = false;
     this.screen = "";
     document.getElementById("resultado").value = this.screen.toString();
   }
 
   ce() {
-    this.usingMemory = false;
     this.screen = this.screen.substring(0, this.screen.length - 1);
     document.getElementById("resultado").value = this.screen.toString();
   }
 
   changeSign() {
-    this.usingMemory = false;
     try {
       this.screen = eval(
         document.getElementById("resultado").value + "*-1"
@@ -33,7 +32,6 @@ class Calculator {
   }
 
   raiz() {
-    this.usingMemory = false;
     try {
       this.screen = Math.sqrt(
         eval(document.getElementById("resultado").value)
@@ -49,61 +47,54 @@ class Calculator {
   }
 
   porcentaje() {
-    this.usingMemory = false;
     var text = this.screen + "%";
     this.screen = text.toString();
     document.getElementById("resultado").value = this.screen.toString();
   }
 
   addNumber(number) {
-    this.usingMemory = false;
-    var text = this.screen + number;
-    this.screen = text.toString();
-    document.getElementById("resultado").value = this.screen.toString();
+    var text = document.getElementById("resultado").value;
+    if(this.lastOperand != ""){
+      this.operand2 = Number(text + number);
+    }
+    this.screen = this.screen + number;
+
+    document.getElementById("resultado").value = text + number;
   }
 
   multiply() {
-    this.usingMemory = false;
-    var text = this.screen + "*";
-    this.screen = text.toString();
-    document.getElementById("resultado").value = this.screen.toString();
+    this.operand1 = Number(eval(this.screen));
+    this.screen = this.operand1 + "*";
+    this.lastOperand = "*";
+    document.getElementById("resultado").value = "";
   }
 
   divide() {
-    this.usingMemory = false;
-    var text = this.screen + "/";
-    this.screen = text.toString();
-    document.getElementById("resultado").value = this.screen.toString();
+    this.operand1 = Number(eval(this.screen));
+    this.screen = this.operand1 + "/";
+    this.lastOperand = "/";
+    document.getElementById("resultado").value = "";
   }
 
   substract() {
-    this.usingMemory = false;
-    var text = this.screen + "-";
-    this.screen = text.toString();
-    document.getElementById("resultado").value = this.screen.toString();
+    this.operand1 = Number(eval(this.screen));
+    this.screen = this.operand1 + "-";
+    this.lastOperand = "-";
+    document.getElementById("resultado").value = "";
   }
 
   add() {
-    this.usingMemory = false;
-    var text = this.screen + "+";
-    this.screen = text.toString();
-    document.getElementById("resultado").value = this.screen.toString();
+    this.operand1 = Number(eval(this.screen));
+    this.screen = this.operand1 + "+";
+    this.lastOperand = "+";
+    document.getElementById("resultado").value = "";
   }
 
   mrc() {
-    if (this.usingMemory) {
-      this.memory = 0;
-      this.screen = this.memory.toString();
-      this.usingMemory = false;
-    } else {
-      this.screen = this.memory.toString();
-      document.getElementById("resultado").value = this.memory.toString();
-      this.usingMemory = true;
-    }
+    this.addNumber(this.memory);
   }
 
   mminus() {
-    this.usingMemory = false;
     try {
       this.memory = eval(this.memory + "-" + this.screen);
       this.screen = this.memory.toString();
@@ -117,7 +108,6 @@ class Calculator {
   }
 
   mplus() {
-    this.usingMemory = false;
     try {
       this.memory = eval(this.memory + "+" + this.screen);
       this.screen = this.memory.toString();
@@ -131,16 +121,16 @@ class Calculator {
   }
 
   point() {
-    this.usingMemory = false;
     var text = this.screen + ".";
     this.screen = text.toString();
     document.getElementById("resultado").value = this.screen.toString();
   }
 
   equals() {
-    this.usingMemory = false;
     try {
-      this.screen = eval(document.getElementById("resultado").value).toString();
+      var operation = this.operand1 + this.lastOperand + this.operand2;
+      this.screen = eval(operation);
+      this.operand1 = Number(this.screen);
     } catch (err) {
       this.screen = "Error = " + err;
       alert(err);
@@ -150,7 +140,13 @@ class Calculator {
   }
 }
 
+document.addEventListener("click", function(){    
+      console.log("Screen:" + calculator.screen);
+      console.log("Operand1:" + calculator.operand1);
+      console.log("Operand2:" + calculator.operand2);});
+
 document.addEventListener("keydown", function (event) {
+
   switch (event.key) {
     case "1":
       calculator.addNumber(1);
@@ -207,6 +203,13 @@ document.addEventListener("keydown", function (event) {
       console.log(event.key);
       break;
   }
+
+      console.log("Screen:" + calculator.screen);
+      console.log("Operand1:" + calculator.operand1);
+      console.log("Operand2:" + calculator.operand2);
+      console.log("Last Expression:" + calculator.lastOperand);
+      console.log("Memory:" + calculator.memory);
+      console.log("");
 });
 
 var calculator = new Calculator();
