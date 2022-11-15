@@ -1,21 +1,24 @@
 /*001*/
 body{
     background-color:rgb(255, 255, 255);
+    font: 16px Arial, sans-serif;
     color:rgb(0, 0, 0);
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
     grid-template-areas:
         'header'
         'main'
         'footer';
     gap: 0.5em 0.5em;
-    padding: 3em 35vw;    
+    padding: 3em 35%;    
 }
 
 main {
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
         'C CE +/- √ %'
         '7 8 9 X /'
@@ -31,7 +34,6 @@ h1{
     font: 2em Arial, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
-    color: #ff0000; 
 }
 
 header {
@@ -41,110 +43,141 @@ header {
     'titulo'
     'pantalla';
     grid-template-columns: 1fr;
+    background-color:rgb(207, 112, 255);
 }
 
 footer{
     grid-area: footer;
 }
 
+input[type=button] { 
+    font: 1.5em Arial, sans-serif;
+} 
+
 input[type=text] { 
     grid-area: pantalla;
-    grid-row: span 1;
+    font: 1.5em Arial, sans-serif;
+    background-color:rgb(255, 255, 255);
+    
 } 
 
 input[type=button][value="C"] { 
     grid-area: "C";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="CE"] { 
     grid-area: "CE";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="+/-"] { 
     grid-area: "+/-";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="√"] { 
     grid-area: "√";
+    background-color:rgb(140, 236, 255);
 }
 
 input[type=button][value="%"] { 
     grid-area: "%";
+    background-color:rgb(140, 236, 255);
 }
 
 input[type=button][value="7"] { 
     grid-area: "7";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="8"] { 
     grid-area: "8";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="9"] { 
     grid-area: "9";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="X"] { 
     grid-area: "X";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="/"] { 
     grid-area: "/";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="4"] { 
     grid-area: "4";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="5"] { 
     grid-area: "5";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="6"] { 
     grid-area: "6";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="-"] { 
     grid-area: "-";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="MRC"] { 
     grid-area: "MRC";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="1"] { 
     grid-area: "1";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="2"] { 
     grid-area: "2";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="3"] { 
     grid-area: "3";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="+"] { 
     grid-area: "+";
     grid-row: span 2 ;
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="M-"] { 
     grid-area: "M-"; 
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="0"] { 
     grid-area: "0";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="."] { 
     grid-area: "."; 
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="="] { 
     grid-area: "=";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="M+"] { 
     grid-area: "M+";
+    background-color:rgb(140, 236, 255);
 } 

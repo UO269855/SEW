@@ -18,8 +18,16 @@ class Calculator {
   }
 
   ce() {
-    this.screen = this.screen.toString().substring(0, this.screen.length - 1);
-    document.getElementById("resultado").value = this.screen.toString();
+    if (!document.getElementById("resultado").value == "") {
+      this.screen = this.screen
+        .toString()
+        .substring(
+          0,
+          this.screen.length -
+            document.getElementById("resultado").value.toString().length
+        );
+      document.getElementById("resultado").value = "";
+    }
   }
 
   changeSign() {
@@ -63,7 +71,6 @@ class Calculator {
       this.operand2 = Number(text + number);
     }
     this.screen = this.screen + number;
-
     document.getElementById("resultado").value = text + number;
   }
 
@@ -130,13 +137,36 @@ class Calculator {
   equals() {
     try {
       if (this.operand2.toString().includes("%")) {
-        var temp =
-          (this.operand1 *
-            this.operand2
-              .toString()
-              .substring(0, this.operand2.toString().length - 1)) /
-          100;
-        var operation = this.operand1 + this.lastOperand + temp;
+        switch (this.lastOperand) {
+          case "*":
+            var temp =
+              (this.operand1 *
+                this.operand2
+                  .toString()
+                  .substring(0, this.operand2.toString().length - 1)) /
+              100;
+            var operation = temp;
+            break;
+          case "/":
+            var temp =
+              (this.operand1 /
+                this.operand2
+                  .toString()
+                  .substring(0, this.operand2.toString().length - 1)) *
+              100;
+            var operation = temp;
+            break;
+          default:
+            var temp =
+              (this.operand1 *
+                this.operand2
+                  .toString()
+                  .substring(0, this.operand2.toString().length - 1)) /
+              100;
+            var operation = this.operand1 + this.lastOperand + temp;
+            break;
+        }
+        this.screen = eval(operation);
       } else {
         var operation =
           Number(this.operand1) + this.lastOperand + Number(this.operand2);
@@ -146,10 +176,10 @@ class Calculator {
       }
       this.operand1 = Number(this.screen);
     } catch (err) {
-      this.screen = "Error = " + err;
+      this.screen = "Syntax Error";
       alert(err);
     }
-    document.getElementById("resultado").value = this.screen.toString();
+    document.getElementById("resultado").value = this.screen;
   }
 }
 
@@ -157,6 +187,9 @@ document.addEventListener("click", function () {
   console.log("Screen:" + calculator.screen);
   console.log("Operand1:" + calculator.operand1);
   console.log("Operand2:" + calculator.operand2);
+  console.log("Last Expression:" + calculator.lastOperand);
+  console.log("Memory:" + calculator.memory);
+  console.log("");
 });
 
 document.addEventListener("keydown", function (event) {
