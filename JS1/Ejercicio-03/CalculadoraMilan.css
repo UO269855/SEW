@@ -5,28 +5,11 @@ body{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
-        'header '
+        'header'
         'main'
-        'footer ';
+        'footer';
     gap: 0.5em 0.5em;
-    padding: 2em 35vw;
-}
-
-/*001*/
-h1{
-    font: 2em Arial, sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #ff0000; 
-}
-
-header {
-    grid-area: header;
-
-}
-
-footer{
-    grid-area: footer;
+    padding: 3em 30vw;    
 }
 
 main {
@@ -41,8 +24,26 @@ main {
     gap: 0.5em 0.5em;
 }
 
+/*001*/
+h1{
+    font: 2em Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff0000; 
+}
+
+header {
+    grid-area: header;
+    grid-column: span 5;
+}
+
+footer{
+    grid-area: footer;
+}
+
 input[type=text] { 
     grid-area: "pantalla";
+    grid-column: span 5;
 } 
 
 input[type=button][value="C"] { 

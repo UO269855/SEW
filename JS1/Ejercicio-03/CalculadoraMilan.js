@@ -11,10 +11,14 @@ class Calculator {
   clearAll() {
     this.screen = "";
     document.getElementById("resultado").value = this.screen.toString();
+    this.screen = "";
+    this.operand1 = 0;
+    this.operand2 = 0;
+    this.lastOperand = "";
   }
 
   ce() {
-    this.screen = this.screen.substring(0, this.screen.length - 1);
+    this.screen = this.screen.toString().substring(0, this.screen.length - 1);
     document.getElementById("resultado").value = this.screen.toString();
   }
 
@@ -47,14 +51,15 @@ class Calculator {
   }
 
   porcentaje() {
-    var text = this.screen + "%";
+    var text = document.getElementById("resultado").value + "%";
     this.screen = text.toString();
+    this.operand2 = text;
     document.getElementById("resultado").value = this.screen.toString();
   }
 
   addNumber(number) {
     var text = document.getElementById("resultado").value;
-    if(this.lastOperand != ""){
+    if (this.lastOperand != "") {
       this.operand2 = Number(text + number);
     }
     this.screen = this.screen + number;
@@ -97,8 +102,6 @@ class Calculator {
   mminus() {
     try {
       this.memory = eval(this.memory + "-" + this.screen);
-      this.screen = this.memory.toString();
-      document.getElementById("resultado").value = this.screen.toString();
     } catch (err) {
       this.screen = "Error = " + err;
       this.memory = 0;
@@ -110,8 +113,6 @@ class Calculator {
   mplus() {
     try {
       this.memory = eval(this.memory + "+" + this.screen);
-      this.screen = this.memory.toString();
-      document.getElementById("resultado").value = this.screen.toString();
     } catch (err) {
       this.screen = "Error = " + err;
       this.memory = 0;
@@ -121,32 +122,44 @@ class Calculator {
   }
 
   point() {
-    var text = this.screen + ".";
-    this.screen = text.toString();
-    document.getElementById("resultado").value = this.screen.toString();
+    var text = document.getElementById("resultado").value;
+    this.screen = this.screen + ".";
+    document.getElementById("resultado").value = text + ".";
   }
 
   equals() {
     try {
-      var operation = this.operand1 + this.lastOperand + this.operand2;
-      this.screen = eval(operation);
+      if (this.operand2.toString().includes("%")) {
+        var temp =
+          (this.operand1 *
+            this.operand2
+              .toString()
+              .substring(0, this.operand2.toString().length - 1)) /
+          100;
+        var operation = this.operand1 + this.lastOperand + temp;
+      } else {
+        var operation =
+          Number(this.operand1) + this.lastOperand + Number(this.operand2);
+      }
+      if (this.lastOperand != "") {
+        this.screen = eval(operation);
+      }
       this.operand1 = Number(this.screen);
     } catch (err) {
       this.screen = "Error = " + err;
       alert(err);
     }
-
     document.getElementById("resultado").value = this.screen.toString();
   }
 }
 
-document.addEventListener("click", function(){    
-      console.log("Screen:" + calculator.screen);
-      console.log("Operand1:" + calculator.operand1);
-      console.log("Operand2:" + calculator.operand2);});
+document.addEventListener("click", function () {
+  console.log("Screen:" + calculator.screen);
+  console.log("Operand1:" + calculator.operand1);
+  console.log("Operand2:" + calculator.operand2);
+});
 
 document.addEventListener("keydown", function (event) {
-
   switch (event.key) {
     case "1":
       calculator.addNumber(1);
@@ -204,12 +217,12 @@ document.addEventListener("keydown", function (event) {
       break;
   }
 
-      console.log("Screen:" + calculator.screen);
-      console.log("Operand1:" + calculator.operand1);
-      console.log("Operand2:" + calculator.operand2);
-      console.log("Last Expression:" + calculator.lastOperand);
-      console.log("Memory:" + calculator.memory);
-      console.log("");
+  console.log("Screen:" + calculator.screen);
+  console.log("Operand1:" + calculator.operand1);
+  console.log("Operand2:" + calculator.operand2);
+  console.log("Last Expression:" + calculator.lastOperand);
+  console.log("Memory:" + calculator.memory);
+  console.log("");
 });
 
 var calculator = new Calculator();
