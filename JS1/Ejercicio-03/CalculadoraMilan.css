@@ -9,10 +9,11 @@ body{
         'main'
         'footer';
     gap: 0.5em 0.5em;
-    padding: 3em 30vw;    
+    padding: 3em 35vw;    
 }
 
 main {
+    grid-area: main;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
@@ -26,6 +27,7 @@ main {
 
 /*001*/
 h1{
+    grid-area: titulo;
     font: 2em Arial, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
@@ -34,7 +36,11 @@ h1{
 
 header {
     grid-area: header;
-    grid-column: span 5;
+    display: grid;
+    grid-template-areas:
+    'titulo'
+    'pantalla';
+    grid-template-columns: 1fr;
 }
 
 footer{
@@ -42,8 +48,8 @@ footer{
 }
 
 input[type=text] { 
-    grid-area: "pantalla";
-    grid-column: span 5;
+    grid-area: pantalla;
+    grid-row: span 1;
 } 
 
 input[type=button][value="C"] { 
