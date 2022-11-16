@@ -28,6 +28,11 @@ main {
     gap: 0.5em 0.5em;
 }
 
+header label{
+    grid-area: label;
+    font: 1.25em Arial, sans-serif;
+}
+
 /*001*/
 h1{
     grid-area: titulo;
@@ -41,9 +46,10 @@ header {
     display: grid;
     grid-template-areas:
     'titulo'
+    'label'
     'pantalla';
     grid-template-columns: 1fr;
-    background-color:rgb(207, 112, 255);
+    background-color:#e1aaff;
 }
 
 footer{

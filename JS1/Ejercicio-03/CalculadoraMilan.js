@@ -103,7 +103,11 @@ class Calculator {
   }
 
   mrc() {
+    document.getElementById("resultado").value = "";
     this.addNumber(this.memory);
+    if (this.lastOperand == "") {
+      this.screen = document.getElementById("resultado").value;
+    }
   }
 
   mminus() {
@@ -113,8 +117,6 @@ class Calculator {
       this.screen = "Error = " + err;
       this.memory = 0;
     }
-
-    this.screen = this.memory.toString();
   }
 
   mplus() {
@@ -124,8 +126,6 @@ class Calculator {
       this.screen = "Error = " + err;
       this.memory = 0;
     }
-
-    this.screen = this.memory.toString();
   }
 
   point() {
