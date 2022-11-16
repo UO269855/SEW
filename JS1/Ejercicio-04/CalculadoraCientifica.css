@@ -18,15 +18,17 @@ main {
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
+        'deg hyp f-e . .'
+        'mc mr m+ m- ms'
         'x^2 x^y sin cos tan'
         '√ 10x log exp mod'
         'shift CE C del /'
         'pi 7 8 9 X x'
         'n! 4 5 6 -'
-        '+/- 1 2 3 +'
-        '( ) 0 . = ';
+        'masmenos 1 2 3 +'
+        '( ) 0 point =';
     gap: 0.5em 0.5em;
 }
 
@@ -50,22 +52,10 @@ header {
     grid-area: header;
     display: grid;
     grid-template-columns: 1fr;
-    /* grid-template-areas:
-    'titulo titulo titulo titulo titulo'
-    'label label label label label'
-    'pantalla pantalla pantalla pantalla pantalla'
-    'deg hyp f-e f-e f-e'
-    'mc mr m+ m- ms'; */
     grid-template-areas:
     'titulo'
     'label'
     'pantalla'
-    'b b b'
-    'b'
-    'b'
-    'b'
-    'b'
-    'b'
     ;
     gap: 0.5em 0.5em;
     background-color:#e1aaff;
@@ -97,7 +87,7 @@ input[type=button][value="CE"] {
 } 
 
 input[type=button][value="+/-"] { 
-    grid-area: "+/-";
+    grid-area: "masmenos";
     background-color:rgb(140, 236, 255);
 } 
 
@@ -193,7 +183,7 @@ input[type=button][value="0"] {
 } 
 
 input[type=button][value="."] { 
-    grid-area: "."; 
+    grid-area: "point"; 
     background-color:rgb(246, 255, 144);
 } 
 
@@ -209,6 +199,8 @@ input[type=button][value="M+"] {
 
 input[type=button][value="DEG"] { 
     grid-area: "deg";
+    grid-row: 1;
+    grid-column: 1;
     background-color:rgb(140, 236, 255);
 } 
 
