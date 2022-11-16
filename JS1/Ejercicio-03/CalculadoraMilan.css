@@ -21,10 +21,10 @@ main {
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
         'C CE masmenos root percent'
-        '7 8 9 mul div'
-        '4 5 6 minus MRC'
-        '1 2 3 plus Mminus'
-        '0 point equals plus Mplus';
+        'seven eight nine mul div'
+        'four five six minus MRC'
+        'one two three plus Mminus'
+        'zero point equals plus Mplus';
     gap: 0.5em 0.5em;
 }
 
@@ -93,17 +93,17 @@ input[type=button][value="%"] {
 }
 
 input[type=button][value="7"] { 
-    grid-area: 7;
+    grid-area: seven;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="8"] { 
-    grid-area: 8;
+    grid-area: eight;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="9"] { 
-    grid-area: 9;
+    grid-area: nine;
     background-color:rgb(246, 255, 144);
 } 
 
@@ -118,17 +118,17 @@ input[type=button][value="/"] {
 } 
 
 input[type=button][value="4"] { 
-    grid-area: 4;
+    grid-area: four;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="5"] { 
-    grid-area: 5;
+    grid-area: five;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="6"] { 
-    grid-area: 6;
+    grid-area: six;
     background-color:rgb(246, 255, 144);
 } 
 
@@ -143,17 +143,17 @@ input[type=button][value="MRC"] {
 } 
 
 input[type=button][value="1"] { 
-    grid-area: 1;
+    grid-area: one;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="2"] { 
-    grid-area: 2;
+    grid-area: two;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="3"] { 
-    grid-area: 3;
+    grid-area: three;
     background-color:rgb(246, 255, 144);
 } 
 
@@ -169,7 +169,7 @@ input[type=button][value="M-"] {
 } 
 
 input[type=button][value="0"] { 
-    grid-area: 0;
+    grid-area: zero;
     background-color:rgb(246, 255, 144);
 } 
 
