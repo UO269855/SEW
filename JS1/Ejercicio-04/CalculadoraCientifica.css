@@ -1,143 +1,315 @@
 /*001*/
 body{
     background-color:rgb(255, 255, 255);
+    font: 16px Arial, sans-serif;
     color:rgb(0, 0, 0);
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
     grid-template-areas:
-        'header '
+        'header'
         'main'
-        'footer ';
+        'footer';
     gap: 0.5em 0.5em;
-    padding: 2em 35vw;
+    padding: 3em 35%;    
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        'x^2 x^y sin cos tan'
+        '√ 10x log exp mod'
+        'shift CE C del /'
+        'pi 7 8 9 X x'
+        'n! 4 5 6 -'
+        '+/- 1 2 3 +'
+        '( ) 0 . = ';
+    gap: 0.5em 0.5em;
+}
+
+header label{
+    grid-area: label;
+    font: 1.25em Arial, sans-serif;
 }
 
 /*001*/
 h1{
+    grid-area: titulo;
     font: 2em Arial, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
-    color: #ff0000; 
 }
 
+header button {
+    grid-area: b;
+}
 header {
     grid-area: header;
-
+    display: grid;
+    grid-template-columns: 1fr;
+    /* grid-template-areas:
+    'titulo titulo titulo titulo titulo'
+    'label label label label label'
+    'pantalla pantalla pantalla pantalla pantalla'
+    'deg hyp f-e f-e f-e'
+    'mc mr m+ m- ms'; */
+    grid-template-areas:
+    'titulo'
+    'label'
+    'pantalla'
+    'b b b'
+    'b'
+    'b'
+    'b'
+    'b'
+    'b'
+    ;
+    gap: 0.5em 0.5em;
+    background-color:#e1aaff;
 }
 
 footer{
     grid-area: footer;
 }
 
-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas:
-        'C CE +/- √ %'
-        '7 8 9 X /'
-        '4 5 6 - MRC'
-        '1 2 3 + M-'
-        '0 . = + M+';
-    gap: 0.5em 0.5em;
-}
+input[type=button] { 
+    font: 1.5em Arial, sans-serif;
+} 
 
 input[type=text] { 
-    grid-area: "pantalla";
+    grid-area: pantalla;
+    font: 1.5em Arial, sans-serif;
+    background-color:rgb(255, 255, 255);
+    
 } 
 
 input[type=button][value="C"] { 
     grid-area: "C";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="CE"] { 
     grid-area: "CE";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="+/-"] { 
     grid-area: "+/-";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="√"] { 
     grid-area: "√";
+    background-color:rgb(140, 236, 255);
 }
 
 input[type=button][value="%"] { 
     grid-area: "%";
+    background-color:rgb(140, 236, 255);
 }
 
 input[type=button][value="7"] { 
     grid-area: "7";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="8"] { 
     grid-area: "8";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="9"] { 
     grid-area: "9";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="X"] { 
     grid-area: "X";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="/"] { 
     grid-area: "/";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="4"] { 
     grid-area: "4";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="5"] { 
     grid-area: "5";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="6"] { 
     grid-area: "6";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="-"] { 
     grid-area: "-";
+    background-color:rgb(140, 236, 255);
 } 
 
-input[type=button][value="MRC"] { 
-    grid-area: "MRC";
+input[type=button][value="MR"] { 
+    grid-area: "mr";
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="1"] { 
     grid-area: "1";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="2"] { 
     grid-area: "2";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="3"] { 
     grid-area: "3";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="+"] { 
     grid-area: "+";
     grid-row: span 2 ;
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="M-"] { 
-    grid-area: "M-"; 
+    grid-area: "m-"; 
+    background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="0"] { 
     grid-area: "0";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="."] { 
     grid-area: "."; 
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="="] { 
     grid-area: "=";
+    background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="M+"] { 
-    grid-area: "M+";
+    grid-area: "m+";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="DEG"] { 
+    grid-area: "deg";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="HYP"] { 
+    grid-area: "hyp";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="F-E"] { 
+    grid-area: "f-e";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="MC"] { 
+    grid-area: "mc";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="MS"] { 
+    grid-area: "ms";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="x^2"] { 
+    grid-area: "x^2";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="x^y"] { 
+    grid-area: "x^y";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="sin"] { 
+    grid-area: "sin";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="cos"] { 
+    grid-area: "cos";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="tan"] { 
+    grid-area: "tan";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="√"] { 
+    grid-area: "√";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="10^x"] { 
+    grid-area: "10x";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="log"] { 
+    grid-area: "log";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="Exp"] { 
+    grid-area: "exp";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="Mod"] { 
+    grid-area: "mod";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="↑"] { 
+    grid-area: "shift";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="Del"] { 
+    grid-area: "del";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="pi"] { 
+    grid-area: "pi";
+    background-color:rgb(140, 236, 255);
+} 
+
+input[type=button][value="n!"] { 
+    grid-area: "n!";
+    background-color:rgb(140, 236, 255);
+} 
+
+
+input[type=button][value="("] { 
+    grid-area: "(";
+    background-color:rgb(140, 236, 255);
+} 
+
+
+input[type=button][value=")"] { 
+    grid-area: ")";
+    background-color:rgb(140, 236, 255);
 } 

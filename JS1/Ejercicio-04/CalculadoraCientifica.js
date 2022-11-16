@@ -2,32 +2,39 @@
 class Calculator {
   constructor() {
     this.screen = "";
+    this.operand1 = 0;
+    this.operand2 = 0;
+    this.lastOperand = "";
     this.memory = 0;
-    this.pressed = false;
   }
 
   clearAll() {
-    this.pressed = false;
-    var text = "";
-    this.screen = text;
+    this.screen = "";
     document.getElementById("resultado").value = this.screen.toString();
+    this.screen = "";
+    this.operand1 = 0;
+    this.operand2 = 0;
+    this.lastOperand = "";
   }
 
   ce() {
-    this.pressed = false;
-    console.log();
-    var text = this.screen.substring(0, this.screen.length - 1);
-    this.screen = text;
-    document.getElementById("resultado").value = this.screen.toString();
+    if (!document.getElementById("resultado").value == "") {
+      this.screen = this.screen
+        .toString()
+        .substring(
+          0,
+          this.screen.length -
+            document.getElementById("resultado").value.toString().length
+        );
+      document.getElementById("resultado").value = "";
+    }
   }
 
   changeSign() {
-    this.pressed = false;
     try {
       this.screen = eval(
         document.getElementById("resultado").value + "*-1"
       ).toString();
-      document.getElementById("resultado").value = this.screen.toString();
     } catch (err) {
       this.screen = "Error = " + err;
       alert(err);
@@ -37,7 +44,6 @@ class Calculator {
   }
 
   raiz() {
-    this.pressed = false;
     try {
       this.screen = Math.sqrt(
         eval(document.getElementById("resultado").value)
@@ -53,104 +59,127 @@ class Calculator {
   }
 
   porcentaje() {
-    this.pressed = false;
-    var text = this.screen + "%";
+    var text = document.getElementById("resultado").value + "%";
     this.screen = text.toString();
+    this.operand2 = text;
     document.getElementById("resultado").value = this.screen.toString();
   }
 
   addNumber(number) {
-    this.pressed = false;
-    var text = this.screen + number;
-    this.screen = text.toString();
-    document.getElementById("resultado").value = this.screen.toString();
+    var text = document.getElementById("resultado").value;
+    if (this.lastOperand != "") {
+      this.operand2 = Number(text + number);
+    }
+    this.screen = this.screen + number;
+    document.getElementById("resultado").value = text + number;
   }
 
   multiply() {
-    this.pressed = false;
-    var text = this.screen + "*";
-    this.screen = text.toString();
-    document.getElementById("resultado").value = this.screen.toString();
+    this.operand1 = Number(eval(this.screen));
+    this.screen = this.operand1 + "*";
+    this.lastOperand = "*";
+    document.getElementById("resultado").value = "";
   }
 
   divide() {
-    this.pressed = false;
-    var text = this.screen + "/";
-    this.screen = text.toString();
-    document.getElementById("resultado").value = this.screen.toString();
+    this.operand1 = Number(eval(this.screen));
+    this.screen = this.operand1 + "/";
+    this.lastOperand = "/";
+    document.getElementById("resultado").value = "";
   }
 
   substract() {
-    this.pressed = false;
-    var text = this.screen + "-";
-    this.screen = text.toString();
-    document.getElementById("resultado").value = this.screen.toString();
+    this.operand1 = Number(eval(this.screen));
+    this.screen = this.operand1 + "-";
+    this.lastOperand = "-";
+    document.getElementById("resultado").value = "";
   }
 
   add() {
-    this.pressed = false;
-    var text = this.screen + "+";
-    this.screen = text.toString();
-    document.getElementById("resultado").value = this.screen.toString();
+    this.operand1 = Number(eval(this.screen));
+    this.screen = this.operand1 + "+";
+    this.lastOperand = "+";
+    document.getElementById("resultado").value = "";
   }
 
   mrc() {
-    if (this.pressed) {
-      this.memory = 0;
-      this.screen = this.memory.toString();
-      this.pressed = false;
-    } else {
-      this.screen = this.memory.toString();
-      document.getElementById("resultado").value = this.memory.toString();
-      this.pressed = true;
+    document.getElementById("resultado").value = "";
+    this.addNumber(this.memory);
+    if (this.lastOperand == "") {
+      this.screen = document.getElementById("resultado").value;
     }
   }
 
   mminus() {
-    this.pressed = false;
     try {
       this.memory = eval(this.memory + "-" + this.screen);
-      this.screen = this.memory.toString();
-      document.getElementById("resultado").value = this.screen.toString();
     } catch (err) {
       this.screen = "Error = " + err;
       this.memory = 0;
     }
-
-    this.screen = this.memory.toString();
   }
 
   mplus() {
-    this.pressed = false;
     try {
       this.memory = eval(this.memory + "+" + this.screen);
-      this.screen = this.memory.toString();
-      document.getElementById("resultado").value = this.screen.toString();
     } catch (err) {
       this.screen = "Error = " + err;
       this.memory = 0;
     }
-
-    this.screen = this.memory.toString();
   }
 
   point() {
-    this.pressed = false;
-    var text = this.screen + ".";
-    this.screen = text.toString();
-    document.getElementById("resultado").value = this.screen.toString();
+    var text = document.getElementById("resultado").value;
+    this.screen = this.screen + ".";
+    document.getElementById("resultado").value = text + ".";
   }
 
   equals() {
-    this.pressed = false;
     try {
-      this.screen = eval(document.getElementById("resultado").value).toString();
+      if (this.operand2.toString().includes("%")) {
+        switch (this.lastOperand) {
+          case "*":
+            var temp =
+              (this.operand1 *
+                this.operand2
+                  .toString()
+                  .substring(0, this.operand2.toString().length - 1)) /
+              100;
+            var operation = temp;
+            break;
+          case "/":
+            var temp =
+              (this.operand1 /
+                this.operand2
+                  .toString()
+                  .substring(0, this.operand2.toString().length - 1)) *
+              100;
+            var operation = temp;
+            break;
+          default:
+            var temp =
+              (this.operand1 *
+                this.operand2
+                  .toString()
+                  .substring(0, this.operand2.toString().length - 1)) /
+              100;
+            var operation = this.operand1 + this.lastOperand + temp;
+            break;
+        }
+        this.screen = eval(operation);
+      } else {
+        var operation =
+          Number(this.operand1) + this.lastOperand + Number(this.operand2);
+      }
+      if (this.lastOperand != "") {
+        this.screen = eval(operation);
+      }
+      this.operand1 = Number(this.screen);
     } catch (err) {
-      this.screen = "Error = " + err;
+      this.screen = "Syntax Error";
       alert(err);
     }
-
-    document.getElementById("resultado").value = this.screen.toString();
+    document.getElementById("resultado").value = this.screen;
   }
 }
 
