@@ -18,17 +18,16 @@ main {
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        'deg hyp f-e . .'
-        'mc mr m+ m- ms'
-        'x^2 x^y sin cos tan'
-        '√ 10x log exp mod'
-        'shift CE C del /'
-        'pi 7 8 9 X x'
-        'n! 4 5 6 -'
-        'masmenos 1 2 3 +'
-        '( ) 0 point =';
+        'deg hyp fe . .'
+        'mc mr Mplus Mminus ms'
+        'pow2 pow sin cos tan'
+        'root pow10 log exp mod'
+        'shift CE C del div'
+        'pi seven eight nine mul'
+        'fact four five six minus'
+        'masmenos one two three plus'
+        'leftpar rightpar zero point equals';
     gap: 0.5em 0.5em;
 }
 
@@ -77,231 +76,223 @@ input[type=text] {
 } 
 
 input[type=button][value="C"] { 
-    grid-area: "C";
+    grid-area: C;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="CE"] { 
-    grid-area: "CE";
+    grid-area: CE;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="+/-"] { 
-    grid-area: "masmenos";
+    grid-area: masmenos;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="√"] { 
-    grid-area: "√";
+    grid-area: root;
     background-color:rgb(140, 236, 255);
 }
 
 input[type=button][value="%"] { 
-    grid-area: "%";
+    grid-area: percent;
     background-color:rgb(140, 236, 255);
 }
 
 input[type=button][value="7"] { 
-    grid-area: "7";
+    grid-area: seven;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="8"] { 
-    grid-area: "8";
+    grid-area: eight;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="9"] { 
-    grid-area: "9";
+    grid-area: nine;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="X"] { 
-    grid-area: "X";
+    grid-area: mul;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="/"] { 
-    grid-area: "/";
+    grid-area: div;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="4"] { 
-    grid-area: "4";
+    grid-area: four;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="5"] { 
-    grid-area: "5";
+    grid-area: five;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="6"] { 
-    grid-area: "6";
+    grid-area: six;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="-"] { 
-    grid-area: "-";
+    grid-area: minus;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="MR"] { 
-    grid-area: "mr";
+    grid-area: mr;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="1"] { 
-    grid-area: "1";
+    grid-area: one;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="2"] { 
-    grid-area: "2";
+    grid-area: two;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="3"] { 
-    grid-area: "3";
+    grid-area: three;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="+"] { 
-    grid-area: "+";
-    grid-row: span 2 ;
+    grid-area: plus;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="M-"] { 
-    grid-area: "m-"; 
+    grid-area: Mminus; 
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="0"] { 
-    grid-area: "0";
+    grid-area: zero;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="."] { 
-    grid-area: "point"; 
+    grid-area: point; 
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="="] { 
-    grid-area: "=";
+    grid-area: equals;
     background-color:rgb(246, 255, 144);
 } 
 
 input[type=button][value="M+"] { 
-    grid-area: "m+";
+    grid-area: Mplus;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="DEG"] { 
-    grid-area: "deg";
-    grid-row: 1;
-    grid-column: 1;
+    grid-area: deg;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="HYP"] { 
-    grid-area: "hyp";
+    grid-area: hyp;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="F-E"] { 
-    grid-area: "f-e";
+    grid-area: fe;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="MC"] { 
-    grid-area: "mc";
+    grid-area: mc;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="MS"] { 
-    grid-area: "ms";
+    grid-area: ms;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="x^2"] { 
-    grid-area: "x^2";
+    grid-area: pow2;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="x^y"] { 
-    grid-area: "x^y";
+    grid-area: pow;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="sin"] { 
-    grid-area: "sin";
+    grid-area: sin;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="cos"] { 
-    grid-area: "cos";
+    grid-area: cos;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="tan"] { 
-    grid-area: "tan";
-    background-color:rgb(140, 236, 255);
-} 
-
-input[type=button][value="√"] { 
-    grid-area: "√";
+    grid-area: tan;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="10^x"] { 
-    grid-area: "10x";
+    grid-area: pow10;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="log"] { 
-    grid-area: "log";
+    grid-area: log;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="Exp"] { 
-    grid-area: "exp";
+    grid-area: exp;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="Mod"] { 
-    grid-area: "mod";
+    grid-area: mod;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="↑"] { 
-    grid-area: "shift";
+    grid-area: shift;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="Del"] { 
-    grid-area: "del";
+    grid-area: del;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="pi"] { 
-    grid-area: "pi";
+    grid-area: pi;
     background-color:rgb(140, 236, 255);
 } 
 
 input[type=button][value="n!"] { 
-    grid-area: "n!";
+    grid-area: fact;
     background-color:rgb(140, 236, 255);
 } 
 
 
 input[type=button][value="("] { 
-    grid-area: "(";
+    grid-area: leftpar;
     background-color:rgb(140, 236, 255);
 } 
 
 
 input[type=button][value=")"] { 
-    grid-area: ")";
+    grid-area: rightpar;
     background-color:rgb(140, 236, 255);
 } 
