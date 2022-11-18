@@ -186,9 +186,19 @@ class Calculator {
 class ScientificCalculator extends Calculator {
   constructor() {
     super();
+    this.measure = "deg";
   }
-
-  deg() {}
+measure() {
+    if(measure == "deg"){
+      measure = "rad";
+    }
+    else if (measure == "rad"){
+      measure = "grad";
+    }
+    else if (measure == "grad"){
+       measure = "deg";
+    }
+  }
 
   hyp() {}
 
@@ -224,15 +234,22 @@ class ScientificCalculator extends Calculator {
   }
 
   sin() {
-    if (this.lastOperand == "shift") {
-      this.operand1 = Math.asin(Number(this.screen));
-      this.screen = this.operand1;
-      document.getElementById("resultado").value = this.screen;
-    } else {
-      this.operand1 = Math.sin(Number(this.screen));
-      this.screen = this.operand1;
-      document.getElementById("resultado").value = this.screen;
+    switch(this.measure) {
+      case "deg":
+        if (this.lastOperand == "shift") {
+          this.operand1 = Math.asin(Number(this.screen)*(180/Math.pi));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else {
+          this.operand1 = Math.sin(Number(this.screen));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        }
+        break;
+      default:
+        break;
     }
+
   }
 
   cos() {
