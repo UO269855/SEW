@@ -183,60 +183,208 @@ class Calculator {
   }
 }
 
-class ScientificCalculator extends Calculator {}
+class ScientificCalculator extends Calculator {
+  constructor() {
+    super();
+  }
+
+  deg() {}
+
+  hyp() {}
+
+  fe() {}
+
+  mc() {}
+
+  mr() {}
+
+  mplus() {
+    super.mplus();
+  }
+
+  mminus() {
+    super.mminus();
+  }
+
+  ms() {}
+
+  pow2() {
+    this.operand1 = Math.pow(Number(this.screen), 2);
+    this.screen = this.operand1;
+    this.lastOperand = "^";
+    this.operand2 = 2;
+    document.getElementById("resultado").value = this.screen;
+  }
+
+  pow() {
+    this.operand1 = Number(this.screen);
+    this.screen = this.operand1 + "^";
+    this.lastOperand = "^";
+    document.getElementById("resultado").value = "^";
+  }
+
+  sin() {
+    if (this.lastOperand == "shift") {
+      this.operand1 = Math.asin(Number(this.screen));
+      this.screen = this.operand1;
+      document.getElementById("resultado").value = this.screen;
+    } else {
+      this.operand1 = Math.sin(Number(this.screen));
+      this.screen = this.operand1;
+      document.getElementById("resultado").value = this.screen;
+    }
+  }
+
+  cos() {
+    if (this.lastOperand == "shift") {
+      this.operand1 = Math.acos(Number(this.screen));
+      this.screen = this.operand1;
+      document.getElementById("resultado").value = this.screen;
+    } else {
+      this.operand1 = Math.cos(Number(this.screen));
+      this.screen = this.operand1;
+      document.getElementById("resultado").value = this.screen;
+    }
+  }
+
+  tan() {
+    if (this.lastOperand == "shift") {
+      this.operand1 = Math.atan(Number(this.screen));
+      this.screen = this.operand1;
+      document.getElementById("resultado").value = this.screen;
+    } else {
+      this.operand1 = Math.tan(Number(this.screen));
+      this.screen = this.operand1;
+      document.getElementById("resultado").value = this.screen;
+    }
+  }
+
+  sqrt() {
+    super.sqrt();
+  }
+
+  ce() {
+    super.ce();
+  }
+
+  c() {
+    super.clearAll();
+  }
+
+  del() {
+    this.screen = this.screen.toString().substring(0, this.screen.length - 1);
+    document.getElementById("resultado").value = this.screen;
+  }
+
+  divide() {
+    super.divide();
+  }
+
+  pi() {
+    super.addNumber(Math.PI);
+  }
+
+  addNumber(number) {
+    super.addNumber(number);
+  }
+
+  multiply() {
+    super.multiply();
+  }
+
+  fact() {
+    var value = 1;
+    for (var i = 1; i <= this.operand1; i++) {
+      this.value * i;
+    }
+    this.operand1 = value;
+    this.screen = this.operand1;
+    document.getElementById("resultado").value = this.screen;
+  }
+
+  substract() {
+    super.substract();
+  }
+
+  changeSign() {
+    super.changeSign();
+  }
+
+  add() {
+    super.add();
+  }
+
+  leftPar() {
+    this.screen = this.screen + "(";
+    document.getElementById("resultado").value = this.screen;
+  }
+
+  rightPar() {
+    this.screen = this.screen + ")";
+    document.getElementById("resultado").value = this.screen;
+  }
+
+  point() {
+    super.point();
+  }
+
+  equals() {
+    super.equals();
+  }
+}
 
 document.addEventListener("keydown", function (event) {
   switch (event.key) {
     case "1":
-      calculadora.addNumber(1);
+      scientificCalculator.addNumber(1);
       break;
     case "2":
-      calculadora.addNumber(2);
+      scientificCalculator.addNumber(2);
       break;
     case "3":
-      calculadora.addNumber(3);
+      scientificCalculator.addNumber(3);
       break;
     case "4":
-      calculadora.addNumber(4);
+      scientificCalculator.addNumber(4);
       break;
     case "5":
-      calculadora.addNumber(5);
+      scientificCalculator.addNumber(5);
       break;
     case "6":
-      calculadora.addNumber(6);
+      scientificCalculator.addNumber(6);
       break;
     case "7":
-      calculadora.addNumber(7);
+      scientificCalculator.addNumber(7);
       break;
     case "8":
-      calculadora.addNumber(8);
+      scientificCalculator.addNumber(8);
       break;
     case "9":
-      calculadora.addNumber(9);
+      scientificCalculator.addNumber(9);
       break;
     case "0":
-      calculadora.addNumber(0);
+      scientificCalculator.addNumber(0);
       break;
     case "+":
-      calculadora.add();
+      scientificCalculator.add();
       break;
     case "-":
-      calculadora.substract();
+      scientificCalculator.substract();
       break;
     case "*":
-      calculadora.multiply();
+      scientificCalculator.multiply();
       break;
     case "/":
-      calculadora.divide();
+      scientificCalculator.divide();
       break;
     case "%":
-      calculadora.porcentaje();
+      scientificCalculator.porcentaje();
       break;
     case ".":
-      calculadora.point();
+      scientificCalculator.point();
       break;
     case "Enter":
-      calculadora.equals();
+      scientificCalculator.equals();
       break;
     default:
       console.log(event.key);

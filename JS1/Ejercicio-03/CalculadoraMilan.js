@@ -75,7 +75,7 @@ class Calculator {
   }
 
   multiply() {
-    this.operand1 = Number(eval(this.screen));
+    this.operand1 = Number(this.screen);
     this.screen = this.operand1 + "*";
     this.lastOperand = "*";
     document.getElementById("resultado").value = "";
