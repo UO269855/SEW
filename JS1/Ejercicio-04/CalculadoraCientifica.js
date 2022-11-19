@@ -139,42 +139,84 @@ class Calculator {
       if (this.operand2.toString().includes("%")) {
         switch (this.lastOperand) {
           case "*":
-            var temp =
-              (this.operand1 *
+            var operation =
+              Number(this.operand1) *
+              Number(
                 this.operand2
                   .toString()
-                  .substring(0, this.operand2.toString().length - 1)) /
-              100;
-            var operation = temp;
+                  .substring(0, this.operand2.toString().length - 1) / 100
+              );
+            this.screen = operation;
+            this.operand1 = Number(this.screen);
             break;
           case "/":
-            var temp =
-              (this.operand1 /
+            var operation =
+              Number(this.operand1) /
+              Number(
                 this.operand2
                   .toString()
-                  .substring(0, this.operand2.toString().length - 1)) *
-              100;
-            var operation = temp;
+                  .substring(0, this.operand2.toString().length - 1) / 100
+              );
+            this.screen = operation;
+            this.operand1 = Number(this.screen);
+            break;
+          case "+":
+            var value =
+              Number(this.operand1) *
+              Number(
+                this.operand2
+                  .toString()
+                  .substring(0, this.operand2.toString().length - 1) / 100
+              );
+
+            var operation = Number(this.operand1) + value;
+            this.screen = operation;
+            this.operand1 = Number(this.screen);
+            break;
+          case "-":
+            var value =
+              Number(this.operand1) *
+              Number(
+                this.operand2
+                  .toString()
+                  .substring(0, this.operand2.toString().length - 1) / 100
+              );
+
+            var operation = Number(this.operand1) - value;
+            this.screen = operation;
+            this.operand1 = Number(this.screen);
             break;
           default:
-            var temp =
-              (this.operand1 *
-                this.operand2
-                  .toString()
-                  .substring(0, this.operand2.toString().length - 1)) /
-              100;
-            var operation = this.operand1 + this.lastOperand + temp;
             break;
         }
         this.screen = eval(operation);
+        this.operand1 = Number(this.screen);
       } else {
-        var operation =
-          Number(this.operand1) + this.lastOperand + Number(this.operand2);
+        switch (this.lastOperand) {
+          case "+":
+            var operation = Number(this.operand1) + Number(this.operand2);
+            this.screen = eval(operation);
+            this.operand1 = Number(this.screen);
+            break;
+          case "-":
+            var operation = Number(this.operand1) - Number(this.operand2);
+            this.screen = eval(operation);
+            this.operand1 = Number(this.screen);
+            break;
+          case "*":
+            var operation = Number(this.operand1) * Number(this.operand2);
+            this.screen = eval(operation);
+            this.operand1 = Number(this.screen);
+            break;
+          case "/":
+            var operation = Number(this.operand1) / Number(this.operand2);
+            this.screen = eval(operation);
+            this.operand1 = Number(this.screen);
+            break;
+          default:
+            break;
+        }
       }
-      if (this.lastOperand != "") {
-        this.screen = eval(operation);
-      }
-      this.operand1 = Number(this.screen);
     } catch (err) {
       this.screen = "Syntax Error";
       alert(err);
@@ -186,40 +228,110 @@ class Calculator {
 class ScientificCalculator extends Calculator {
   constructor() {
     super();
-    this.measure = "deg";
+    this.measure = "DEG";
+    this.shiftPressed = false;
+    this.hyperPressed = false;
+    this.memory = [];
   }
-measure() {
-    if(measure == "deg"){
-      measure = "rad";
-    }
-    else if (measure == "rad"){
-      measure = "grad";
-    }
-    else if (measure == "grad"){
-       measure = "deg";
+
+  swapMeasure() {
+    var measureButton;
+    if (this.measure == "DEG") {
+      measureButton = document.querySelector(
+        'input[type="button"][value*="DEG "]'
+      );
+      measureButton.value = "RAD ";
+      this.measure = "RAD";
+    } else if (this.measure == "RAD") {
+      measureButton = document.querySelector(
+        'input[type="button"][value*="RAD "]'
+      );
+      measureButton.value = "GRAD";
+      this.measure = "GRAD";
+    } else if (this.measure == "GRAD") {
+      measureButton = document.querySelector(
+        'input[type="button"][value*="GRAD"]'
+      );
+      measureButton.value = "DEG ";
+      this.measure = "DEG";
     }
   }
 
-  hyp() {}
+  hyp() {
+    this.hyperPressed = !this.hyperPressed;
+    if (this.hyperPressed && !this.shiftPressed) {
+      var button = document.querySelector('input[type="button"][value*=sin]');
+      button.value = "sinh";
+
+      var button = document.querySelector('input[type="button"][value*=cos]');
+      button.value = "cosh";
+
+      var button = document.querySelector('input[type="button"][value*=tan]');
+      button.value = "tanh";
+    } else if (this.hyperPressed && this.shiftPressed) {
+      var button = document.querySelector('input[type="button"][value*=sin]');
+      button.value = "asinh";
+
+      var button = document.querySelector('input[type="button"][value*=cos]');
+      button.value = "acosh";
+
+      var button = document.querySelector('input[type="button"][value*=tan]');
+      button.value = "atanh";
+    } else if (!this.hyperPressed && this.shiftPressed) {
+      var button = document.querySelector('input[type="button"][value*=sin]');
+      button.value = "asin";
+
+      var button = document.querySelector('input[type="button"][value*=cos]');
+      button.value = "acos";
+
+      var button = document.querySelector('input[type="button"][value*=tan]');
+      button.value = "atan";
+    } else {
+      var button = document.querySelector('input[type="button"][value*=sin]');
+      button.value = "sin";
+
+      var button = document.querySelector('input[type="button"][value*=cos]');
+      button.value = "cos";
+
+      var button = document.querySelector('input[type="button"][value*=tan]');
+      button.value = "tan";
+    }
+  }
 
   fe() {}
 
-  mc() {}
+  mc() {
+    this.memory = [];
+  }
 
-  mr() {}
+  mr() {
+    super.addNumber(this.memory[this.memory.length - 1]);
+  }
 
   mplus() {
-    super.mplus();
+    var value = this.memory.pop() + Number(this.screen);
+    this.memory.push(value);
   }
 
   mminus() {
-    super.mminus();
+    var value = this.memory.pop() - Number(this.screen);
+    this.memory.push(value);
   }
 
-  ms() {}
+  ms() {
+    this.memory.push(Number(this.screen));
+  }
 
   pow2() {
     this.operand1 = Math.pow(Number(this.screen), 2);
+    this.screen = this.operand1;
+    this.lastOperand = "^";
+    this.operand2 = 2;
+    document.getElementById("resultado").value = this.screen;
+  }
+
+  pow3() {
+    this.operand1 = Math.pow(Number(this.screen), 3);
     this.screen = this.operand1;
     this.lastOperand = "^";
     this.operand2 = 2;
@@ -230,14 +342,50 @@ measure() {
     this.operand1 = Number(this.screen);
     this.screen = this.operand1 + "^";
     this.lastOperand = "^";
-    document.getElementById("resultado").value = "^";
+    document.getElementById("resultado").value = "";
+  }
+
+  root() {
+    this.operand1 = Number(this.screen);
+    this.screen = this.operand1 + "√";
+    this.lastOperand = "√";
+    document.getElementById("resultado").value = "";
   }
 
   sin() {
-    switch(this.measure) {
-      case "deg":
-        if (this.lastOperand == "shift") {
-          this.operand1 = Math.asin(Number(this.screen)*(180/Math.pi));
+    switch (this.measure) {
+      case "DEG":
+        if (this.shiftPressed && !this.hyperPressed) {
+          this.operand1 = Math.asin(Number(this.screen) * (Math.PI / 180));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (!this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.sinh(Number(this.screen) * (Math.PI / 180));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.asinh(Number(this.screen) * (Math.PI / 180));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else {
+          this.operand1 = Math.sin(
+            Number(Number(this.screen) * Number(Math.PI / 180))
+          );
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        }
+        break;
+      case "RAD":
+        if (this.shiftPressed && !this.hyperPressed) {
+          this.operand1 = Math.asin(Number(this.screen));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (!this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.sinh(Number(this.screen));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.asinh(Number(this.screen));
           this.screen = this.operand1;
           document.getElementById("resultado").value = this.screen;
         } else {
@@ -246,33 +394,300 @@ measure() {
           document.getElementById("resultado").value = this.screen;
         }
         break;
+      case "GRAD":
+        if (this.shiftPressed && !this.hyperPressed) {
+          this.operand1 = Math.asin(Number(this.screen) * (Math.PI / 200));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (!this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.sinh(Number(this.screen) * (Math.PI / 200));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.asinh(Number(this.screen) * (Math.PI / 200));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else {
+          this.operand1 = Math.sin(Number(this.screen) * (Math.PI / 200));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        }
+        break;
       default:
         break;
     }
-
   }
 
   cos() {
-    if (this.lastOperand == "shift") {
-      this.operand1 = Math.acos(Number(this.screen));
-      this.screen = this.operand1;
-      document.getElementById("resultado").value = this.screen;
-    } else {
-      this.operand1 = Math.cos(Number(this.screen));
-      this.screen = this.operand1;
-      document.getElementById("resultado").value = this.screen;
+    switch (this.measure) {
+      case "DEG":
+        if (this.shiftPressed && !this.hyperPressed) {
+          this.operand1 = Math.acos(Number(this.screen) * (Math.PI / 180));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (!this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.cosh(Number(this.screen) * (Math.PI / 180));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.acosh(Number(this.screen) * (Math.PI / 180));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else {
+          this.operand1 = Math.cos(Number(this.screen) * (Math.PI / 180));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+          console.log("coseno");
+        }
+        break;
+      case "RAD":
+        if (this.shiftPressed && !this.hyperPressed) {
+          this.operand1 = Math.acos(Number(this.screen));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (!this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.cosh(Number(this.screen));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.acosh(Number(this.screen));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else {
+          this.operand1 = Math.cos(Number(this.screen));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        }
+        break;
+      case "GRAD":
+        if (this.shiftPressed && !this.hyperPressed) {
+          this.operand1 = Math.acos(Number(this.screen) * (Math.PI / 200));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (!this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.cosh(Number(this.screen) * (Math.PI / 200));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.acosh(Number(this.screen) * (Math.PI / 200));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else {
+          this.operand1 = Math.cos(Number(this.screen) * (Math.PI / 200));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        }
+        break;
+      default:
+        break;
     }
   }
 
   tan() {
-    if (this.lastOperand == "shift") {
-      this.operand1 = Math.atan(Number(this.screen));
-      this.screen = this.operand1;
-      document.getElementById("resultado").value = this.screen;
+    switch (this.measure) {
+      case "DEG":
+        if (this.shiftPressed && !this.hyperPressed) {
+          this.operand1 = Math.atan(Number(this.screen) * (Math.PI / 180));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (!this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.tanh(Number(this.screen) * (Math.PI / 180));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.atanh(Number(this.screen) * (Math.PI / 180));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else {
+          this.operand1 = Math.tan(Number(this.screen) * (Math.PI / 180));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        }
+        break;
+      case "RAD":
+        if (this.shiftPressed && !this.hyperPressed) {
+          this.operand1 = Math.atan(Number(this.screen));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (!this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.tanh(Number(this.screen));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.atanh(Number(this.screen));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else {
+          this.operand1 = Math.tan(Number(this.screen));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        }
+        break;
+      case "GRAD":
+        if (this.shiftPressed && !this.hyperPressed) {
+          this.operand1 = Math.atan(Number(this.screen) * (Math.PI / 200));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (!this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.tanh(Number(this.screen) * (Math.PI / 200));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else if (this.shiftPressed && this.hyperPressed) {
+          this.operand1 = Math.atanh(Number(this.screen) * (Math.PI / 200));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        } else {
+          this.operand1 = Math.tan(Number(this.screen) * (Math.PI / 200));
+          this.screen = this.operand1;
+          document.getElementById("resultado").value = this.screen;
+        }
+        break;
+      default:
+        break;
+    }
+  }
+
+  pow10() {
+    this.operand1 = 10;
+    this.operand2 = Math.pow(this.operand1, Number(this.screen));
+    console.log(Math.pow(this.operand1, Number(this.screen)));
+    this.screen = this.operand2;
+    this.lastOperand = "^";
+    document.getElementById("resultado").value = this.screen;
+  }
+
+  powe() {
+    this.operand1 = Math.E;
+    this.operand2 = Math.pow(operand1, Number(this.screen));
+    this.screen = this.operand2;
+    this.lastOperand = "^";
+    document.getElementById("resultado").value = this.screen;
+  }
+
+  log() {
+    this.operand2 = Math.log10(Number(this.screen));
+    this.screen = this.operand1;
+    this.operand1 = 10;
+    document.getElementById("resultado").value = this.screen;
+  }
+
+  ln() {
+    this.operand1 = Math.log(Number(this.screen));
+    this.screen = this.operand1;
+    document.getElementById("resultado").value = this.screen;
+  }
+
+  inverse() {
+    this.operand1 = 1 - Number(this.screen);
+    this.screen = this.operand1;
+    document.getElementById("resultado").value = this.screen;
+  }
+
+  dms() {
+    this.operand1 = Math.dms(Number(this.screen));
+    this.screen = this.operand1;
+    document.getElementById("resultado").value = this.screen;
+  }
+
+  deg() {}
+
+  exp() {}
+
+  shift() {
+    this.shiftPressed = !this.shiftPressed;
+    var button;
+    if (this.shiftPressed && !this.hyperPressed) {
+      button = document.querySelector('input[type="button"][value*="sin"]');
+      button.value = "asin";
+
+      button = document.querySelector('input[type="button"][value*="cos"]');
+      button.value = "acos";
+
+      button = document.querySelector('input[type="button"][value*="tan"]');
+      button.value = "atan";
+
+      button = document.querySelector('input[type="button"][value="x^2"]');
+      button.value = "x^3";
+      button.onclick = "scientificCalculator.pow3()";
+
+      button = document.querySelector('input[type="button"][value="x^y"]');
+      button.value = "x√y";
+      button.onclick = "scientificCalculator.root()";
+
+      button = document.querySelector('input[type="button"][value="√"]');
+      button.value = "1/x";
+      button.onclick = "scientificCalculator.inverse()";
+
+      button = document.querySelector('input[type="button"][value="10^x"]');
+      button.value = "e^x";
+      button.onclick = "scientificCalculator.powe()";
+
+      button = document.querySelector('input[type="button"][value="log"]');
+      button.value = "ln";
+      button.onclick = "scientificCalculator.ln()";
+
+      button = document.querySelector('input[type="button"][value="Exp"]');
+      button.value = "dms";
+      button.onclick = "scientificCalculator.dms()";
+
+      button = document.querySelector('input[type="button"][value="Mod"]');
+      button.value = "deg";
+      button.onclick = "scientificCalculator.deg()";
+    } else if (this.shiftPressed && this.hyperPressed) {
+      var button = document.querySelector('input[type="button"][value="sinh"]');
+      button.value = "asinh";
+
+      button = document.querySelector('input[type="button"][value="cosh"]');
+      button.value = "acosh";
+
+      button = document.querySelector('input[type="button"][value="tanh"]');
+      button.value = "atanh";
+    } else if (!this.shiftPressed && this.hyperPressed) {
+      button = document.querySelector('input[type="button"][value*="sin"]');
+      button.value = "sinh";
+
+      button = document.querySelector('input[type="button"][value*="cos"]');
+      button.value = "cosh";
+
+      button = document.querySelector('input[type="button"][value*="tan"]');
+      button.value = "tanh";
     } else {
-      this.operand1 = Math.tan(Number(this.screen));
-      this.screen = this.operand1;
-      document.getElementById("resultado").value = this.screen;
+      var button = document.querySelector('input[type="button"][value*="sin"]');
+      button.value = "sin";
+
+      button = document.querySelector('input[type="button"][value="x^3"]');
+      button.value = "x^2";
+      button.onclick = "scientificCalculator.pow2()";
+
+      button = document.querySelector('input[type="button"][value*="cos"]');
+      button.value = "cos";
+
+      button = document.querySelector('input[type="button"][value*="tan"]');
+      button.value = "tan";
+
+      button = document.querySelector('input[type="button"][value="x√y"]');
+      button.value = "x^y";
+      button.onclick = "scientificCalculator.pow()";
+
+      button = document.querySelector('input[type="button"][value="1/x"]');
+      button.value = "√";
+      button.onclick = "scientificCalculator.sqrt()";
+
+      button = document.querySelector('input[type="button"][value="e^x"]');
+      button.value = "10^x";
+      button.onclick = "scientificCalculator.pow10()";
+
+      button = document.querySelector('input[type="button"][value="ln"]');
+      button.value = "log";
+      button.onclick = "scientificCalculator.log()";
+
+      button = document.querySelector('input[type="button"][value="dms"]');
+      button.value = "Exp";
+      button.onclick = "scientificCalculator.exp()";
+
+      button = document.querySelector('input[type="button"][value="deg"]');
+      button.value = "Mod";
+      button.onclick = "scientificCalculator.mod()";
     }
   }
 
@@ -297,7 +712,7 @@ measure() {
     super.divide();
   }
 
-  pi() {
+  PI() {
     super.addNumber(Math.PI);
   }
 
@@ -347,8 +762,33 @@ measure() {
 
   equals() {
     super.equals();
+    switch (this.lastOperand) {
+      case "^":
+        var value = Math.pow(Number(this.operand1), Number(this.operand2));
+        this.screen = value;
+        this.operand1 = value;
+        document.getElementById("resultado").value = this.screen;
+        break;
+      case "√":
+        var value = Math.pow(Number(this.operand1), 1 / Number(this.operand2));
+        this.screen = value;
+        this.operand1 = value;
+        document.getElementById("resultado").value = this.screen;
+        break;
+      default:
+        break;
+    }
   }
 }
+
+document.addEventListener("click", function () {
+  console.log("Screen:" + scientificCalculator.screen);
+  console.log("Operand1:" + scientificCalculator.operand1);
+  console.log("Operand2:" + scientificCalculator.operand2);
+  console.log("Last Expression:" + scientificCalculator.lastOperand);
+  console.log("Memory:" + scientificCalculator.memory);
+  console.log("");
+});
 
 document.addEventListener("keydown", function (event) {
   switch (event.key) {

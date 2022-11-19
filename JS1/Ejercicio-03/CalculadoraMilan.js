@@ -139,42 +139,84 @@ class Calculator {
       if (this.operand2.toString().includes("%")) {
         switch (this.lastOperand) {
           case "*":
-            var temp =
-              (this.operand1 *
+            var operation =
+              Number(this.operand1) *
+              Number(
                 this.operand2
                   .toString()
-                  .substring(0, this.operand2.toString().length - 1)) /
-              100;
-            var operation = temp;
+                  .substring(0, this.operand2.toString().length - 1) / 100
+              );
+            this.screen = operation;
+            this.operand1 = Number(this.screen);
             break;
           case "/":
-            var temp =
-              (this.operand1 /
+            var operation =
+              Number(this.operand1) /
+              Number(
                 this.operand2
                   .toString()
-                  .substring(0, this.operand2.toString().length - 1)) *
-              100;
-            var operation = temp;
+                  .substring(0, this.operand2.toString().length - 1) / 100
+              );
+            this.screen = operation;
+            this.operand1 = Number(this.screen);
+            break;
+          case "+":
+            var value =
+              Number(this.operand1) *
+              Number(
+                this.operand2
+                  .toString()
+                  .substring(0, this.operand2.toString().length - 1) / 100
+              );
+
+            var operation = Number(this.operand1) + value;
+            this.screen = operation;
+            this.operand1 = Number(this.screen);
+            break;
+          case "-":
+            var value =
+              Number(this.operand1) *
+              Number(
+                this.operand2
+                  .toString()
+                  .substring(0, this.operand2.toString().length - 1) / 100
+              );
+
+            var operation = Number(this.operand1) - value;
+            this.screen = operation;
+            this.operand1 = Number(this.screen);
             break;
           default:
-            var temp =
-              (this.operand1 *
-                this.operand2
-                  .toString()
-                  .substring(0, this.operand2.toString().length - 1)) /
-              100;
-            var operation = this.operand1 + this.lastOperand + temp;
             break;
         }
         this.screen = eval(operation);
+        this.operand1 = Number(this.screen);
       } else {
-        var operation =
-          Number(this.operand1) + this.lastOperand + Number(this.operand2);
+        switch (this.lastOperand) {
+          case "+":
+            var operation = Number(this.operand1) + Number(this.operand2);
+            this.screen = eval(operation);
+            this.operand1 = Number(this.screen);
+            break;
+          case "-":
+            var operation = Number(this.operand1) - Number(this.operand2);
+            this.screen = eval(operation);
+            this.operand1 = Number(this.screen);
+            break;
+          case "*":
+            var operation = Number(this.operand1) * Number(this.operand2);
+            this.screen = eval(operation);
+            this.operand1 = Number(this.screen);
+            break;
+          case "/":
+            var operation = Number(this.operand1) / Number(this.operand2);
+            this.screen = eval(operation);
+            this.operand1 = Number(this.screen);
+            break;
+          default:
+            break;
+        }
       }
-      if (this.lastOperand != "") {
-        this.screen = eval(operation);
-      }
-      this.operand1 = Number(this.screen);
     } catch (err) {
       this.screen = "Syntax Error";
       alert(err);
