@@ -202,12 +202,36 @@ class Calculator {
         this.operand1 = Number(this.screen);
         document.getElementById("resultado").value = this.screen;
       } else if (this.checkSelf()) {
-        console.log("Si mismo");
         var result = eval(this.operand1 + this.lastOperand + this.operand2);
         this.operand1 = result;
         this.screen = result;
         document.getElementById("resultado").value = this.screen;
         this.screen = this.screen + this.lastOperand;
+      } else if (this.screen.toString() === this.operand1.toString()) {
+        if (this.lastOperand == "√") {
+          var result = Math.pow(
+            Number(this.operand1),
+            1 / Number(this.operand2)
+          );
+          this.operand1 = result;
+          this.screen = result;
+          document.getElementById("resultado").value = this.screen;
+          this.screen = this.screen + this.lastOperand;
+        } else if (this.lastOperand == "^") {
+          var result = Math.pow(Number(this.operand1), Number(this.operand2));
+          this.operand1 = result;
+          this.screen = result;
+          document.getElementById("resultado").value = this.screen;
+          this.screen = this.screen + this.lastOperand;
+        } else {
+          var result = eval(
+            Number(this.operand1) + this.lastOperand + Number(this.operand2)
+          );
+          this.operand1 = result;
+          this.screen = result;
+          document.getElementById("resultado").value = this.screen;
+          this.screen = this.screen + this.lastOperand;
+        }
       } else {
         console.log("Normal");
         var result = eval(this.screen);
@@ -217,17 +241,20 @@ class Calculator {
       }
     } catch (err) {
       this.screen = "";
+      console.log(err);
       document.getElementById("resultado").value = "Syntax Error";
     }
   }
 
   checkSelf() {
-    console.log("test" + this.operand1.toString().length);
     if (
       !isNaN(
-        Number(this.screen.substring(0, this.operand1.toString().length))
+        Number(
+          this.screen.toString().substring(0, this.operand1.toString().length)
+        )
       ) &&
-      this.screen.substring(this.operand1.toString().length).length == 1
+      this.screen.toString().substring(this.operand1.toString().length) ==
+        this.lastOperand
     ) {
       return true;
     } else {

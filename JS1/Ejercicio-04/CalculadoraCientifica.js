@@ -202,12 +202,36 @@ class Calculator {
         this.operand1 = Number(this.screen);
         document.getElementById("resultado").value = this.screen;
       } else if (this.checkSelf()) {
-        console.log("Si mismo");
         var result = eval(this.operand1 + this.lastOperand + this.operand2);
         this.operand1 = result;
         this.screen = result;
         document.getElementById("resultado").value = this.screen;
         this.screen = this.screen + this.lastOperand;
+      } else if (this.screen.toString() === this.operand1.toString()) {
+        if (this.lastOperand == "√") {
+          var result = Math.pow(
+            Number(this.operand1),
+            1 / Number(this.operand2)
+          );
+          this.operand1 = result;
+          this.screen = result;
+          document.getElementById("resultado").value = this.screen;
+          this.screen = this.screen + this.lastOperand;
+        } else if (this.lastOperand == "^") {
+          var result = Math.pow(Number(this.operand1), Number(this.operand2));
+          this.operand1 = result;
+          this.screen = result;
+          document.getElementById("resultado").value = this.screen;
+          this.screen = this.screen + this.lastOperand;
+        } else {
+          var result = eval(
+            Number(this.operand1) + this.lastOperand + Number(this.operand2)
+          );
+          this.operand1 = result;
+          this.screen = result;
+          document.getElementById("resultado").value = this.screen;
+          this.screen = this.screen + this.lastOperand;
+        }
       } else {
         console.log("Normal");
         var result = eval(this.screen);
@@ -217,17 +241,20 @@ class Calculator {
       }
     } catch (err) {
       this.screen = "";
+      console.log(err);
       document.getElementById("resultado").value = "Syntax Error";
     }
   }
 
   checkSelf() {
-    console.log("test" + this.operand1.toString().length);
     if (
       !isNaN(
-        Number(this.screen.substring(0, this.operand1.toString().length))
+        Number(
+          this.screen.toString().substring(0, this.operand1.toString().length)
+        )
       ) &&
-      this.screen.substring(this.operand1.toString().length).length == 1
+      this.screen.toString().substring(this.operand1.toString().length) ==
+        this.lastOperand
     ) {
       return true;
     } else {
@@ -341,11 +368,15 @@ class ScientificCalculator extends Calculator {
   }
 
   pow2() {
-    this.operand1 = Math.pow(Number(this.screen), 2);
-    this.screen = this.operand1;
-    this.lastOperand = "^";
-    this.operand2 = 2;
-    document.getElementById("resultado").value = this.screen;
+    if (!this.shiftPressed) {
+      this.operand1 = Math.pow(Number(this.screen), 2);
+      this.screen = this.operand1;
+      this.lastOperand = "^";
+      this.operand2 = 2;
+      document.getElementById("resultado").value = this.screen;
+    } else {
+      this.pow3();
+    }
   }
 
   pow3() {
@@ -357,17 +388,21 @@ class ScientificCalculator extends Calculator {
   }
 
   pow() {
-    this.operand1 = Number(eval(this.screen));
-    this.operand2 = this.operand1;
-    this.screen = this.screen + "^";
-    this.lastOperand = "^";
-    document.getElementById("resultado").value = this.screen;
+    if (!this.shiftPressed) {
+      this.operand1 = Number(eval(this.screen));
+      this.operand2 = this.operand1;
+      this.screen = this.screen + "^";
+      this.lastOperand = "^";
+      document.getElementById("resultado").value = this.screen;
+    } else {
+      this.root();
+    }
   }
 
   root() {
     this.operand1 = Number(eval(this.screen));
     this.operand2 = this.operand1;
-    this.screen = this.screen + "#";
+    this.screen = this.screen + "√";
     this.lastOperand = "√";
     document.getElementById("resultado").value = this.screen;
   }
@@ -573,12 +608,16 @@ class ScientificCalculator extends Calculator {
   }
 
   pow10() {
-    this.operand1 = 10;
-    this.operand2 = Math.pow(this.operand1, Number(this.screen));
-    console.log(Math.pow(this.operand1, Number(this.screen)));
-    this.screen = this.operand2;
-    this.lastOperand = "^";
-    document.getElementById("resultado").value = this.screen;
+    if (!this.shiftPressed) {
+      this.operand1 = 10;
+      this.operand2 = Math.pow(this.operand1, Number(this.screen));
+      console.log(Math.pow(this.operand1, Number(this.screen)));
+      this.screen = this.operand2;
+      this.lastOperand = "^";
+      document.getElementById("resultado").value = this.screen;
+    } else {
+      this.powe();
+    }
   }
 
   powe() {
@@ -590,10 +629,14 @@ class ScientificCalculator extends Calculator {
   }
 
   log() {
-    this.operand2 = Math.log10(Number(this.screen));
-    this.screen = this.operand2;
-    this.operand1 = 10;
-    document.getElementById("resultado").value = this.screen;
+    if (!this.shiftPressed) {
+      this.operand2 = Math.log10(Number(this.screen));
+      this.screen = this.operand2;
+      this.operand1 = 10;
+      document.getElementById("resultado").value = this.screen;
+    } else {
+      this.ln;
+    }
   }
 
   ln() {
@@ -615,24 +658,35 @@ class ScientificCalculator extends Calculator {
   }
 
   exp() {
-    this.equals();
-    this.operand1 = Number(this.screen);
-    this.screen = this.operand1 + "%";
-    this.lastOperand = "%";
-    document.getElementById("resultado").value = "";
+    if (!this.shiftPressed) {
+      this.equals();
+      this.operand1 = Number(this.screen);
+      this.screen = this.operand1 + "%";
+      this.lastOperand = "%";
+      document.getElementById("resultado").value = "";
+    } else {
+      this.dms();
+    }
   }
 
   mod() {
-    this.equals();
-    this.operand1 = Number(this.screen);
-    this.screen = this.operand1 + "%";
-    this.lastOperand = "%";
-    document.getElementById("resultado").value = "";
+    if (!this.shiftPressed) {
+      this.equals();
+      this.operand1 = Number(this.screen);
+      this.screen = this.operand1 + "%";
+      this.lastOperand = "%";
+      document.getElementById("resultado").value = "";
+    } else {
+      this.deg();
+    }
   }
+
+  deg() {}
 
   shift() {
     this.shiftPressed = !this.shiftPressed;
     var button;
+
     if (this.shiftPressed && !this.hyperPressed) {
       button = document.querySelector('input[type="button"][value*="sin"]');
       button.value = "asin";
@@ -645,31 +699,24 @@ class ScientificCalculator extends Calculator {
 
       button = document.querySelector('input[type="button"][value="x^2"]');
       button.value = "x^3";
-      button.onclick = "scientificCalculator.pow3()";
 
       button = document.querySelector('input[type="button"][value="x^y"]');
       button.value = "x√y";
-      button.onclick = "scientificCalculator.root()";
 
       button = document.querySelector('input[type="button"][value="√"]');
       button.value = "1/x";
-      button.onclick = "scientificCalculator.inverse()";
 
       button = document.querySelector('input[type="button"][value="10^x"]');
       button.value = "e^x";
-      button.onclick = "scientificCalculator.powe()";
 
       button = document.querySelector('input[type="button"][value="log"]');
       button.value = "ln";
-      button.onclick = "scientificCalculator.ln()";
 
       button = document.querySelector('input[type="button"][value="Exp"]');
       button.value = "dms";
-      button.onclick = "scientificCalculator.dms()";
 
       button = document.querySelector('input[type="button"][value="Mod"]');
       button.value = "deg";
-      button.onclick = "scientificCalculator.deg()";
     } else if (this.shiftPressed && this.hyperPressed) {
       var button = document.querySelector('input[type="button"][value="sinh"]');
       button.value = "asinh";
@@ -694,7 +741,6 @@ class ScientificCalculator extends Calculator {
 
       button = document.querySelector('input[type="button"][value="x^3"]');
       button.value = "x^2";
-      button.onclick = "scientificCalculator.pow2()";
 
       button = document.querySelector('input[type="button"][value*="cos"]');
       button.value = "cos";
@@ -704,34 +750,32 @@ class ScientificCalculator extends Calculator {
 
       button = document.querySelector('input[type="button"][value="x√y"]');
       button.value = "x^y";
-      button.onclick = "scientificCalculator.pow()";
 
       button = document.querySelector('input[type="button"][value="1/x"]');
       button.value = "√";
-      button.onclick = "scientificCalculator.sqrt()";
 
       button = document.querySelector('input[type="button"][value="e^x"]');
       button.value = "10^x";
-      button.onclick = "scientificCalculator.pow10()";
 
       button = document.querySelector('input[type="button"][value="ln"]');
       button.value = "log";
-      button.onclick = "scientificCalculator.log()";
 
       button = document.querySelector('input[type="button"][value="dms"]');
       button.value = "Exp";
-      button.onclick = "scientificCalculator.exp()";
 
       button = document.querySelector('input[type="button"][value="deg"]');
       button.value = "Mod";
-      button.onclick = "scientificCalculator.mod()";
     }
   }
 
   sqrt() {
-    super.raiz();
-    this.lastOperand = "√";
-    this.operand2 = Number(2);
+    if (!this.shiftPressed) {
+      super.raiz();
+      this.lastOperand = "√";
+      this.operand2 = Number(2);
+    } else {
+      this.inverse();
+    }
   }
 
   ce() {
@@ -829,6 +873,7 @@ class ScientificCalculator extends Calculator {
         .substring(this.screen.indexOf("^") + 1 + exponente.length);
       this.screen = part1 + operation + part2;
     }
+
     while (this.screen.toString().includes("√")) {
       var base = "";
       var exponente = "";
