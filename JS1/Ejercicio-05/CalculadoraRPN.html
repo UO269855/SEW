@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <!-- Datos que describen el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta
+      name="description"
+      content="Página web del Ejercicio 5 de JavaScript"
+    />
+
+    <title>Ejercicio 5</title>
+
+    <link rel="stylesheet" type="text/css" href="CalculadoraRPN.css" />
+    <script src="CalculadoraRPN.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Calculadora RPN</h1>
+      <label for="resultado">Pantalla:</label><br />
+      <input type="text" id="resultado" title="Pantalla:" disabled />
+    </header>
+    <main>
+      <input type="button" value="x^2" onclick="scientificCalculator.pow2()" />
+      <input type="button" value="sin" onclick="scientificCalculator.sin()" />
+      <input type="button" value="cos" onclick="scientificCalculator.cos()" />
+      <input type="button" value="tan" onclick="scientificCalculator.tan()" />
+
+      <input type="button" value="√" onclick="scientificCalculator.sqrt()" />
+      <input
+        type="button"
+        value="10^x"
+        onclick="scientificCalculator.pow10()"
+      />
+      <input type="button" value="log" onclick="scientificCalculator.log()" />
+      <input type="button" value="Mod" onclick="scientificCalculator.mod()" />
+
+      <input type="button" value="↑" onclick="scientificCalculator.shift()" />
+      <input type="button" value="CE" onclick="scientificCalculator.ce()" />
+      <input type="button" value="Del" onclick="scientificCalculator.del()" />
+      <input
+        type="button"
+        value="Enter"
+        onclick="scientificCalculator.enter()"
+      />
+
+      <input
+        type="button"
+        value="7"
+        onclick="scientificCalculator.addNumber(7)"
+      />
+      <input
+        type="button"
+        value="8"
+        onclick="scientificCalculator.addNumber(8)"
+      />
+      <input
+        type="button"
+        value="9"
+        onclick="scientificCalculator.addNumber(9)"
+      />
+      <input type="button" value="/" onclick="scientificCalculator.divide()" />
+
+      <input
+        type="button"
+        value="4"
+        onclick="scientificCalculator.addNumber(4)"
+      />
+      <input
+        type="button"
+        value="5"
+        onclick="scientificCalculator.addNumber(5)"
+      />
+      <input
+        type="button"
+        value="6"
+        onclick="scientificCalculator.addNumber(6)"
+      />
+      <input
+        type="button"
+        value="*"
+        onclick="scientificCalculator.multiply()"
+      />
+
+      <input
+        type="button"
+        value="1"
+        onclick="scientificCalculator.addNumber(1)"
+      />
+      <input
+        type="button"
+        value="2"
+        onclick="scientificCalculator.addNumber(2)"
+      />
+      <input
+        type="button"
+        value="3"
+        onclick="scientificCalculator.addNumber(3)"
+      />
+      <input
+        type="button"
+        value="-"
+        onclick="scientificCalculator.substract()"
+      />
+
+      <input
+        type="button"
+        value="+/-"
+        onclick="scientificCalculator.changeSign()"
+      />
+      <input
+        type="button"
+        value="0"
+        onclick="scientificCalculator.addNumber(0)"
+      />
+      <input type="button" value="." onclick="scientificCalculator.point()" />
+      <input type="button" value="+" onclick="scientificCalculator.add()" />
+    </main>
+    <footer>
+      <p>Práctica JavaScript</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+/*001*/
+body{
+    background-color:rgb(255, 255, 255);
+    font: 12px Arial, sans-serif;
+    color:rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1.5fr 1fr;
+    grid-template-areas:
+        'header'
+        'main'
+        'footer';
+    gap: 0.5em 0.5em;
+    padding: 1% 35%;    
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        'pow2 sin cos tang'
+        'root pow10 log mod'
+        'shift CE del enter'
+        'seven eight nine div'
+        'four five six mul'
+        'one two three minus'
+        'masmenos zero-number point plus';
+    gap: 0.5em 0.5em;
+    border-radius: 5%;
+    background-color:rgb(161, 161, 161);
+}
+
+header label{
+    grid-area: label;
+    font: 1.5em Arial, sans-serif;
+    
+}
+
+/*001*/
+h1{
+    grid-area: titulo;
+    font: 2em Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header button {
+    grid-area: b;
+}
+
+header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.5fr 3fr;
+    grid-template-areas:
+    'titulo'
+    'label'
+    'pantalla'
+    ;
+    gap: 0.5em 0.5em;
+    padding: 3%; 
+    background-color:#e1aaff;
+}
+
+footer{
+    grid-area: footer;
+}
+
+input[type=button] { 
+    font: 2em Arial, sans-serif;
+    border-radius: 20%;
+} 
+
+input[type=text] { 
+    grid-area: pantalla;
+    font: 1.5em Arial, sans-serif;
+    background-color:rgb(255, 255, 255);
+    
+} 
+
+input[type=button][value="CE"] { 
+    grid-area: CE;
+    
+} 
+
+input[type=button][value="+/-"] { 
+    grid-area: masmenos;
+    
+} 
+
+input[type=button][value="√"], input[type=button][value="1/x"] { 
+    grid-area: root;
+    
+}
+
+input[type=button][value="7"] { 
+    grid-area: seven;
+
+} 
+
+input[type=button][value="8"] { 
+    grid-area: eight;
+
+} 
+
+input[type=button][value="9"] { 
+    grid-area: nine;
+
+} 
+
+input[type=button][value="X"] { 
+    grid-area: mul;
+    
+} 
+
+input[type=button][value="/"] { 
+    grid-area: div;
+    
+} 
+
+input[type=button][value="4"] { 
+    grid-area: four;
+
+} 
+
+input[type=button][value="5"] { 
+    grid-area: five;
+
+} 
+
+input[type=button][value="6"] { 
+    grid-area: six;
+
+} 
+
+input[type=button][value="-"] { 
+    grid-area: minus;
+    
+} 
+
+input[type=button][value="1"] { 
+    grid-area: one;
+
+} 
+
+input[type=button][value="2"] { 
+    grid-area: two;
+
+} 
+
+input[type=button][value="3"] { 
+    grid-area: three;
+
+} 
+
+input[type=button][value="+"] { 
+    grid-area: plus;
+    
+} 
+
+input[type=button][value="0"] { 
+    grid-area: zero-number;
+
+} 
+
+input[type=button][value="."] { 
+    grid-area: point; 
+    
+} 
+
+input[type=button][value="Enter"] { 
+    grid-area: enter;
+    
+}  
+
+input[type=button][value="x^2"], input[type=button][value="x^y"] { 
+    grid-area: pow2;
+    
+} 
+
+input[type=button][value="√"], input[type=button][value="x√y"] { 
+    grid-area: root;
+    
+} 
+
+input[type=button][value="sin"], input[type=button][value="asin"]{ 
+    grid-area: sin;
+    
+} 
+
+input[type=button][value="cos"], input[type=button][value="acos"] { 
+    grid-area: cos;
+    
+} 
+
+input[type=button][value="tan"], input[type=button][value="atan"] { 
+    grid-area: tang;
+    
+} 
+
+input[type=button][value="10^x"], input[type=button][value="e^x"] { 
+    grid-area: pow10;
+    
+} 
+
+input[type=button][value="log"], input[type=button][value="ln"] { 
+    grid-area: log;
+    
+} 
+
+input[type=button][value="Mod"], input[type=button][value="1/x"] { 
+    grid-area: mod;
+    
+} 
+
+input[type=button][value="↑"] { 
+    grid-area: shift;
+    
+} 
+
+input[type=button][value="Del"] { 
+    grid-area: del;
+    
+} 

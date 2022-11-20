@@ -46,9 +46,9 @@ class Calculator {
   raiz() {
     try {
       this.screen = Math.sqrt(
-        eval(document.getElementById("resultado").value)
-      ).toString();
-
+        Number(document.getElementById("resultado").value)
+      );
+      this.operand1 = this.screen;
       document.getElementById("resultado").value = this.screen.toString();
     } catch (err) {
       this.screen = "Error = " + err;

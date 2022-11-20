@@ -46,9 +46,9 @@ class Calculator {
   raiz() {
     try {
       this.screen = Math.sqrt(
-        eval(document.getElementById("resultado").value)
-      ).toString();
-
+        Number(document.getElementById("resultado").value)
+      );
+      this.operand1 = this.screen;
       document.getElementById("resultado").value = this.screen.toString();
     } catch (err) {
       this.screen = "Error = " + err;
@@ -309,13 +309,20 @@ class ScientificCalculator extends Calculator {
   }
 
   mplus() {
-    var value = this.memory.pop() + Number(this.screen);
-    this.memory.push(value);
+    if (this.memory.length > 0) {
+      var value = Number(this.memory.pop()) + Number(this.screen);
+      this.memory.push(Number(value));
+    } else {
+      this.equals();
+      this.memory.push(Number(this.screen));
+    }
   }
 
   mminus() {
-    var value = this.memory.pop() - Number(this.screen);
-    this.memory.push(value);
+    if (this.memory.length > 0) {
+      var value = Number(this.memory.pop()) - Number(this.screen);
+      this.memory.push(Number(value));
+    }
   }
 
   ms() {
@@ -356,15 +363,21 @@ class ScientificCalculator extends Calculator {
     switch (this.measure) {
       case "DEG":
         if (this.shiftPressed && !this.hyperPressed) {
-          this.operand1 = Math.asin(Number(this.screen) * (Math.PI / 180));
+          this.operand1 = Math.asin(
+            Number(this.screen) * Number(Math.PI / 180)
+          );
           this.screen = this.operand1;
           document.getElementById("resultado").value = this.screen;
         } else if (!this.shiftPressed && this.hyperPressed) {
-          this.operand1 = Math.sinh(Number(this.screen) * (Math.PI / 180));
+          this.operand1 = Math.sinh(
+            Number(this.screen) * Number(Math.PI / 180)
+          );
           this.screen = this.operand1;
           document.getElementById("resultado").value = this.screen;
         } else if (this.shiftPressed && this.hyperPressed) {
-          this.operand1 = Math.asinh(Number(this.screen) * (Math.PI / 180));
+          this.operand1 = Math.asinh(
+            Number(this.screen) * Number(Math.PI / 180)
+          );
           this.screen = this.operand1;
           document.getElementById("resultado").value = this.screen;
         } else {
@@ -437,7 +450,6 @@ class ScientificCalculator extends Calculator {
           this.operand1 = Math.cos(Number(this.screen) * (Math.PI / 180));
           this.screen = this.operand1;
           document.getElementById("resultado").value = this.screen;
-          console.log("coseno");
         }
         break;
       case "RAD":
@@ -566,7 +578,7 @@ class ScientificCalculator extends Calculator {
 
   log() {
     this.operand2 = Math.log10(Number(this.screen));
-    this.screen = this.operand1;
+    this.screen = this.operand2;
     this.operand1 = 10;
     document.getElementById("resultado").value = this.screen;
   }
@@ -589,9 +601,21 @@ class ScientificCalculator extends Calculator {
     document.getElementById("resultado").value = this.screen;
   }
 
-  deg() {}
+  exp() {
+    this.equals();
+    this.operand1 = Number(this.screen);
+    this.screen = this.operand1 + "%";
+    this.lastOperand = "%";
+    document.getElementById("resultado").value = "";
+  }
 
-  exp() {}
+  mod() {
+    this.equals();
+    this.operand1 = Number(this.screen);
+    this.screen = this.operand1 + "%";
+    this.lastOperand = "%";
+    document.getElementById("resultado").value = "";
+  }
 
   shift() {
     this.shiftPressed = !this.shiftPressed;
@@ -692,7 +716,9 @@ class ScientificCalculator extends Calculator {
   }
 
   sqrt() {
-    super.sqrt();
+    super.raiz();
+    this.lastOperand = "√";
+    this.operand2 = Number(2);
   }
 
   ce() {
@@ -712,7 +738,7 @@ class ScientificCalculator extends Calculator {
     super.divide();
   }
 
-  PI() {
+  pi() {
     super.addNumber(Math.PI);
   }
 
@@ -725,9 +751,12 @@ class ScientificCalculator extends Calculator {
   }
 
   fact() {
+    this.equals();
+    var number = Number(document.getElementById("resultado").value);
+
     var value = 1;
-    for (var i = 1; i <= this.operand1; i++) {
-      this.value * i;
+    for (var i = 1; i <= number; i++) {
+      value = Number(value) * Number(i);
     }
     this.operand1 = value;
     this.screen = this.operand1;
@@ -775,9 +804,22 @@ class ScientificCalculator extends Calculator {
         this.operand1 = value;
         document.getElementById("resultado").value = this.screen;
         break;
+      case "%":
+        var value = Number(this.operand1) % Number(this.operand2);
+        this.screen = Number(value);
+        this.operand1 = value;
+        document.getElementById("resultado").value = this.screen;
+        break;
       default:
         break;
     }
+  }
+  printMemory() {
+    var cadena = "";
+    for (var i = 0; i < this.memory.length; i++) {
+      cadena = cadena + (this.memory[i] + " ,");
+    }
+    return cadena;
   }
 }
 
@@ -786,7 +828,7 @@ document.addEventListener("click", function () {
   console.log("Operand1:" + scientificCalculator.operand1);
   console.log("Operand2:" + scientificCalculator.operand2);
   console.log("Last Expression:" + scientificCalculator.lastOperand);
-  console.log("Memory:" + scientificCalculator.memory);
+  console.log("Memory: [" + scientificCalculator.printMemory() + "]");
   console.log("");
 });
 
