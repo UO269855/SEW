@@ -31,7 +31,6 @@ class Calculator {
       this.screen = this.screen.toString().substring(0, startindex + 1);
       this.operand2 = "";
     } else {
-      console.log("2");
       this.screen = "";
       this.operand2 = "";
     }
@@ -207,13 +206,11 @@ class Calculator {
           Number(this.screen[this.screen.length - 1]) != NaN.toString()) &&
         this.lastOperand != ""
       ) {
-        console.log("fdsfsd");
         var result = eval(this.operand1 + this.lastOperand + this.operand2);
         this.operand1 = result;
         this.screen = result;
         document.getElementById("resultado").value = this.screen;
       } else {
-        console.log("normal");
         var result = eval(this.screen);
         this.operand1 = result;
         this.screen = result;
@@ -225,15 +222,6 @@ class Calculator {
     }
   }
 }
-
-document.addEventListener("click", function () {
-  console.log("Screen:" + calculator.screen);
-  console.log("Operand1:" + calculator.operand1);
-  console.log("Operand2:" + calculator.operand2);
-  console.log("Last Expression:" + calculator.lastOperand);
-  console.log("Memory:" + calculator.memory);
-  console.log("");
-});
 
 document.addEventListener("keydown", function (event) {
   switch (event.key) {
@@ -298,16 +286,8 @@ document.addEventListener("keydown", function (event) {
       calculator.clearAll();
       break;
     default:
-      console.log(event.key);
       break;
   }
-
-  console.log("Screen:" + calculator.screen);
-  console.log("Operand1:" + calculator.operand1);
-  console.log("Operand2:" + calculator.operand2);
-  console.log("Last Expression:" + calculator.lastOperand);
-  console.log("Memory:" + calculator.memory);
-  console.log("");
 });
 
 var calculator = new Calculator();
