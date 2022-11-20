@@ -3,7 +3,7 @@ class Calculator {
   constructor() {
     this.screen = "";
     this.operand1 = 0;
-    this.operand2 = 0;
+    this.operand2 = "";
     this.lastOperand = "";
     this.memory = 0;
   }
@@ -13,21 +13,28 @@ class Calculator {
     document.getElementById("resultado").value = this.screen.toString();
     this.screen = "";
     this.operand1 = 0;
-    this.operand2 = 0;
+    this.operand2 = "";
     this.lastOperand = "";
   }
 
   ce() {
-    if (!document.getElementById("resultado").value == "") {
-      this.screen = this.screen
-        .toString()
-        .substring(
-          0,
-          this.screen.length -
-            document.getElementById("resultado").value.toString().length
-        );
-      document.getElementById("resultado").value = "";
+    var startindex = 0;
+    for (var i = this.screen.length - 1; i > 0; i--) {
+      if (this.screen[i] == this.lastOperand) {
+        startindex = i;
+      }
     }
+    if (!this.lastOperand == "" && startindex) {
+      this.screen = this.screen.toString().substring(0, startindex + 1);
+      this.operand2 = "";
+    } else if (startindex) {
+      this.screen = this.screen.toString().substring(0, startindex + 1);
+      this.operand2 = "";
+    } else {
+      this.screen = "";
+      this.operand2 = "";
+    }
+    document.getElementById("resultado").value = this.screen;
   }
 
   changeSign() {
@@ -45,9 +52,7 @@ class Calculator {
 
   raiz() {
     try {
-      this.screen = Math.sqrt(
-        Number(document.getElementById("resultado").value)
-      );
+      this.screen = Math.sqrt(Number(eval(this.screen)));
       this.operand1 = this.screen;
       document.getElementById("resultado").value = this.screen.toString();
     } catch (err) {
@@ -61,45 +66,49 @@ class Calculator {
   porcentaje() {
     var text = document.getElementById("resultado").value + "%";
     this.screen = text.toString();
-    this.operand2 = text;
+    this.operand2 = this.operand2 + "%";
     document.getElementById("resultado").value = this.screen.toString();
   }
 
   addNumber(number) {
-    var text = document.getElementById("resultado").value;
-    if (this.lastOperand != "") {
-      this.operand2 = Number(text + number);
-    }
     this.screen = this.screen + number;
-    document.getElementById("resultado").value = text + number;
+    if (this.operand1 == this.operand2) {
+      this.operand2 = "";
+    }
+    this.operand2 = this.operand2.toString() + number;
+    document.getElementById("resultado").value = this.screen;
   }
 
   multiply() {
     this.operand1 = Number(eval(this.screen));
-    this.screen = this.operand1 + "*";
+    this.operand2 = this.operand1;
+    this.screen = this.screen + "*";
     this.lastOperand = "*";
-    document.getElementById("resultado").value = "";
+    document.getElementById("resultado").value = this.screen;
   }
 
   divide() {
     this.operand1 = Number(eval(this.screen));
-    this.screen = this.operand1 + "/";
+    this.operand2 = this.operand1;
+    this.screen = this.screen + "/";
     this.lastOperand = "/";
-    document.getElementById("resultado").value = "";
+    document.getElementById("resultado").value = this.screen;
   }
 
   substract() {
     this.operand1 = Number(eval(this.screen));
-    this.screen = this.operand1 + "-";
+    this.operand2 = this.operand1;
+    this.screen = this.screen + "-";
     this.lastOperand = "-";
-    document.getElementById("resultado").value = "";
+    document.getElementById("resultado").value = this.screen;
   }
 
   add() {
     this.operand1 = Number(eval(this.screen));
-    this.screen = this.operand1 + "+";
+    this.operand2 = this.operand1;
+    this.screen = this.screen + "+";
     this.lastOperand = "+";
-    document.getElementById("resultado").value = "";
+    document.getElementById("resultado").value = this.screen;
   }
 
   mrc() {
@@ -191,37 +200,39 @@ class Calculator {
         }
         this.screen = eval(operation);
         this.operand1 = Number(this.screen);
+        document.getElementById("resultado").value = this.screen;
+      } else if (this.checkSelf()) {
+        console.log("Si mismo");
+        var result = eval(this.operand1 + this.lastOperand + this.operand2);
+        this.operand1 = result;
+        this.screen = result;
+        document.getElementById("resultado").value = this.screen;
+        this.screen = this.screen + this.lastOperand;
       } else {
-        switch (this.lastOperand) {
-          case "+":
-            var operation = Number(this.operand1) + Number(this.operand2);
-            this.screen = eval(operation);
-            this.operand1 = Number(this.screen);
-            break;
-          case "-":
-            var operation = Number(this.operand1) - Number(this.operand2);
-            this.screen = eval(operation);
-            this.operand1 = Number(this.screen);
-            break;
-          case "*":
-            var operation = Number(this.operand1) * Number(this.operand2);
-            this.screen = eval(operation);
-            this.operand1 = Number(this.screen);
-            break;
-          case "/":
-            var operation = Number(this.operand1) / Number(this.operand2);
-            this.screen = eval(operation);
-            this.operand1 = Number(this.screen);
-            break;
-          default:
-            break;
-        }
+        console.log("Normal");
+        var result = eval(this.screen);
+        this.operand1 = result;
+        this.screen = result;
+        document.getElementById("resultado").value = this.screen;
       }
     } catch (err) {
-      this.screen = "Syntax Error";
-      alert(err);
+      this.screen = "";
+      document.getElementById("resultado").value = "Syntax Error";
     }
-    document.getElementById("resultado").value = this.screen;
+  }
+
+  checkSelf() {
+    console.log("test" + this.operand1.toString().length);
+    if (
+      !isNaN(
+        Number(this.screen.substring(0, this.operand1.toString().length))
+      ) &&
+      this.screen.substring(this.operand1.toString().length).length == 1
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
@@ -346,17 +357,19 @@ class ScientificCalculator extends Calculator {
   }
 
   pow() {
-    this.operand1 = Number(this.screen);
-    this.screen = this.operand1 + "^";
+    this.operand1 = Number(eval(this.screen));
+    this.operand2 = this.operand1;
+    this.screen = this.screen + "^";
     this.lastOperand = "^";
-    document.getElementById("resultado").value = "";
+    document.getElementById("resultado").value = this.screen;
   }
 
   root() {
-    this.operand1 = Number(this.screen);
-    this.screen = this.operand1 + "√";
+    this.operand1 = Number(eval(this.screen));
+    this.operand2 = this.operand1;
+    this.screen = this.screen + "#";
     this.lastOperand = "√";
-    document.getElementById("resultado").value = "";
+    document.getElementById("resultado").value = this.screen;
   }
 
   sin() {
@@ -751,8 +764,7 @@ class ScientificCalculator extends Calculator {
   }
 
   fact() {
-    this.equals();
-    var number = Number(document.getElementById("resultado").value);
+    var number = Number(eval(this.screen()));
 
     var value = 1;
     for (var i = 1; i <= number; i++) {
@@ -790,29 +802,84 @@ class ScientificCalculator extends Calculator {
   }
 
   equals() {
-    super.equals();
-    switch (this.lastOperand) {
-      case "^":
-        var value = Math.pow(Number(this.operand1), Number(this.operand2));
-        this.screen = value;
-        this.operand1 = value;
-        document.getElementById("resultado").value = this.screen;
-        break;
-      case "√":
-        var value = Math.pow(Number(this.operand1), 1 / Number(this.operand2));
-        this.screen = value;
-        this.operand1 = value;
-        document.getElementById("resultado").value = this.screen;
-        break;
-      case "%":
-        var value = Number(this.operand1) % Number(this.operand2);
-        this.screen = Number(value);
-        this.operand1 = value;
-        document.getElementById("resultado").value = this.screen;
-        break;
-      default:
-        break;
+    while (this.screen.toString().includes("^")) {
+      var base = "";
+      var exponente = "";
+      for (var j = this.screen.indexOf("^") - 1; j >= 0; j--) {
+        if (isNaN(Number(this.screen[j]))) {
+          break;
+        } else {
+          base = this.screen[j] + base;
+        }
+      }
+      for (var i = this.screen.indexOf("^") + 1; i < this.screen.length; i++) {
+        if (isNaN(Number(this.screen[i]))) {
+          break;
+        } else {
+          exponente = exponente + this.screen[i];
+        }
+      }
+
+      var operation = Math.pow(Number(base), Number(exponente));
+      var part1 = this.screen
+        .toString()
+        .substring(0, this.screen.indexOf("^") - base.length);
+      var part2 = this.screen
+        .toString()
+        .substring(this.screen.indexOf("^") + 1 + exponente.length);
+      this.screen = part1 + operation + part2;
     }
+    while (this.screen.toString().includes("√")) {
+      var base = "";
+      var exponente = "";
+      for (var j = this.screen.indexOf("√") - 1; j >= 0; j--) {
+        if (isNaN(Number(this.screen[j]))) {
+          break;
+        } else {
+          base = this.screen[j] + base;
+        }
+      }
+      for (var i = this.screen.indexOf("√") + 1; i < this.screen.length; i++) {
+        if (isNaN(Number(this.screen[i]))) {
+          break;
+        } else {
+          exponente = exponente + this.screen[i];
+        }
+      }
+
+      var operation = Math.pow(Number(base), 1 / Number(exponente));
+      var part1 = this.screen
+        .toString()
+        .substring(0, this.screen.indexOf("√") - base.length);
+      var part2 = this.screen
+        .toString()
+        .substring(this.screen.indexOf("√") + 1 + exponente.length);
+      this.screen = part1 + operation + part2;
+    }
+    super.equals();
+    //super.equals();
+    // switch (this.lastOperand) {
+    //   case "^":
+    //     var value = Math.pow(Number(this.operand1), Number(this.operand2));
+    //     this.screen = value;
+    //     this.operand1 = value;
+    //     document.getElementById("resultado").value = this.screen;
+    //     break;
+    //   case "√":
+    //     var value = Math.pow(Number(this.operand1), 1 / Number(this.operand2));
+    //     this.screen = value;
+    //     this.operand1 = value;
+    //     document.getElementById("resultado").value = this.screen;
+    //     break;
+    //   case "%":
+    //     var value = Number(this.operand1) % Number(this.operand2);
+    //     this.screen = Number(value);
+    //     this.operand1 = value;
+    //     document.getElementById("resultado").value = this.screen;
+    //     break;
+    //   default:
+    //     break;
+    // }
   }
   printMemory() {
     var cadena = "";

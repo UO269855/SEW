@@ -201,16 +201,15 @@ class Calculator {
         this.screen = eval(operation);
         this.operand1 = Number(this.screen);
         document.getElementById("resultado").value = this.screen;
-      } else if (
-        (Number(this.screen).toString() != NaN.toString() ||
-          Number(this.screen[this.screen.length - 1]) != NaN.toString()) &&
-        this.lastOperand != ""
-      ) {
+      } else if (this.checkSelf()) {
+        console.log("Si mismo");
         var result = eval(this.operand1 + this.lastOperand + this.operand2);
         this.operand1 = result;
         this.screen = result;
         document.getElementById("resultado").value = this.screen;
+        this.screen = this.screen + this.lastOperand;
       } else {
+        console.log("Normal");
         var result = eval(this.screen);
         this.operand1 = result;
         this.screen = result;
@@ -219,6 +218,20 @@ class Calculator {
     } catch (err) {
       this.screen = "";
       document.getElementById("resultado").value = "Syntax Error";
+    }
+  }
+
+  checkSelf() {
+    console.log("test" + this.operand1.toString().length);
+    if (
+      !isNaN(
+        Number(this.screen.substring(0, this.operand1.toString().length))
+      ) &&
+      this.screen.substring(this.operand1.toString().length).length == 1
+    ) {
+      return true;
+    } else {
+      return false;
     }
   }
 }
