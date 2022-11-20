@@ -3,7 +3,7 @@ class Calculator {
   constructor() {
     this.screen = "";
     this.operand1 = 0;
-    this.operand2 = 0;
+    this.operand2 = "";
     this.lastOperand = "";
     this.memory = 0;
   }
@@ -13,21 +13,29 @@ class Calculator {
     document.getElementById("resultado").value = this.screen.toString();
     this.screen = "";
     this.operand1 = 0;
-    this.operand2 = 0;
+    this.operand2 = "";
     this.lastOperand = "";
   }
 
   ce() {
-    if (!document.getElementById("resultado").value == "") {
-      this.screen = this.screen
-        .toString()
-        .substring(
-          0,
-          this.screen.length -
-            document.getElementById("resultado").value.toString().length
-        );
-      document.getElementById("resultado").value = "";
+    var startindex = 0;
+    for (var i = this.screen.length - 1; i > 0; i--) {
+      if (this.screen[i] == this.lastOperand) {
+        startindex = i;
+      }
     }
+    if (!this.lastOperand == "" && startindex) {
+      this.screen = this.screen.toString().substring(0, startindex + 1);
+      this.operand2 = "";
+    } else if (startindex) {
+      this.screen = this.screen.toString().substring(0, startindex + 1);
+      this.operand2 = "";
+    } else {
+      console.log("2");
+      this.screen = "";
+      this.operand2 = "";
+    }
+    document.getElementById("resultado").value = this.screen;
   }
 
   changeSign() {
@@ -45,9 +53,7 @@ class Calculator {
 
   raiz() {
     try {
-      this.screen = Math.sqrt(
-        Number(document.getElementById("resultado").value)
-      );
+      this.screen = Math.sqrt(Number(eval(this.screen)));
       this.operand1 = this.screen;
       document.getElementById("resultado").value = this.screen.toString();
     } catch (err) {
@@ -61,45 +67,49 @@ class Calculator {
   porcentaje() {
     var text = document.getElementById("resultado").value + "%";
     this.screen = text.toString();
-    this.operand2 = text;
+    this.operand2 = this.operand2 + "%";
     document.getElementById("resultado").value = this.screen.toString();
   }
 
   addNumber(number) {
-    var text = document.getElementById("resultado").value;
-    if (this.lastOperand != "") {
-      this.operand2 = Number(text + number);
-    }
     this.screen = this.screen + number;
-    document.getElementById("resultado").value = text + number;
+    if (this.operand1 == this.operand2) {
+      this.operand2 = "";
+    }
+    this.operand2 = this.operand2.toString() + number;
+    document.getElementById("resultado").value = this.screen;
   }
 
   multiply() {
     this.operand1 = Number(eval(this.screen));
-    this.screen = this.operand1 + "*";
+    this.operand2 = this.operand1;
+    this.screen = this.screen + "*";
     this.lastOperand = "*";
-    document.getElementById("resultado").value = "";
+    document.getElementById("resultado").value = this.screen;
   }
 
   divide() {
     this.operand1 = Number(eval(this.screen));
-    this.screen = this.operand1 + "/";
+    this.operand2 = this.operand1;
+    this.screen = this.screen + "/";
     this.lastOperand = "/";
-    document.getElementById("resultado").value = "";
+    document.getElementById("resultado").value = this.screen;
   }
 
   substract() {
     this.operand1 = Number(eval(this.screen));
-    this.screen = this.operand1 + "-";
+    this.operand2 = this.operand1;
+    this.screen = this.screen + "-";
     this.lastOperand = "-";
-    document.getElementById("resultado").value = "";
+    document.getElementById("resultado").value = this.screen;
   }
 
   add() {
     this.operand1 = Number(eval(this.screen));
-    this.screen = this.operand1 + "+";
+    this.operand2 = this.operand1;
+    this.screen = this.screen + "+";
     this.lastOperand = "+";
-    document.getElementById("resultado").value = "";
+    document.getElementById("resultado").value = this.screen;
   }
 
   mrc() {
@@ -191,37 +201,28 @@ class Calculator {
         }
         this.screen = eval(operation);
         this.operand1 = Number(this.screen);
+        document.getElementById("resultado").value = this.screen;
+      } else if (
+        (Number(this.screen).toString() != NaN.toString() ||
+          Number(this.screen[this.screen.length - 1]) != NaN.toString()) &&
+        this.lastOperand != ""
+      ) {
+        console.log("fdsfsd");
+        var result = eval(this.operand1 + this.lastOperand + this.operand2);
+        this.operand1 = result;
+        this.screen = result;
+        document.getElementById("resultado").value = this.screen;
       } else {
-        switch (this.lastOperand) {
-          case "+":
-            var operation = Number(this.operand1) + Number(this.operand2);
-            this.screen = eval(operation);
-            this.operand1 = Number(this.screen);
-            break;
-          case "-":
-            var operation = Number(this.operand1) - Number(this.operand2);
-            this.screen = eval(operation);
-            this.operand1 = Number(this.screen);
-            break;
-          case "*":
-            var operation = Number(this.operand1) * Number(this.operand2);
-            this.screen = eval(operation);
-            this.operand1 = Number(this.screen);
-            break;
-          case "/":
-            var operation = Number(this.operand1) / Number(this.operand2);
-            this.screen = eval(operation);
-            this.operand1 = Number(this.screen);
-            break;
-          default:
-            break;
-        }
+        console.log("normal");
+        var result = eval(this.screen);
+        this.operand1 = result;
+        this.screen = result;
+        document.getElementById("resultado").value = this.screen;
       }
     } catch (err) {
-      this.screen = "Syntax Error";
-      alert(err);
+      this.screen = "";
+      document.getElementById("resultado").value = "Syntax Error";
     }
-    document.getElementById("resultado").value = this.screen;
   }
 }
 
@@ -286,6 +287,15 @@ document.addEventListener("keydown", function (event) {
       break;
     case "Enter":
       calculator.equals();
+      break;
+    case "=":
+      calculator.equals();
+      break;
+    case "Backspace":
+      calculator.ce();
+      break;
+    case "c":
+      calculator.clearAll();
       break;
     default:
       console.log(event.key);
