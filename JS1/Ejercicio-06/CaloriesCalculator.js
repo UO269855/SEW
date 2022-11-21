@@ -390,6 +390,18 @@ class CaloriesCalculator extends RPNCalculator {
   printStack() {
     super.printStack();
   }
+
+  calculateIMC() {
+    if (this.values.length >= 2) {
+      var op1 = Number(this.values.pop());
+      var op2 = Number(this.values.pop());
+      var value = op2 / (op1 * 0.01) ** 2;
+      this.values.push(value);
+      this.printStack();
+    } else {
+      this.screen = "Syntax Error";
+    }
+  }
 }
 
 document.addEventListener("click", function () {
