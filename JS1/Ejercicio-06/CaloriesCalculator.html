@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+  <!-- Datos que describen el documento -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+
+  <meta name="author" content="Álex Caso Díaz" />
+  <meta name="description" content="Página web del Ejercicio 5 de JavaScript" />
+
+  <title>Ejercicio 5</title>
+
+  <link rel="stylesheet" type="text/css" href="CaloriesCalculator.css" />
+  <script src="CaloriesCalculator.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Calculadora RPN</h1>
+    <label for="resultado">Pantalla:</label><br />
+    <textarea title="Stack" disabled></textarea>
+    <input type="text" title="Pantalla:" disabled />
+  </header>
+  <main>
+    <input type="button" value="x^2" onclick="caloriesCalculator.pow2()" />
+    <input type="button" value="sin" onclick="caloriesCalculator.sin()" />
+    <input type="button" value="cos" onclick="caloriesCalculator.cos()" />
+    <input type="button" value="tan" onclick="caloriesCalculator.tan()" />
+
+    <input type="button" value="√" onclick="caloriesCalculator.sqrt()" />
+    <input type="button" value="10^x" onclick="caloriesCalculator.pow10()" />
+    <input type="button" value="log" onclick="caloriesCalculator.log()" />
+    <input type="button" value="Mod" onclick="caloriesCalculator.mod()" />
+
+    <input type="button" value="↑" onclick="caloriesCalculator.shift()" />
+    <input type="button" value="CE" onclick="caloriesCalculator.ce()" />
+    <input type="button" value="Del" onclick="caloriesCalculator.del()" />
+    <input type="button" value="Enter" onclick="caloriesCalculator.enter()" />
+
+    <input type="button" value="7" onclick="caloriesCalculator.addNumber(7)" />
+    <input type="button" value="8" onclick="caloriesCalculator.addNumber(8)" />
+    <input type="button" value="9" onclick="caloriesCalculator.addNumber(9)" />
+    <input type="button" value="/" onclick="caloriesCalculator.divide()" />
+
+    <input type="button" value="4" onclick="caloriesCalculator.addNumber(4)" />
+    <input type="button" value="5" onclick="caloriesCalculator.addNumber(5)" />
+    <input type="button" value="6" onclick="caloriesCalculator.addNumber(6)" />
+    <input type="button" value="*" onclick="caloriesCalculator.multiply()" />
+
+    <input type="button" value="1" onclick="caloriesCalculator.addNumber(1)" />
+    <input type="button" value="2" onclick="caloriesCalculator.addNumber(2)" />
+    <input type="button" value="3" onclick="caloriesCalculator.addNumber(3)" />
+    <input type="button" value="-" onclick="caloriesCalculator.substract()" />
+
+    <input type="button" value="+/-" onclick="caloriesCalculator.changeSign()" />
+    <input type="button" value="0" onclick="caloriesCalculator.addNumber(0)" />
+    <input type="button" value="." onclick="caloriesCalculator.point()" />
+    <input type="button" value="+" onclick="caloriesCalculator.add()" />
+  </main>
+  <footer>
+    <p>Práctica JavaScript</p>
+  </footer>
+</body>
+
+</html>

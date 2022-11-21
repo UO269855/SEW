@@ -333,10 +333,9 @@ class ScientificCalculator extends Calculator {
   }
 
   fe() {
-    if(this.screen.toString().includes("e")){
+    if (this.screen.toString().includes("e")) {
       this.screen = parseFloat(this.screen);
-    }
-    else {
+    } else {
       this.screen = parseFloat(this.screen).toExponential();
     }
     document.getElementById("resultado").value = this.screen;
@@ -661,18 +660,12 @@ class ScientificCalculator extends Calculator {
   }
 
   mod() {
-    if (!this.shiftPressed) {
-      this.equals();
-      this.operand1 = Number(this.screen);
-      this.screen = this.operand1 + "%";
-      this.lastOperand = "%";
-      document.getElementById("resultado").value = "";
-    } else {
-      this.deg();
-    }
+    this.equals();
+    this.operand1 = Number(this.screen);
+    this.screen = this.operand1 + "%";
+    this.lastOperand = "%";
+    document.getElementById("resultado").value = "";
   }
-
-  deg() {}
 
   shift() {
     this.shiftPressed = !this.shiftPressed;
@@ -705,9 +698,6 @@ class ScientificCalculator extends Calculator {
 
       button = document.querySelector('input[type="button"][value="Exp"]');
       button.value = "dms";
-
-      button = document.querySelector('input[type="button"][value="Mod"]');
-      button.value = "deg";
     } else if (this.shiftPressed && this.hyperPressed) {
       var button = document.querySelector('input[type="button"][value="sinh"]');
       button.value = "asinh";
@@ -753,9 +743,6 @@ class ScientificCalculator extends Calculator {
 
       button = document.querySelector('input[type="button"][value="dms"]');
       button.value = "Exp";
-
-      button = document.querySelector('input[type="button"][value="deg"]');
-      button.value = "Mod";
     }
   }
 

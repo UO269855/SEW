@@ -306,6 +306,92 @@ class RPNCalculator {
   }
 }
 
+class CaloriesCalculator extends RPNCalculator {
+  constructor() {
+    super();
+  }
+
+  pow2() {
+    super.pow2();
+  }
+
+  pow10() {
+    super.pow10();
+  }
+
+  sin() {
+    super.sin();
+  }
+
+  cos() {
+    super.cos();
+  }
+
+  tan() {
+    super.tan();
+  }
+
+  log() {
+    super.log();
+  }
+
+  mod() {
+    super.mod();
+  }
+
+  shift() {
+    super.shift();
+  }
+
+  sqrt() {
+    super.sqrt();
+  }
+
+  ce() {
+    super.ce();
+  }
+
+  del() {
+    super.del();
+  }
+
+  divide() {
+    super.divide();
+  }
+
+  addNumber(number) {
+    super.addNumber(number);
+  }
+
+  multiply() {
+    super.multiply();
+  }
+
+  substract() {
+    super.substract();
+  }
+
+  add() {
+    super.add();
+  }
+
+  changeSign() {
+    super.changeSign();
+  }
+
+  point() {
+    super.changeSign();
+  }
+
+  enter() {
+    super.enter();
+  }
+
+  printStack() {
+    super.printStack();
+  }
+}
+
 document.addEventListener("click", function () {
   console.log("Screen:" + rpnCalculator.screen);
   console.log("Operand1:" + rpnCalculator.operand1);
@@ -374,4 +460,4 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-var rpnCalculator = new RPNCalculator();
+var caloriesCalculator = new CaloriesCalculator();
