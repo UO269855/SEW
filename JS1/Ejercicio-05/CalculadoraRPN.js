@@ -121,81 +121,34 @@ class RPNCalculator {
       button = document.querySelector('input[type="button"][value*="tan"]');
       button.value = "atan";
 
-      button = document.querySelector('input[type="button"][value="x^2"]');
-      button.value = "x^3";
-      button.onclick = "rpnCalculator.pow3()";
-
-      button = document.querySelector('input[type="button"][value="x^y"]');
-      button.value = "x√y";
-      button.onclick = "rpnCalculator.root()";
-
-      button = document.querySelector('input[type="button"][value="√"]');
-      button.value = "1/x";
-      button.onclick = "rpnCalculator.inverse()";
-
-      button = document.querySelector('input[type="button"][value="10^x"]');
-      button.value = "e^x";
-      button.onclick = "rpnCalculator.powe()";
-
-      button = document.querySelector('input[type="button"][value="log"]');
-      button.value = "ln";
-      button.onclick = "rpnCalculator.ln()";
-
-      button = document.querySelector('input[type="button"][value="Exp"]');
-      button.value = "dms";
-      button.onclick = "rpnCalculator.dms()";
-
-      button = document.querySelector('input[type="button"][value="Mod"]');
-      button.value = "deg";
-      button.onclick = "rpnCalculator.deg()";
     } else {
       var button = document.querySelector('input[type="button"][value*="sin"]');
       button.value = "sin";
-
-      button = document.querySelector('input[type="button"][value="x^3"]');
-      button.value = "x^2";
-      button.onclick = "rpnCalculator.pow2()";
 
       button = document.querySelector('input[type="button"][value*="cos"]');
       button.value = "cos";
 
       button = document.querySelector('input[type="button"][value*="tan"]');
       button.value = "tan";
-
-      button = document.querySelector('input[type="button"][value="x√y"]');
-      button.value = "x^y";
-      button.onclick = "rpnCalculator.pow()";
-
-      button = document.querySelector('input[type="button"][value="1/x"]');
-      button.value = "√";
-      button.onclick = "rpnCalculator.sqrt()";
-
-      button = document.querySelector('input[type="button"][value="e^x"]');
-      button.value = "10^x";
-      button.onclick = "rpnCalculator.pow10()";
-
-      button = document.querySelector('input[type="button"][value="ln"]');
-      button.value = "log";
-      button.onclick = "rpnCalculator.log()";
-
-      button = document.querySelector('input[type="button"][value="dms"]');
-      button.value = "Exp";
-      button.onclick = "rpnCalculator.exp()";
-
-      button = document.querySelector('input[type="button"][value="deg"]');
-      button.value = "Mod";
-      button.onclick = "rpnCalculator.mod()";
     }
   }
 
   sqrt() {
-    super.raiz();
-    this.lastOperand = "√";
-    this.operand2 = Number(2);
+    if(this.values.length >= 1){
+      var op1 = Number(values.pop());
+      this.screen = Math.sqrt(op1);
+      this.values.push(Number(this.screen));
+    }
+    else {
+      this.screen = "Syntax Error";
+    }
+
+    document.getElementById("resultado").value = this.screen.toString();
   }
 
   ce() {
-    super.ce();
+    this.screen = "";
+    document.getElementById("resultado").value = this.screen.toString();
   }
 
   del() {
@@ -204,31 +157,78 @@ class RPNCalculator {
   }
 
   divide() {
-    super.divide();
+    if(this.values.length >=2){
+      var op1 = Number(this.values.pop());
+      var op2 = Number(this.values.pop());
+      var value = op1 / op2;
+      this.values.push(value);
+    }
+    else {
+      this.screen = "Syntax Error";
+    }
   }
 
   addNumber(number) {
-    super.addNumber(number);
+    if(this.screen.toString() == "Syntax Error"){
+      this.screen = "";
+    }
+    this.screen = this.screen + number;
+    document.getElementById("resultado").value = this.screen;
   }
 
   multiply() {
-    super.multiply();
+    if(this.values.length >=2){
+      var op1 = Number(this.values.pop());
+      var op2 = Number(this.values.pop());
+      var value = op1 * op2;
+      this.values.push(value);
+    }
+    else {
+      this.screen = "Syntax Error";
+    }
   }
 
   substract() {
-    super.substract();
+    if(this.values.length >=2){
+      var op1 = Number(this.values.pop());
+      var op2 = Number(this.values.pop());
+      var value = op1 - op2;
+      this.values.push(value);
+    }
+    else {
+      this.screen = "Syntax Error";
+    }
   }
 
   changeSign() {
-    super.changeSign();
+    if(this.values.length >=1){
+      var op1 = Number(this.values.pop());
+      var value = op1 * (-1);
+      this.values.push(value);
+    }
+    else {
+      this.screen = "Syntax Error";
+    }
   }
 
   add() {
-    super.add();
+    if(this.values.length >=2){
+      var op1 = Number(this.values.pop());
+      var op2 = Number(this.values.pop());
+      var value = op1 - op2;
+      this.values.push(value);
+    }
+    else {
+      this.screen = "Syntax Error";
+    }
   }
 
   point() {
-    super.point();
+    if(this.screen.toString() == "Syntax Error"){
+      this.screen = "0";
+    }
+    this.screen = this.screen + number;
+    document.getElementById("resultado").value = this.screen;
   }
 }
 

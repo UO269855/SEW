@@ -4,8 +4,8 @@ body{
     font: 12px Arial, sans-serif;
     color:rgb(0, 0, 0);
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 4fr 1fr;
+    grid-template-columns: 0.8fr;
+    grid-template-rows: 0.5fr 3fr 1fr;
     grid-template-areas:
         'header'
         'main'
@@ -70,7 +70,7 @@ footer{
 }
 
 input[type=button] { 
-    font: 2em Arial, sans-serif;
+    font: 1.5em Arial, sans-serif;
     border-radius: 20%;
 } 
 

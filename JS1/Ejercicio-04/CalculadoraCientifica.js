@@ -80,7 +80,6 @@ class Calculator {
   }
 
   multiply() {
-    this.operand1 = Number(eval(this.screen));
     this.operand2 = this.operand1;
     this.screen = this.screen + "*";
     this.lastOperand = "*";
@@ -88,7 +87,6 @@ class Calculator {
   }
 
   divide() {
-    this.operand1 = Number(eval(this.screen));
     this.operand2 = this.operand1;
     this.screen = this.screen + "/";
     this.lastOperand = "/";
@@ -96,7 +94,6 @@ class Calculator {
   }
 
   substract() {
-    this.operand1 = Number(eval(this.screen));
     this.operand2 = this.operand1;
     this.screen = this.screen + "-";
     this.lastOperand = "-";
@@ -104,7 +101,6 @@ class Calculator {
   }
 
   add() {
-    this.operand1 = Number(eval(this.screen));
     this.operand2 = this.operand1;
     this.screen = this.screen + "+";
     this.lastOperand = "+";
@@ -269,7 +265,7 @@ class ScientificCalculator extends Calculator {
     this.measure = "DEG";
     this.shiftPressed = false;
     this.hyperPressed = false;
-    this.memory = [];
+    this.memory = 0;
   }
 
   swapMeasure() {
@@ -336,35 +332,37 @@ class ScientificCalculator extends Calculator {
     }
   }
 
-  fe() {}
+  fe() {
+    if(this.screen.toString().includes("e")){
+      this.screen = parseFloat(this.screen);
+    }
+    else {
+      this.screen = parseFloat(this.screen).toExponential();
+    }
+    document.getElementById("resultado").value = this.screen;
+  }
 
   mc() {
-    this.memory = [];
+    this.memory = 0;
   }
 
   mr() {
-    super.addNumber(this.memory[this.memory.length - 1]);
+    super.addNumber(this.memory);
   }
 
   mplus() {
-    if (this.memory.length > 0) {
-      var value = Number(this.memory.pop()) + Number(this.screen);
-      this.memory.push(Number(value));
-    } else {
-      this.equals();
-      this.memory.push(Number(this.screen));
-    }
+    this.equals();
+    this.memory = Number(this.memory) + Number(this.screen);
   }
 
   mminus() {
-    if (this.memory.length > 0) {
-      var value = Number(this.memory.pop()) - Number(this.screen);
-      this.memory.push(Number(value));
-    }
+    this.equals();
+    this.memory = Number(this.memory) - Number(this.screen);
   }
 
   ms() {
-    this.memory.push(Number(this.screen));
+    this.equals();
+    this.memory = Number(this.screen);
   }
 
   pow2() {
@@ -658,15 +656,8 @@ class ScientificCalculator extends Calculator {
   }
 
   exp() {
-    if (!this.shiftPressed) {
-      this.equals();
-      this.operand1 = Number(this.screen);
-      this.screen = this.operand1 + "%";
-      this.lastOperand = "%";
-      document.getElementById("resultado").value = "";
-    } else {
-      this.dms();
-    }
+    this.screen = this.screen + ",e+0";
+    document.getElementById("resultado").value = this.screen;
   }
 
   mod() {
@@ -926,13 +917,6 @@ class ScientificCalculator extends Calculator {
     //     break;
     // }
   }
-  printMemory() {
-    var cadena = "";
-    for (var i = 0; i < this.memory.length; i++) {
-      cadena = cadena + (this.memory[i] + " ,");
-    }
-    return cadena;
-  }
 }
 
 document.addEventListener("click", function () {
@@ -940,7 +924,6 @@ document.addEventListener("click", function () {
   console.log("Operand1:" + scientificCalculator.operand1);
   console.log("Operand2:" + scientificCalculator.operand2);
   console.log("Last Expression:" + scientificCalculator.lastOperand);
-  console.log("Memory: [" + scientificCalculator.printMemory() + "]");
   console.log("");
 });
 
