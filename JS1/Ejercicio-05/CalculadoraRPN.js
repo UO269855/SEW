@@ -206,12 +206,14 @@ class RPNCalculator {
 
   ce() {
     this.screen = "";
-    document.getElementById("resultado").value = this.screen.toString();
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen.toString();
   }
 
   del() {
     this.screen = this.screen.toString().substring(0, this.screen.length - 1);
-    document.getElementById("resultado").value = this.screen;
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   divide() {
@@ -286,7 +288,8 @@ class RPNCalculator {
       this.screen = "0";
     }
     this.screen = this.screen + number;
-    document.getElementById("resultado").value = this.screen;
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   enter() {

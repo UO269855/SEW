@@ -206,12 +206,14 @@ class RPNCalculator {
 
   ce() {
     this.screen = "";
-    document.getElementById("resultado").value = this.screen.toString();
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen.toString();
   }
 
   del() {
     this.screen = this.screen.toString().substring(0, this.screen.length - 1);
-    document.getElementById("resultado").value = this.screen;
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   divide() {
@@ -286,7 +288,8 @@ class RPNCalculator {
       this.screen = "0";
     }
     this.screen = this.screen + number;
-    document.getElementById("resultado").value = this.screen;
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   enter() {
@@ -402,16 +405,86 @@ class CaloriesCalculator extends RPNCalculator {
       this.screen = "Syntax Error";
     }
   }
-}
+  comida(food) {
+    var op2 = 1;
+    console.log(food.toString());
+    if (this.values.length >= 1) {
+      switch (food.toString()) {
+        case "arroz":
+          op2 = 1.3;
+          break;
+        case "pollo":
+          op2 = 1.95;
+          break;
+        case "pasta":
+          op2 = 3.5;
+          break;
+        default:
+          op2 = 1;
+          break;
+      }
+      console.log(food.toString());
+      var op1 = Number(this.values.pop());
+      this.values.push(op1 * op2);
+      this.screen = "";
+      document.querySelector('input[type="text"][title="Pantalla:"]').value =
+        this.screen;
+      this.printStack();
+    } else {
+      this.screen = "Syntax Error";
+      document.querySelector('input[type="text"][title="Pantalla:"]').value =
+        this.screen;
+    }
+  }
 
-document.addEventListener("click", function () {
-  console.log("Screen:" + rpnCalculator.screen);
-  console.log("Operand1:" + rpnCalculator.operand1);
-  console.log("Operand2:" + rpnCalculator.operand2);
-  console.log("Last Expression:" + rpnCalculator.lastOperand);
-  console.log("Stack: [" + rpnCalculator.values + "]");
-  console.log("");
-});
+  calculoQuemar(exercise) {
+    var op2 = 1;
+    if (this.values.length >= 1) {
+      switch (exercise) {
+        case "correr":
+          op2 = 9.2;
+          break;
+        case "caminar":
+          op2 = 5;
+          break;
+        case "nadar":
+          op2 = 8.3;
+          break;
+        default:
+          op2 = 5;
+          break;
+      }
+      var op1 = Number(this.values.pop());
+      this.values.push(op1 * op2);
+      this.screen = "";
+      document.querySelector('input[type="text"][title="Pantalla:"]').value =
+        this.screen;
+      this.printStack();
+    } else {
+      this.screen = "Syntax Error";
+      document.querySelector('input[type="text"][title="Pantalla:"]').value =
+        this.screen;
+    }
+  }
+
+  calcularCalorias() {
+    if (this.values.length >= 3) {
+      var actividad = Number(this.values.pop());
+      var peso = Number(this.values.pop());
+      var altura = Number(this.values.pop());
+      var result = peso * 24 * (altura / 100) * (1 + actividad / 10);
+      this.values.push(Number(result));
+      this.screen = "";
+      document.querySelector('input[type="text"][title="Pantalla:"]').value =
+        this.screen;
+      this.printStack();
+    } else {
+      this.screen = "Syntax Error";
+      document.querySelector('input[type="text"][title="Pantalla:"]').value =
+        this.screen;
+    }
+  }
+}
 
 document.addEventListener("keydown", function (event) {
   switch (event.key) {

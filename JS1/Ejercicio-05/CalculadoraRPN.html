@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 
 <html lang="es">
+  <head>
+    <!-- Datos que describen el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
 
-<head>
-  <!-- Datos que describen el documento -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="UTF-8" />
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta
+      name="description"
+      content="Página web del Ejercicio 5 de JavaScript"
+    />
 
-  <meta name="author" content="Álex Caso Díaz" />
-  <meta name="description" content="Página web del Ejercicio 5 de JavaScript" />
+    <title>Ejercicio 5</title>
 
-  <title>Ejercicio 5</title>
+    <link rel="stylesheet" type="text/css" href="CalculadoraRPN.css" />
+    <script src="CalculadoraRPN.js"></script>
+  </head>
 
-  <link rel="stylesheet" type="text/css" href="CalculadoraRPN.css" />
-  <script src="CalculadoraRPN.js"></script>
-</head>
+  <body>
+    <header>
+      <h1>Calculadora RPN</h1>
+    </header>
+    <main>
+      <label for="resultado">Pantalla:</label>
+      <textarea title="Stack" disabled></textarea>
+      <input type="text" title="Pantalla:" disabled />
 
-<body>
-  <header>
-    <h1>Calculadora RPN</h1>
-    <label for="resultado">Pantalla:</label><br />
-    <textarea title="Stack" disabled></textarea>
-    <input type="text" title="Pantalla:" disabled />
-  </header>
-  <main>
-    <input type="button" value="x^2" onclick="rpnCalculator.pow2()" />
-    <input type="button" value="sin" onclick="rpnCalculator.sin()" />
-    <input type="button" value="cos" onclick="rpnCalculator.cos()" />
-    <input type="button" value="tan" onclick="rpnCalculator.tan()" />
+      <input type="button" value="x^2" onclick="rpnCalculator.pow2()" />
+      <input type="button" value="sin" onclick="rpnCalculator.sin()" />
+      <input type="button" value="cos" onclick="rpnCalculator.cos()" />
+      <input type="button" value="tan" onclick="rpnCalculator.tan()" />
 
-    <input type="button" value="√" onclick="rpnCalculator.sqrt()" />
-    <input type="button" value="10^x" onclick="rpnCalculator.pow10()" />
-    <input type="button" value="log" onclick="rpnCalculator.log()" />
-    <input type="button" value="Mod" onclick="rpnCalculator.mod()" />
+      <input type="button" value="√" onclick="rpnCalculator.sqrt()" />
+      <input type="button" value="10^x" onclick="rpnCalculator.pow10()" />
+      <input type="button" value="log" onclick="rpnCalculator.log()" />
+      <input type="button" value="Mod" onclick="rpnCalculator.mod()" />
 
-    <input type="button" value="↑" onclick="rpnCalculator.shift()" />
-    <input type="button" value="CE" onclick="rpnCalculator.ce()" />
-    <input type="button" value="Del" onclick="rpnCalculator.del()" />
-    <input type="button" value="Enter" onclick="rpnCalculator.enter()" />
+      <input type="button" value="↑" onclick="rpnCalculator.shift()" />
+      <input type="button" value="CE" onclick="rpnCalculator.ce()" />
+      <input type="button" value="Del" onclick="rpnCalculator.del()" />
+      <input type="button" value="Enter" onclick="rpnCalculator.enter()" />
 
-    <input type="button" value="7" onclick="rpnCalculator.addNumber(7)" />
-    <input type="button" value="8" onclick="rpnCalculator.addNumber(8)" />
-    <input type="button" value="9" onclick="rpnCalculator.addNumber(9)" />
-    <input type="button" value="/" onclick="rpnCalculator.divide()" />
+      <input type="button" value="7" onclick="rpnCalculator.addNumber(7)" />
+      <input type="button" value="8" onclick="rpnCalculator.addNumber(8)" />
+      <input type="button" value="9" onclick="rpnCalculator.addNumber(9)" />
+      <input type="button" value="/" onclick="rpnCalculator.divide()" />
 
-    <input type="button" value="4" onclick="rpnCalculator.addNumber(4)" />
-    <input type="button" value="5" onclick="rpnCalculator.addNumber(5)" />
-    <input type="button" value="6" onclick="rpnCalculator.addNumber(6)" />
-    <input type="button" value="*" onclick="rpnCalculator.multiply()" />
+      <input type="button" value="4" onclick="rpnCalculator.addNumber(4)" />
+      <input type="button" value="5" onclick="rpnCalculator.addNumber(5)" />
+      <input type="button" value="6" onclick="rpnCalculator.addNumber(6)" />
+      <input type="button" value="X" onclick="rpnCalculator.multiply()" />
 
-    <input type="button" value="1" onclick="rpnCalculator.addNumber(1)" />
-    <input type="button" value="2" onclick="rpnCalculator.addNumber(2)" />
-    <input type="button" value="3" onclick="rpnCalculator.addNumber(3)" />
-    <input type="button" value="-" onclick="rpnCalculator.substract()" />
+      <input type="button" value="1" onclick="rpnCalculator.addNumber(1)" />
+      <input type="button" value="2" onclick="rpnCalculator.addNumber(2)" />
+      <input type="button" value="3" onclick="rpnCalculator.addNumber(3)" />
+      <input type="button" value="-" onclick="rpnCalculator.substract()" />
 
-    <input type="button" value="+/-" onclick="rpnCalculator.changeSign()" />
-    <input type="button" value="0" onclick="rpnCalculator.addNumber(0)" />
-    <input type="button" value="." onclick="rpnCalculator.point()" />
-    <input type="button" value="+" onclick="rpnCalculator.add()" />
-  </main>
-  <footer>
-    <p>Práctica JavaScript</p>
-  </footer>
-</body>
-
+      <input type="button" value="+/-" onclick="rpnCalculator.changeSign()" />
+      <input type="button" value="0" onclick="rpnCalculator.addNumber(0)" />
+      <input type="button" value="." onclick="rpnCalculator.point()" />
+      <input type="button" value="+" onclick="rpnCalculator.add()" />
+    </main>
+    <footer>
+      <p>Práctica JavaScript</p>
+    </footer>
+  </body>
 </html>

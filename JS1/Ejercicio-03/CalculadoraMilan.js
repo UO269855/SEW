@@ -10,7 +10,8 @@ class Calculator {
 
   clearAll() {
     this.screen = "";
-    document.getElementById("resultado").value = this.screen.toString();
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen.toString();
     this.screen = "";
     this.operand1 = 0;
     this.operand2 = "";
@@ -34,40 +35,48 @@ class Calculator {
       this.screen = "";
       this.operand2 = "";
     }
-    document.getElementById("resultado").value = this.screen;
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   changeSign() {
     try {
       this.screen = eval(
-        document.getElementById("resultado").value + "*-1"
+        document.querySelector('input[type="text"][title="Pantalla:"]').value +
+          "*-1"
       ).toString();
     } catch (err) {
       this.screen = "Error = " + err;
       alert(err);
     }
 
-    document.getElementById("resultado").value = this.screen.toString();
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen.toString();
   }
 
   raiz() {
     try {
       this.screen = Math.sqrt(Number(eval(this.screen)));
       this.operand1 = this.screen;
-      document.getElementById("resultado").value = this.screen.toString();
+      document.querySelector('input[type="text"][title="Pantalla:"]').value =
+        this.screen.toString();
     } catch (err) {
       this.screen = "Error = " + err;
       alert(err);
     }
 
-    document.getElementById("resultado").value = this.screen.toString();
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen.toString();
   }
 
   porcentaje() {
-    var text = document.getElementById("resultado").value + "%";
+    var text =
+      document.querySelector('input[type="text"][title="Pantalla:"]').value +
+      "%";
     this.screen = text.toString();
     this.operand2 = this.operand2 + "%";
-    document.getElementById("resultado").value = this.screen.toString();
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen.toString();
   }
 
   addNumber(number) {
@@ -76,7 +85,8 @@ class Calculator {
       this.operand2 = "";
     }
     this.operand2 = this.operand2.toString() + number;
-    document.getElementById("resultado").value = this.screen;
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   multiply() {
@@ -84,7 +94,8 @@ class Calculator {
     this.operand2 = this.operand1;
     this.screen = this.screen + "*";
     this.lastOperand = "*";
-    document.getElementById("resultado").value = this.screen;
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   divide() {
@@ -92,7 +103,8 @@ class Calculator {
     this.operand2 = this.operand1;
     this.screen = this.screen + "/";
     this.lastOperand = "/";
-    document.getElementById("resultado").value = this.screen;
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   substract() {
@@ -100,7 +112,8 @@ class Calculator {
     this.operand2 = this.operand1;
     this.screen = this.screen + "-";
     this.lastOperand = "-";
-    document.getElementById("resultado").value = this.screen;
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   add() {
@@ -108,14 +121,17 @@ class Calculator {
     this.operand2 = this.operand1;
     this.screen = this.screen + "+";
     this.lastOperand = "+";
-    document.getElementById("resultado").value = this.screen;
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   mrc() {
-    document.getElementById("resultado").value = "";
+    document.querySelector('input[type="text"][title="Pantalla:"]').value = "";
     this.addNumber(this.memory);
     if (this.lastOperand == "") {
-      this.screen = document.getElementById("resultado").value;
+      this.screen = document.querySelector(
+        'input[type="text"][title="Pantalla:"]'
+      ).value;
     }
   }
 
@@ -138,9 +154,12 @@ class Calculator {
   }
 
   point() {
-    var text = document.getElementById("resultado").value;
+    var text = document.querySelector(
+      'input[type="text"][title="Pantalla:"]'
+    ).value;
     this.screen = this.screen + ".";
-    document.getElementById("resultado").value = text + ".";
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      text + ".";
   }
 
   equals() {
@@ -200,12 +219,14 @@ class Calculator {
         }
         this.screen = eval(operation);
         this.operand1 = Number(this.screen);
-        document.getElementById("resultado").value = this.screen;
+        document.querySelector('input[type="text"][title="Pantalla:"]').value =
+          this.screen;
       } else if (this.checkSelf()) {
         var result = eval(this.operand1 + this.lastOperand + this.operand2);
         this.operand1 = result;
         this.screen = result;
-        document.getElementById("resultado").value = this.screen;
+        document.querySelector('input[type="text"][title="Pantalla:"]').value =
+          this.screen;
         this.screen = this.screen + this.lastOperand;
       } else if (this.screen.toString() === this.operand1.toString()) {
         if (this.lastOperand == "√") {
@@ -215,13 +236,17 @@ class Calculator {
           );
           this.operand1 = result;
           this.screen = result;
-          document.getElementById("resultado").value = this.screen;
+          document.querySelector(
+            'input[type="text"][title="Pantalla:"]'
+          ).value = this.screen;
           this.screen = this.screen + this.lastOperand;
         } else if (this.lastOperand == "^") {
           var result = Math.pow(Number(this.operand1), Number(this.operand2));
           this.operand1 = result;
           this.screen = result;
-          document.getElementById("resultado").value = this.screen;
+          document.querySelector(
+            'input[type="text"][title="Pantalla:"]'
+          ).value = this.screen;
           this.screen = this.screen + this.lastOperand;
         } else {
           var result = eval(
@@ -229,7 +254,9 @@ class Calculator {
           );
           this.operand1 = result;
           this.screen = result;
-          document.getElementById("resultado").value = this.screen;
+          document.querySelector(
+            'input[type="text"][title="Pantalla:"]'
+          ).value = this.screen;
           this.screen = this.screen + this.lastOperand;
         }
       } else {
@@ -237,12 +264,14 @@ class Calculator {
         var result = eval(this.screen);
         this.operand1 = result;
         this.screen = result;
-        document.getElementById("resultado").value = this.screen;
+        document.querySelector('input[type="text"][title="Pantalla:"]').value =
+          this.screen;
       }
     } catch (err) {
       this.screen = "";
       console.log(err);
-      document.getElementById("resultado").value = "Syntax Error";
+      document.querySelector('input[type="text"][title="Pantalla:"]').value =
+        "Syntax Error";
     }
   }
 

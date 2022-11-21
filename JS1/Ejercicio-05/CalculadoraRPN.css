@@ -1,25 +1,42 @@
 /*001*/
 body{
     background-color:rgb(255, 255, 255);
-    font: 12px Arial, sans-serif;
+    font: 16px Arial, sans-serif;
     color:rgb(0, 0, 0);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1.5fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
     grid-template-areas:
         'header'
         'main'
         'footer';
-    gap: 0.5em 0.5em;
-    padding: 1% 35%;    
+    align-items: center;
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 1em 3em;
+    background-color:#e1aaff;
+}
+
+/*001*/
+h1{
+    font: 2em Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 main {
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-areas:
+        'label . . .'
+        'stack stack stack stack'
+        'pantalla pantalla pantalla pantalla'
         'pow2 sin cos tang'
         'root pow10 log mod'
         'shift CE del enter'
@@ -27,62 +44,35 @@ main {
         'four five six mul'
         'one two three minus'
         'masmenos zero-number point plus';
-    gap: 0.5em 0.5em;
+    gap: 1em 0.5em;
     border-radius: 5%;
-    background-color:rgb(161, 161, 161);
+    align-items: center;
+    justify-self: center;
+    padding: 2% 2%;
+    background-color:rgb(105, 103, 103);
 }
 
-header label{
+label{
     grid-area: label;
     font: 1.5em Arial, sans-serif; 
 }
 
-/*001*/
-h1{
-    grid-area: titulo;
-    font: 2em Arial, sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-header button {
-    grid-area: b;
-}
-
-header {
-    grid-area: header;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 0.5fr 2fr 0.5fr;
-    grid-template-areas:
-    'titulo'
-    'label'
-    'stack'
-    'pantalla'
-    ;
-    gap: 0.5em 0.5em;
-    padding: 3%; 
-    background-color:#e1aaff;
-}
-
-footer{
-    grid-area: footer;
-}
 
 textarea {
     grid-area: stack;
     resize: none;
+    height: 7em;
 }
 input[type=button] { 
-    font: 2em Arial, sans-serif;
+    font: 1.5em Arial, sans-serif;
     border-radius: 20%;
 } 
 
 input[type=text] { 
     grid-area: pantalla;
-    font: 1.5em Arial, sans-serif;
+    font: 2em Arial, sans-serif;
     background-color:rgb(255, 255, 255);
-    
+
 } 
 
 input[type=button][value="CE"] { 
@@ -229,3 +219,10 @@ input[type=button][value="Del"] {
     grid-area: del;
     
 } 
+
+footer{
+    grid-area: footer;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
