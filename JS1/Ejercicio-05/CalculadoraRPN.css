@@ -49,14 +49,13 @@ main {
     align-items: center;
     justify-self: center;
     padding: 2% 2%;
-    background-color:rgb(105, 103, 103);
+    background-color:#99B3FF;
 }
 
 label{
     grid-area: label;
     font: 1.5em Arial, sans-serif; 
 }
-
 
 textarea {
     grid-area: stack;

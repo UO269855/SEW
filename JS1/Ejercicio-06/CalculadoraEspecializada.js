@@ -4,6 +4,96 @@ class RPNCalculator {
     this.screen = "";
     this.shiftPressed = false;
     this.values = [];
+
+    document.addEventListener("keydown", this.addListener.bind(this));
+  }
+
+  addListener(event) {
+    switch (event.key) {
+      case "1":
+        this.addNumber(1);
+        break;
+      case "2":
+        this.addNumber(2);
+        break;
+      case "3":
+        this.addNumber(3);
+        break;
+      case "4":
+        this.addNumber(4);
+        break;
+      case "5":
+        this.addNumber(5);
+        break;
+      case "6":
+        this.addNumber(6);
+        break;
+      case "7":
+        this.addNumber(7);
+        break;
+      case "8":
+        this.addNumber(8);
+        break;
+      case "9":
+        this.addNumber(9);
+        break;
+      case "0":
+        this.addNumber(0);
+        break;
+      case "+":
+        this.add();
+        break;
+      case "-":
+        this.substract();
+        break;
+      case "*":
+        this.multiply();
+        break;
+      case "/":
+        this.divide();
+        break;
+      case ".":
+        this.point();
+        break;
+      case "Enter":
+        this.enter();
+        break;
+      case "Backspace":
+        this.del();
+        break;
+      case "Delete":
+        this.ce();
+        break;
+      case "Tab":
+        this.shift();
+        break;
+      case "b":
+        this.pow10();
+        break;
+      case "l":
+        this.log();
+        break;
+      case "m":
+        this.mod();
+        break;
+      case "s":
+        this.sin();
+        break;
+      case "c":
+        this.cos();
+        break;
+      case "t":
+        this.tan();
+        break;
+      case "p":
+        this.pow2();
+        break;
+      case "h":
+        this.changeSign();
+        break;
+      default:
+        break;
+    }
   }
 
   pow2() {
@@ -154,7 +244,7 @@ class RPNCalculator {
     if (this.values.length >= 2) {
       var op1 = Number(this.values.pop());
       var op2 = Number(this.values.pop());
-      this.values.push(Math.mod(op2, op1));
+      this.values.push(op2 % op1);
       this.screen = "";
       document.querySelector('input[type="text"][title="Pantalla:"]').value =
         this.screen;
@@ -208,6 +298,8 @@ class RPNCalculator {
     this.screen = "";
     document.querySelector('input[type="text"][title="Pantalla:"]').value =
       this.screen.toString();
+    this.values = [];
+    this.printStack();
   }
 
   del() {
@@ -278,26 +370,31 @@ class RPNCalculator {
       var op1 = Number(this.values.pop());
       var value = op1 * -1;
       this.values.push(value);
+      this.printStack();
     } else {
       this.screen = "Syntax Error";
     }
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   point() {
     if (this.screen.toString() == "Syntax Error") {
       this.screen = "0";
     }
-    this.screen = this.screen + number;
+    this.screen = this.screen + ".";
     document.querySelector('input[type="text"][title="Pantalla:"]').value =
       this.screen;
   }
 
   enter() {
-    this.values.push(Number(this.screen));
-    this.screen = "";
-    document.querySelector('input[type="text"][title="Pantalla:"]').value =
-      this.screen;
-    this.printStack();
+    if (this.screen.length >= 1) {
+      this.values.push(Number(this.screen));
+      this.screen = "";
+      document.querySelector('input[type="text"][title="Pantalla:"]').value =
+        this.screen;
+      this.printStack();
+    }
   }
 
   printStack() {
@@ -312,6 +409,38 @@ class RPNCalculator {
 class CaloriesCalculator extends RPNCalculator {
   constructor() {
     super();
+  }
+
+  addListener(event) {
+    super.addListener(event);
+    switch (event.key) {
+      case "z":
+        this.comida("arroz");
+        break;
+      case "x":
+        this.comida("pasta");
+        break;
+      case "v":
+        this.comida("pollo");
+        break;
+      case "j":
+        this.calcularCalorias();
+        break;
+      case "k":
+        this.calculoQuemar("caminar");
+        break;
+      case "n":
+        this.calculoQuemar("nadar");
+        break;
+      case "f":
+        this.calculoQuemar("correr");
+        break;
+      case "u":
+        this.calculateIMC();
+        break;
+      default:
+        break;
+    }
   }
 
   pow2() {
@@ -398,7 +527,7 @@ class CaloriesCalculator extends RPNCalculator {
     if (this.values.length >= 2) {
       var op1 = Number(this.values.pop());
       var op2 = Number(this.values.pop());
-      var value = op2 / (op1 * 0.01) ** 2;
+      var value = op1 / (op2 * 0.01) ** 2;
       this.values.push(value);
       this.printStack();
     } else {
@@ -407,7 +536,6 @@ class CaloriesCalculator extends RPNCalculator {
   }
   comida(food) {
     var op2 = 1;
-    console.log(food.toString());
     if (this.values.length >= 1) {
       switch (food.toString()) {
         case "arroz":
@@ -423,7 +551,6 @@ class CaloriesCalculator extends RPNCalculator {
           op2 = 1;
           break;
       }
-      console.log(food.toString());
       var op1 = Number(this.values.pop());
       this.values.push(op1 * op2);
       this.screen = "";
@@ -485,64 +612,5 @@ class CaloriesCalculator extends RPNCalculator {
     }
   }
 }
-
-document.addEventListener("keydown", function (event) {
-  switch (event.key) {
-    case "1":
-      rpnCalculator.addNumber(1);
-      break;
-    case "2":
-      rpnCalculator.addNumber(2);
-      break;
-    case "3":
-      rpnCalculator.addNumber(3);
-      break;
-    case "4":
-      rpnCalculator.addNumber(4);
-      break;
-    case "5":
-      rpnCalculator.addNumber(5);
-      break;
-    case "6":
-      rpnCalculator.addNumber(6);
-      break;
-    case "7":
-      rpnCalculator.addNumber(7);
-      break;
-    case "8":
-      rpnCalculator.addNumber(8);
-      break;
-    case "9":
-      rpnCalculator.addNumber(9);
-      break;
-    case "0":
-      rpnCalculator.addNumber(0);
-      break;
-    case "+":
-      rpnCalculator.add();
-      break;
-    case "-":
-      rpnCalculator.substract();
-      break;
-    case "*":
-      rpnCalculator.multiply();
-      break;
-    case "/":
-      rpnCalculator.divide();
-      break;
-    case "%":
-      rpnCalculator.porcentaje();
-      break;
-    case ".":
-      rpnCalculator.point();
-      break;
-    case "Enter":
-      rpnCalculator.equals();
-      break;
-    default:
-      console.log(event.key);
-      break;
-  }
-});
 
 var caloriesCalculator = new CaloriesCalculator();

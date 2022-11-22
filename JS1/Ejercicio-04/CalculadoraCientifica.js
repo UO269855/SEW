@@ -73,7 +73,7 @@ class Calculator {
         this.clearAll();
         break;
       case "m":
-        this.masmenos();
+        this.changeSign();
         break;
       case "r":
         this.raiz();
@@ -342,7 +342,6 @@ class Calculator {
           this.screen = this.screen + this.lastOperand;
         }
       } else {
-        console.log("Normal");
         var result = eval(this.screen);
         this.operand1 = result;
         this.screen = result;
@@ -384,6 +383,64 @@ class ScientificCalculator extends Calculator {
   }
   addListener(event) {
     super.addListener(event);
+    switch (event.key) {
+      case "t":
+        this.tan();
+        break;
+      case "y":
+        this.cos();
+        break;
+      case "s":
+        this.sin();
+        break;
+      case "l":
+        this.log();
+        break;
+      case "p":
+        this.pi();
+        break;
+      case "f":
+        this.fact();
+        break;
+      case "(":
+        this.leftPar();
+        break;
+      case ")":
+        this.rightPar();
+        break;
+      case "ArrowLeft":
+        this.del();
+        break;
+      case "Tab":
+        this.shift();
+        break;
+      case "a":
+        this.pow10();
+        break;
+      case "º":
+        this.pow();
+        break;
+      case "n":
+        this.pow2();
+        break;
+      case "j":
+        this.mc();
+        break;
+      case "k":
+        this.ms();
+        break;
+      case "d":
+        this.swapMeasure();
+        break;
+      case "h":
+        this.hyp();
+        break;
+      case "b":
+        this.fe();
+        break;
+      default:
+        break;
+    }
   }
   swapMeasure() {
     var measureButton;
@@ -809,7 +866,6 @@ class ScientificCalculator extends Calculator {
     if (!this.shiftPressed) {
       this.operand1 = 10;
       this.operand2 = Math.pow(this.operand1, Number(this.screen));
-      console.log(Math.pow(this.operand1, Number(this.screen)));
       this.screen = this.operand2;
       this.lastOperand = "^";
       document.querySelector('input[type="text"][title="Pantalla:"]').value =
