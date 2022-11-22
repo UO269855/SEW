@@ -34,8 +34,9 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        'label . . .'
+        'label-stack . . .'
         'stack stack stack stack'
+        'label-pantalla . . .'
         'pantalla pantalla pantalla pantalla'
         'arroz pasta pollo calorias'
         'caminar nadar correr imc'
@@ -54,9 +55,14 @@ main {
     background-color: #99B3FF;
 }
 
-label{
-    grid-area: label;
-    font: 1.5em Arial, sans-serif; 
+label[for="Stack:"] {
+    grid-area: label-stack;
+    font: 1.5em Arial, sans-serif;
+}
+
+label[for="Pantalla:"] {
+    grid-area: label-pantalla;
+    font: 1.5em Arial, sans-serif;
 }
 
 textarea {
