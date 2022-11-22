@@ -5,12 +5,12 @@ body{
     color:rgb(0, 0, 0);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 8fr 0.5fr;
     grid-template-areas:
         'header'
         'main'
         'footer';
-    align-items: center;
+
 }
 
 header {
@@ -18,13 +18,13 @@ header {
     display: flex;
     align-items: center;
     justify-self: center;
-    padding: 1em 3em;
+    padding: 0.5em 2em;
     background-color:#e1aaff;
 }
 
 /*001*/
 h1{
-    font: 2em Arial, sans-serif;
+    font: 1.75em Arial, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -34,9 +34,9 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        'label-stack . . .'
+        'labelstack . . .'
         'stack stack stack stack'
-        'label-pantalla . . .'
+        'labelpantalla . . .'
         'pantalla pantalla pantalla pantalla'
         'pow2 sin cos tang'
         'root pow10 log mod'
@@ -47,18 +47,17 @@ main {
         'masmenos zero-number point plus';
     gap: 1em 0.5em;
     border-radius: 5%;
-    align-items: center;
     justify-self: center;
     padding: 2% 2%;
     background-color:#99B3FF;
 }
-label[for="Stack:"] {
-    grid-area: label-stack;
+label[for="Stack"] {
+    grid-area: labelstack;
     font: 1.5em Arial, sans-serif;
 }
 
-label[for="Pantalla:"] {
-    grid-area: label-pantalla;
+label[for="Pantalla"] {
+    grid-area: labelpantalla;
     font: 1.5em Arial, sans-serif;
 }
 

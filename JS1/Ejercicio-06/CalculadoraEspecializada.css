@@ -5,18 +5,17 @@ body{
     color:rgb(0, 0, 0);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
     grid-template-areas:
         'header'
         'main'
         'footer';
-    align-items: center;
+
 }
 
 header {
     grid-area: header;
     display: flex;
-
     justify-self: center;
     padding: 1em;
     background-color:#e1aaff;
@@ -24,7 +23,7 @@ header {
 
 /*001*/
 h1{
-    font: 2em Arial, sans-serif;
+    font: 1.75em Arial, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -49,18 +48,17 @@ main {
         'masmenos zero-number point plus';
     gap: 1em 0.5em;
     border-radius: 5%;
-    align-items: center;
     justify-self: center;
-    padding: 1% 2%;
+    padding: 2% 2%;
     background-color: #99B3FF;
 }
 
-label[for="Stack:"] {
+label[for="Stack"] {
     grid-area: label-stack;
     font: 1.5em Arial, sans-serif;
 }
 
-label[for="Pantalla:"] {
+label[for="Pantalla"] {
     grid-area: label-pantalla;
     font: 1.5em Arial, sans-serif;
 }
