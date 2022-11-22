@@ -6,6 +6,90 @@ class Calculator {
     this.operand2 = "";
     this.lastOperand = "";
     this.memory = 0;
+
+    document.addEventListener("keydown", this.addListener.bind(this));
+  }
+
+  addListener(event) {
+    switch (event.key) {
+      case "1":
+        this.addNumber(1);
+        break;
+      case "2":
+        this.addNumber(2);
+        break;
+      case "3":
+        this.addNumber(3);
+        break;
+      case "4":
+        this.addNumber(4);
+        break;
+      case "5":
+        this.addNumber(5);
+        break;
+      case "6":
+        this.addNumber(6);
+        break;
+      case "7":
+        this.addNumber(7);
+        break;
+      case "8":
+        this.addNumber(8);
+        break;
+      case "9":
+        this.addNumber(9);
+        break;
+      case "0":
+        this.addNumber(0);
+        break;
+      case "+":
+        this.add();
+        break;
+      case "-":
+        this.substract();
+        break;
+      case "*":
+        this.multiply();
+        break;
+      case "/":
+        this.divide();
+        break;
+      case "%":
+        this.porcentaje();
+        break;
+      case ".":
+        this.point();
+        break;
+      case "Enter":
+        this.equals();
+        break;
+      case "=":
+        this.equals();
+        break;
+      case "Backspace":
+        this.ce();
+        break;
+      case "Delete":
+        this.clearAll();
+        break;
+      case "m":
+        this.masmenos();
+        break;
+      case "r":
+        this.raiz();
+        break;
+      case "q":
+        this.mplus();
+        break;
+      case "w":
+        this.mminus();
+        break;
+      case "e":
+        this.mrc();
+        break;
+      default:
+        break;
+    }
   }
 
   clearAll() {
@@ -25,10 +109,7 @@ class Calculator {
         startindex = i;
       }
     }
-    if (!this.lastOperand == "" && startindex) {
-      this.screen = this.screen.toString().substring(0, startindex + 1);
-      this.operand2 = "";
-    } else if (startindex) {
+    if (!(this.lastOperand == "") && startindex > 0) {
       this.screen = this.screen.toString().substring(0, startindex + 1);
       this.operand2 = "";
     } else {
@@ -80,7 +161,7 @@ class Calculator {
   }
 
   addNumber(number) {
-    this.screen = this.screen + number;
+    this.screen = this.screen.toString() + number;
     if (this.operand1 == this.operand2) {
       this.operand2 = "";
     }
@@ -90,6 +171,7 @@ class Calculator {
   }
 
   multiply() {
+    this.operand1 = Number(eval(this.screen));
     this.operand2 = this.operand1;
     this.screen = this.screen + "*";
     this.lastOperand = "*";
@@ -98,6 +180,7 @@ class Calculator {
   }
 
   divide() {
+    this.operand1 = Number(eval(this.screen));
     this.operand2 = this.operand1;
     this.screen = this.screen + "/";
     this.lastOperand = "/";
@@ -106,6 +189,7 @@ class Calculator {
   }
 
   substract() {
+    this.operand1 = Number(eval(this.screen));
     this.operand2 = this.operand1;
     this.screen = this.screen + "-";
     this.lastOperand = "-";
@@ -114,6 +198,7 @@ class Calculator {
   }
 
   add() {
+    this.operand1 = Number(eval(this.screen));
     this.operand2 = this.operand1;
     this.screen = this.screen + "+";
     this.lastOperand = "+";
@@ -211,6 +296,7 @@ class Calculator {
             this.operand1 = Number(this.screen);
             break;
           default:
+            event.preventDefault();
             break;
         }
         this.screen = eval(operation);
@@ -296,7 +382,9 @@ class ScientificCalculator extends Calculator {
     this.hyperPressed = false;
     this.memory = 0;
   }
-
+  addListener(event) {
+    super.addListener(event);
+  }
   swapMeasure() {
     var measureButton;
     if (this.measure == "DEG") {
@@ -380,17 +468,24 @@ class ScientificCalculator extends Calculator {
   }
 
   mplus() {
-    this.equals();
+    if (isNaN(Number(this.screen))) {
+      this.equals();
+    }
     this.memory = Number(this.memory) + Number(this.screen);
   }
 
   mminus() {
-    this.equals();
+    if (isNaN(Number(this.screen))) {
+      this.equals();
+    }
+
     this.memory = Number(this.memory) - Number(this.screen);
   }
 
   ms() {
-    this.equals();
+    if (isNaN(Number(this.screen))) {
+      this.equals();
+    }
     this.memory = Number(this.screen);
   }
 
@@ -726,7 +821,7 @@ class ScientificCalculator extends Calculator {
 
   powe() {
     this.operand1 = Math.E;
-    this.operand2 = Math.pow(operand1, Number(this.screen));
+    this.operand2 = Math.pow(this.operand1, Number(this.screen));
     this.screen = this.operand2;
     this.lastOperand = "^";
     document.querySelector('input[type="text"][title="Pantalla:"]').value =
@@ -741,7 +836,7 @@ class ScientificCalculator extends Calculator {
       document.querySelector('input[type="text"][title="Pantalla:"]').value =
         this.screen;
     } else {
-      this.ln;
+      this.ln();
     }
   }
 
@@ -753,14 +848,7 @@ class ScientificCalculator extends Calculator {
   }
 
   inverse() {
-    this.operand1 = 1 - Number(this.screen);
-    this.screen = this.operand1;
-    document.querySelector('input[type="text"][title="Pantalla:"]').value =
-      this.screen;
-  }
-
-  dms() {
-    this.operand1 = Math.dms(Number(this.screen));
+    this.operand1 = 1 / Number(this.screen);
     this.screen = this.operand1;
     document.querySelector('input[type="text"][title="Pantalla:"]').value =
       this.screen;
@@ -773,11 +861,11 @@ class ScientificCalculator extends Calculator {
   }
 
   mod() {
-    this.equals();
     this.operand1 = Number(this.screen);
     this.screen = this.operand1 + "%";
     this.lastOperand = "%";
-    document.querySelector('input[type="text"][title="Pantalla:"]').value = "";
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   shift() {
@@ -808,9 +896,6 @@ class ScientificCalculator extends Calculator {
 
       button = document.querySelector('input[type="button"][value="log"]');
       button.value = "ln";
-
-      button = document.querySelector('input[type="button"][value="Exp"]');
-      button.value = "dms";
     } else if (this.shiftPressed && this.hyperPressed) {
       var button = document.querySelector('input[type="button"][value="sinh"]');
       button.value = "asinh";
@@ -853,9 +938,6 @@ class ScientificCalculator extends Calculator {
 
       button = document.querySelector('input[type="button"][value="ln"]');
       button.value = "log";
-
-      button = document.querySelector('input[type="button"][value="dms"]');
-      button.value = "Exp";
     }
   }
 
@@ -900,7 +982,10 @@ class ScientificCalculator extends Calculator {
   }
 
   fact() {
-    var number = Number(eval(this.screen()));
+    if (isNaN(Number(this.screen))) {
+      this.equals();
+    }
+    var number = Number(eval(this.screen));
 
     var value = 1;
     for (var i = 1; i <= number; i++) {
@@ -1022,72 +1107,5 @@ class ScientificCalculator extends Calculator {
     // }
   }
 }
-
-document.addEventListener("click", function () {
-  console.log("Screen:" + scientificCalculator.screen);
-  console.log("Operand1:" + scientificCalculator.operand1);
-  console.log("Operand2:" + scientificCalculator.operand2);
-  console.log("Last Expression:" + scientificCalculator.lastOperand);
-  console.log("");
-});
-
-document.addEventListener("keydown", function (event) {
-  switch (event.key) {
-    case "1":
-      scientificCalculator.addNumber(1);
-      break;
-    case "2":
-      scientificCalculator.addNumber(2);
-      break;
-    case "3":
-      scientificCalculator.addNumber(3);
-      break;
-    case "4":
-      scientificCalculator.addNumber(4);
-      break;
-    case "5":
-      scientificCalculator.addNumber(5);
-      break;
-    case "6":
-      scientificCalculator.addNumber(6);
-      break;
-    case "7":
-      scientificCalculator.addNumber(7);
-      break;
-    case "8":
-      scientificCalculator.addNumber(8);
-      break;
-    case "9":
-      scientificCalculator.addNumber(9);
-      break;
-    case "0":
-      scientificCalculator.addNumber(0);
-      break;
-    case "+":
-      scientificCalculator.add();
-      break;
-    case "-":
-      scientificCalculator.substract();
-      break;
-    case "*":
-      scientificCalculator.multiply();
-      break;
-    case "/":
-      scientificCalculator.divide();
-      break;
-    case "%":
-      scientificCalculator.porcentaje();
-      break;
-    case ".":
-      scientificCalculator.point();
-      break;
-    case "Enter":
-      scientificCalculator.equals();
-      break;
-    default:
-      console.log(event.key);
-      break;
-  }
-});
 
 var scientificCalculator = new ScientificCalculator();

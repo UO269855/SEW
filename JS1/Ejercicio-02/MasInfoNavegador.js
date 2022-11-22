@@ -1,11 +1,3 @@
-document.write("<p>Nombre del navegador: ");
-document.write(navegador.nombre);
-document.write("</p>");
-
-document.write("<p>Idioma: ");
-document.write(navegador.idioma);
-document.write("</p>");
-
 document.write("<p>Versión: ");
 document.write(navegador.version);
 document.write("</p>");

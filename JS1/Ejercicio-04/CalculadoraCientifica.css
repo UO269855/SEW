@@ -66,7 +66,7 @@ input[type=button] {
 
 input[type=text] { 
     grid-area: pantalla;
-    font: 2em Arial, sans-serif;
+    font: 1.25em Arial, sans-serif;
     background-color:rgb(255, 255, 255);
 
 } 
@@ -246,7 +246,7 @@ input[type=button][value="log"], input[type=button][value="ln"] {
     
 } 
 
-input[type=button][value="Exp"], input[type=button][value="dms"] { 
+input[type=button][value="Exp"] { 
     grid-area: exp;
     
 } 
@@ -290,6 +290,9 @@ input[type=button][value=")"] {
 footer{
     grid-area: footer;
     display: flex;
+    font: 1.25em Arial, sans-serif;
     align-items: center;
     justify-self: center;
+    background-color:#e3afff;
+    color: #000000;
 }

@@ -6,6 +6,90 @@ class Calculator {
     this.operand2 = "";
     this.lastOperand = "";
     this.memory = 0;
+
+    document.addEventListener("keydown", this.addListener.bind(this));
+  }
+
+  addListener(event) {
+    switch (event.key) {
+      case "1":
+        this.addNumber(1);
+        break;
+      case "2":
+        this.addNumber(2);
+        break;
+      case "3":
+        this.addNumber(3);
+        break;
+      case "4":
+        this.addNumber(4);
+        break;
+      case "5":
+        this.addNumber(5);
+        break;
+      case "6":
+        this.addNumber(6);
+        break;
+      case "7":
+        this.addNumber(7);
+        break;
+      case "8":
+        this.addNumber(8);
+        break;
+      case "9":
+        this.addNumber(9);
+        break;
+      case "0":
+        this.addNumber(0);
+        break;
+      case "+":
+        this.add();
+        break;
+      case "-":
+        this.substract();
+        break;
+      case "*":
+        this.multiply();
+        break;
+      case "/":
+        this.divide();
+        break;
+      case "%":
+        this.porcentaje();
+        break;
+      case ".":
+        this.point();
+        break;
+      case "Enter":
+        this.equals();
+        break;
+      case "=":
+        this.equals();
+        break;
+      case "Backspace":
+        this.ce();
+        break;
+      case "Delete":
+        this.clearAll();
+        break;
+      case "m":
+        this.masmenos();
+        break;
+      case "r":
+        this.raiz();
+        break;
+      case "q":
+        this.mplus();
+        break;
+      case "w":
+        this.mminus();
+        break;
+      case "e":
+        this.mrc();
+        break;
+      default:
+        break;
+    }
   }
 
   clearAll() {
@@ -25,10 +109,7 @@ class Calculator {
         startindex = i;
       }
     }
-    if (!this.lastOperand == "" && startindex) {
-      this.screen = this.screen.toString().substring(0, startindex + 1);
-      this.operand2 = "";
-    } else if (startindex) {
+    if (!(this.lastOperand == "") && startindex > 0) {
       this.screen = this.screen.toString().substring(0, startindex + 1);
       this.operand2 = "";
     } else {
@@ -80,7 +161,7 @@ class Calculator {
   }
 
   addNumber(number) {
-    this.screen = this.screen + number;
+    this.screen = this.screen.toString() + number;
     if (this.operand1 == this.operand2) {
       this.operand2 = "";
     }
@@ -215,6 +296,7 @@ class Calculator {
             this.operand1 = Number(this.screen);
             break;
           default:
+            event.preventDefault();
             break;
         }
         this.screen = eval(operation);
@@ -291,72 +373,5 @@ class Calculator {
     }
   }
 }
-
-document.addEventListener("keydown", function (event) {
-  switch (event.key) {
-    case "1":
-      calculator.addNumber(1);
-      break;
-    case "2":
-      calculator.addNumber(2);
-      break;
-    case "3":
-      calculator.addNumber(3);
-      break;
-    case "4":
-      calculator.addNumber(4);
-      break;
-    case "5":
-      calculator.addNumber(5);
-      break;
-    case "6":
-      calculator.addNumber(6);
-      break;
-    case "7":
-      calculator.addNumber(7);
-      break;
-    case "8":
-      calculator.addNumber(8);
-      break;
-    case "9":
-      calculator.addNumber(9);
-      break;
-    case "0":
-      calculator.addNumber(0);
-      break;
-    case "+":
-      calculator.add();
-      break;
-    case "-":
-      calculator.substract();
-      break;
-    case "*":
-      calculator.multiply();
-      break;
-    case "/":
-      calculator.divide();
-      break;
-    case "%":
-      calculator.porcentaje();
-      break;
-    case ".":
-      calculator.point();
-      break;
-    case "Enter":
-      calculator.equals();
-      break;
-    case "=":
-      calculator.equals();
-      break;
-    case "Backspace":
-      calculator.ce();
-      break;
-    case "c":
-      calculator.clearAll();
-      break;
-    default:
-      break;
-  }
-});
 
 var calculator = new Calculator();

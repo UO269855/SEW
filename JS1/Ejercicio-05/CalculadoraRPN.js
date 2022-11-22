@@ -154,7 +154,7 @@ class RPNCalculator {
     if (this.values.length >= 2) {
       var op1 = Number(this.values.pop());
       var op2 = Number(this.values.pop());
-      this.values.push(Math.mod(op2, op1));
+      this.values.push(op2 % op1);
       this.screen = "";
       document.querySelector('input[type="text"][title="Pantalla:"]').value =
         this.screen;
@@ -208,6 +208,8 @@ class RPNCalculator {
     this.screen = "";
     document.querySelector('input[type="text"][title="Pantalla:"]').value =
       this.screen.toString();
+    this.values = [];
+    this.printStack();
   }
 
   del() {
@@ -278,9 +280,12 @@ class RPNCalculator {
       var op1 = Number(this.values.pop());
       var value = op1 * -1;
       this.values.push(value);
+      this.printStack();
     } else {
       this.screen = "Syntax Error";
     }
+    document.querySelector('input[type="text"][title="Pantalla:"]').value =
+      this.screen;
   }
 
   point() {
@@ -308,15 +313,6 @@ class RPNCalculator {
     document.querySelector('textarea[title="Stack"]').innerHTML = stackValues;
   }
 }
-
-document.addEventListener("click", function () {
-  console.log("Screen:" + rpnCalculator.screen);
-  console.log("Operand1:" + rpnCalculator.operand1);
-  console.log("Operand2:" + rpnCalculator.operand2);
-  console.log("Last Expression:" + rpnCalculator.lastOperand);
-  console.log("Stack: [" + rpnCalculator.values + "]");
-  console.log("");
-});
 
 document.addEventListener("keydown", function (event) {
   switch (event.key) {
