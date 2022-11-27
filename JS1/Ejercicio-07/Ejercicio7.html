@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <!-- Datos que describen el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta
+      name="description"
+      content="Página web del Ejercicio 7 de JavaScript"
+    />
+
+    <title>Ejercicio 7</title>
+
+    <link rel="stylesheet" type="text/css" href="Ejercicio7.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="Ejercicio7.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Ejemplo JQuery</h1>
+    </header>
+    <main>
+      <h2>Presentación del Framework</h2>
+      <p>
+        A continuación presentaremos el framework comentando las distintas
+        características que tiene, además de poniendo un ejemplo mostrando cómo
+        funciona y cómo es su estructura.
+      </p>
+      <h3>Características</h3>
+      <p>
+        Bootstrap tiene un soporte relativamente incompleto para HTML5 y CSS3,
+        pero es compatible con la mayoría de los navegadores web. La información
+        básica de compatibilidad de sitios web o aplicaciones está disponible
+        para todos los dispositivos y navegadores. Existe un concepto de
+        compatibilidad parcial que hace disponible la información básica de un
+        sitio web para todos los dispositivos y navegadores. Por ejemplo, las
+        propiedades introducidas en CSS3 para las esquinas redondeadas,
+        gradientes y sombras son usadas por Bootstrap a pesar de la falta de
+        soporte de navegadores antiguos. Esto extiende la funcionalidad de la
+        herramienta, pero no es requerida para su uso.
+      </p>
+      <h3>Función y estructura</h3>
+      <p>
+        Bootstrap es modular y consiste esencialmente en una serie de hojas de
+        estilo LESS que implementan la variedad de componentes de la
+        herramienta. Una hoja de estilo llamada bootstrap.less incluye los
+        componentes de las hojas de estilo. Los desarrolladores pueden adaptar
+        el mismo archivo de Bootstrap, seleccionando los componentes que deseen
+        usar en su proyecto. Los ajustes son posibles en una medida limitada a
+        través de una hoja de estilo de configuración central. Los cambios más
+        profundos son posibles mediante las declaraciones LESS. El uso del
+        lenguaje de hojas de estilo LESS permite el uso de variables, funciones
+        y operadores, selectores anidados, así como clases mixin.
+      </p>
+      <h3>Tabla de versiones</h3>
+      <table id="versiones">
+        <thead>
+          <tr>
+            <th scope="col" id="version">Versión</th>
+            <th scope="col" id="releases">Releases</th>
+            <th scope="col" id="fecha">Fecha de salida</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" id="version1" headers="version">Versión 1</th>
+            <td headers="version1 releases">
+              v1.4.0, v1.3.0, v1.2.0, v1.1.1, v1.1.0, v1.0.0
+            </td>
+            <td headers="version1 fecha">19 de agosto de 2011</td>
+          </tr>
+          <tr>
+            <th scope="row" id="version2" headers="version">Versión 2</th>
+            <td headers="version2 releases">
+              <a
+                href="https://getbootstrap.com/2.3.2/"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                v2.3.2
+              </a>
+              , v2.3.1, v2.3.0, v2.2.2, v2.2.1, v2.2.0, v2.1.1, v2.1.0, v2.0.4,
+              v2.0.3, v2.0.2, v2.0.1, v2.0.0
+            </td>
+            <td headers="version2 fecha">31 de enero de 2012</td>
+          </tr>
+          <tr>
+            <th scope="row" id="version3" headers="version">Versión 3</th>
+            <td headers="version3 releases">
+              <a
+                href="https://getbootstrap.com/docs/3.3/"
+                target="_blank"
+                rel="noreferrer noopener"
+                >3.3.7</a
+              >, v3.3.6, v3.3.5, v3.3.4, v3.3.2, v3.3.1, v3.3.0, v3.2.0, v3.1.1,
+              v3.1.0, v3.0.3, v3.0.2, v3.0.1, v3.0.0
+            </td>
+            <td headers="version3 fecha">19 de agosto de 2013</td>
+          </tr>
+          <tr>
+            <th scope="row" id="version4" headers="version">Versión 4</th>
+            <td headers="version4 releases">
+              <a
+                href="https://github.com/twbs/bootstrap/releases/tag/v4.6.0"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                4.6.0</a
+              >, v4.5.3, v4.5.2, v4.5.1, v4.5.0, v4.4.1, v4.4.0, v4.3.1, v4.3.0,
+              v4.2.1, v4.2.0, v4.1.3, v4.1.2, v4.1.1, v4.1.0, v4.0.0
+            </td>
+            <td headers="version4 fecha">29 de octubre de 2014</td>
+          </tr>
+          <tr>
+            <th scope="row" id="version5" headers="version">Versión 5</th>
+            <td headers="version5 releases">
+              v5.0.1,
+              <a
+                href="https://github.com/twbs/bootstrap/releases/tag/v5.0.0-beta2"
+                target="_blank"
+                rel="noreferrer noopener"
+                >v5.0.0-beta2</a
+              >, v5.0.0-beta1, v5.0.0-alpha3, v5.0.0-alpha2, v5.0.0-alpha1
+            </td>
+            <td headers="version5 fecha">16 de junio de 2020</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <input
+        type="button"
+        value="Ocultar elemento"
+        onclick="panel.ocultarElemento()"
+      />
+      <input
+        type="button"
+        value="Mostrar elemento"
+        onclick="panel.mostrarElemento()"
+      />
+      <input
+        type="button"
+        value="Modificar elemento"
+        onclick="panel.modificarElemento()"
+      />
+      <input
+        type="button"
+        value="Añadir elemento"
+        onclick="panel.addElemento()"
+      />
+      <input
+        type="button"
+        value="Eliminar elemento"
+        onclick="panel.eliminarElemento()"
+      />
+      <input
+        type="button"
+        value="Identificar elementos"
+        onclick="panel.identificarElementos()"
+      />
+      <input
+        type="button"
+        value="Suma Filas y Columnas"
+        onclick="panel.sumaTabla()"
+      />
+    </main>
+    <footer>
+      <p>Práctica JavaScript</p>
+    </footer>
+  </body>
+</html>
