@@ -63,10 +63,11 @@ class PanelMeteo {
         stringDatos +=
           "<li>Descripción: " + datos.weather[0].description + "</li>";
         stringDatos += "<li>Visibilidad: " + datos.visibility + " metros</li>";
-        stringDatos += "<li>Nubosidad: " + datos.clouds.all + " %</li></ul>";
+        stringDatos += "<li>Nubosidad: " + datos.clouds.all + " %</li>";
         var pictureUrl =
           "https://openweathermap.org/img/w/" + datos.weather[0].icon + ".png";
-        stringDatos += "<img src=" + pictureUrl + " alt='Icono del clima'/>";
+        stringDatos +=
+          "<img src=" + pictureUrl + " alt='Icono del clima'/> </ul>";
 
         $("p").html(stringDatos);
       },

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <!-- Datos que describen el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta name="description" content="Página web del Ejercicio 9 de JavaScript" />
+
+    <title>Ejercicio 9</title>
+
+    <link rel="stylesheet" type="text/css" href="Ejercicio9.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="Ejercicio9.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>JQuery - Obtener datos meteorológicos</h1>
+    </header>
+    <main>
+        <h2>Seleccione una ciudad para ver la previsión climatológica</h2>
+        <input type="button" value="Oviedo" onclick="panel.meteo('Oviedo')" />
+        <input type="button" value="Gijón" onclick="panel.meteo('Gijon')" />
+        <input type="button" value="El Entrego" onclick="panel.meteo('El Entrego')" />
+        <input type="button" value="Madrid" onclick="panel.meteo('Madrid')" />
+        <input type="button" value="Londres" onclick="panel.meteo('Londres')" />
+        <input type="button" value="Berlin" onclick="panel.meteo('Berlin')" />
+    </main>
+    <footer>
+        <p>Práctica JavaScript</p>
+    </footer>
+</body>
+
+</html>
