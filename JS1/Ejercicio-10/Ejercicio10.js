@@ -40,15 +40,14 @@ class PanelGas {
           datos.data.unit.substring(4) +
           " es de " +
           datos.data.rates["NG"] +
+          " " +
           datos.data.base +
           "</p>";
 
         $("p").html(stringDatos);
       },
       error: function () {
-        $("h3").html(
-          "Â¡Tenemos problemas! No puedo obtener JSON de <a href='http://openweathermap.org'>OpenWeatherMap</a>"
-        );
+        $("h3").html("No se pudo obtener JSON");
         $("h4").remove();
         $("pre").remove();
         $("p").remove();
