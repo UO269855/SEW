@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <!-- Datos que describen el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta name="description" content="Página web del Ejercicio 10 de JavaScript" />
+
+    <title>Ejercicio 10</title>
+
+    <link rel="stylesheet" type="text/css" href="Ejercicio10.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="Ejercicio10.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>JQuery - Obtener datos meteorológicos</h1>
+    </header>
+    <main>
+        <h2>Rellene los siguientes datos para comprobar el precio del gas</h2>
+        <a href="https://www.iban.com/currency-codes" target="_blank" rel="noreferrer noopener">Códigos de las
+            monedas</a>
+        <label for="final">Fecha:</label>
+        <input id="final" type="text" placeholder="YYYY-MM-DD" required />
+        <label for="codigo">Código de la moneda a usar:</label>
+        <input id="codigo" type="text" placeholder="000" required />
+        <input type="button" value="Calcular" onclick="gas.calculateGas()" />
+    </main>
+    <footer>
+        <p>Práctica JavaScript</p>
+    </footer>
+</body>
+
+</html>
