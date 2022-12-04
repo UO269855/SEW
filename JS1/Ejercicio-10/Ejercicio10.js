@@ -31,8 +31,6 @@ class PanelGas {
       url: this.url,
       method: "GET",
       success: function (datos) {
-        $("pre").text(JSON.stringify(datos, null, 2));
-        console.log(datos.date);
         var stringDatos =
           "<p>Para la fecha: " +
           datos.data.date +

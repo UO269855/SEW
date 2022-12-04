@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <!-- Datos que describen el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta
+      name="description"
+      content="Página web del Ejercicio 13 de JavaScript"
+    />
+
+    <title>Ejercicio 13</title>
+
+    <link rel="stylesheet" type="text/css" href="MapaKML.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="MapaKML.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Ejercicio 13 - Tarea 1</h1>
+    </header>
+    <main>
+      <h2>Suba un archivo KML para mostrar las coordenadas en el mapa</h2>
+      <input
+        type="file"
+        value="Subir archivo"
+        onchange="map.leerArchivo(this.files)"
+      />
+      <script
+        async
+        defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB43s4v7kZkqlBqERYv_oXb6N-87w1dnYE&callback=mapaDinamico.initMap"
+      ></script>
+      <section name="map"></section>
+    </main>
+    <footer>
+      <p>Práctica JavaScript</p>
+    </footer>
+  </body>
+</html>
