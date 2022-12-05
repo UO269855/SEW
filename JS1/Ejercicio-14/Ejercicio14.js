@@ -1,42 +1,28 @@
 "use strict";
-const form = $("form[name='addFiles']");
-const fileInput = document.getElementById("input[value='Subir archivo']");
-
-fileInput.addEventListener("change", () => {
-  form.submit();
-});
-
-window.addEventListener("paste", (e) => {
-  fileInput.files = e.clipboardData.files;
-});
-
 function leerArchivo(files) {
-  $("p").remove();
-  $("pre").remove();
-  $("h3").remove();
-  $("footer").after("<p>Práctica JavaScript</p>");
   for (var value = files.length - 1; value >= 0; value--) {
     var file = files[value];
 
-    var stringDatos = "";
-    stringDatos += "<h3> Fichero número " + (value + 1) + "</h3>";
-    stringDatos += "<p> Nombre del fichero: " + file.name + "</p>";
-    stringDatos += "<p> Tamaño del fichero: " + file.size + " bytes</p>";
-    stringDatos += "<p> Tipo del fichero: " + file.type + "</p>";
-    stringDatos +=
-      "<p> Última vez que se ha modificado el fichero: " +
-      file.lastModifiedDate +
-      "</p>";
-
-    if (file.type.match(/text.*/) || file.type.match("application/json")) {
+    if (file.type.match(/video.*/)) {
+      var stringDatos =
+        "<p> Fichero número " + (value + 1) + " Nombre: " + file.name + "</p>";
       stringDatos +=
-        "<p name='file" + file.name + "'> Contenido del archivo: </p>";
-      $("input").after(stringDatos);
-      $("p[name='file" + file.name + "']").after(
-        "<p name='file" + (value + 1) + "'></p>"
-      );
-      var item = document.querySelector("p[name='file" + (value + 1) + "']");
-      printText(file, item);
+        "<video controls> <source src='" +
+        file.name +
+        "' type='video/mp4;' /></video>";
+      $("article").after(stringDatos);
+    } else if (file.type.match(/image.*/)) {
+      var stringDatos =
+        "<p> Fichero número " + (value + 1) + " Nombre: " + file.name + "</p>";
+      stringDatos +=
+        "<img alt='Foto " +
+        (value + 1) +
+        "-" +
+        file.name +
+        "' src='" +
+        file.name +
+        "' />";
+      $("article").after(stringDatos);
     } else {
       $("input").after(stringDatos);
       stringDatos += "<p>Archivo no válido </p>";
@@ -44,11 +30,20 @@ function leerArchivo(files) {
   }
 }
 
-function printText(file, item) {
-  var reader = new FileReader();
-
-  reader.onload = function (event) {
-    item.innerText = reader.result;
-  };
-  reader.readAsText(file);
+function textOver(ev) {
+  ev.stopPropagation();
+  ev.preventDefault();
+  $("p:first").hide();
 }
+
+function drop(ev) {
+  console.log(ev.dataTransfer);
+  ev.stopPropagation();
+  ev.preventDefault();
+  leerArchivo(ev.dataTransfer.files);
+}
+
+document.onpaste = function (event) {
+  var check = event.clipboardData.files;
+  leerArchivo(check);
+};
