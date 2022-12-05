@@ -12,7 +12,7 @@ class MapaDinamico {
     });
     var marcador = new google.maps.Marker();
     if (navigator.geolocation) {
-      $("h2").after("<p>Se muestra en el mapa su localizaciñon actual</p>");
+      $("h2").after("<p>Se muestra en el mapa su localización actual</p>");
       navigator.geolocation.getCurrentPosition(
         function (position) {
           var pos = {
