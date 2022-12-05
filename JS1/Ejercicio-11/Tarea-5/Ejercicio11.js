@@ -19,6 +19,7 @@ class MapaDinamico {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
+
           marcador = new google.maps.Marker({
             position: pos,
             map: mapa,
@@ -36,13 +37,8 @@ class MapaDinamico {
   }
 }
 
-function handleLocationError(browserHasGeolocation, marcador, pos) {
-  marcador = new google.maps.Marker({
-    position: pos,
-    map: mapa,
-  });
-  $("h2").after("<p>No se ha podido indicar su ubicación</p>");
-}
+
+
 
 var map = new MapaDinamico();
 mapaDinamico.initMap = map.initMap;

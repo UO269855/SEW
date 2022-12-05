@@ -1,4 +1,5 @@
 "use strict";
+var mapaDinamico = new Object();
 var mapa;
 
 class MapaDinamico {
@@ -10,18 +11,15 @@ class MapaDinamico {
       center: centre,
     });
     var marcador = new google.maps.Marker();
-    console.log("test");
     if (navigator.geolocation) {
-      $("main").after("<p>Se muestra en el mapa su localizacion actual</p>");
+      $("h2").after("<p>Se muestra en el mapa su localización actual</p>");
       navigator.geolocation.getCurrentPosition(
         function (position) {
-          console.log(position.coords.latitude);
-          console.log(position.coords.longitude);
-          meteo(position.coords.latitude, position.coords.longitude);
           var pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
+          meteo(pos.lat, pos.lng);
           marcador = new google.maps.Marker({
             position: pos,
             map: mapa,
@@ -40,15 +38,14 @@ class MapaDinamico {
 }
 
 function meteo(lat, lng) {
-  console.log(this.url);
   $.ajax({
     dataType: "json",
     url:
       "https://api.openweathermap.org/data/2.5/weather?lat=" +
-      { lat } +
+      lat +
       "&lon=" +
-      { lng } +
-      "&appid=a6a0ea487e4a8851950da54224c4539b",
+      lng +
+      "&units=metric&appid=a6a0ea487e4a8851950da54224c4539b",
     method: "GET",
     success: function (datos) {
       $("pre").text(JSON.stringify(datos, null, 2));
@@ -99,8 +96,7 @@ function meteo(lat, lng) {
         "https://openweathermap.org/img/w/" + datos.weather[0].icon + ".png";
       stringDatos +=
         "<img src=" + pictureUrl + " alt='Icono del clima'/> </ul>";
-      console.log(stringDatos);
-      document.querySelector("aside").innerHTML(stringDatos);
+      $("section").after(stringDatos);
     },
     error: function () {
       console.log("no va");
@@ -113,7 +109,6 @@ function meteo(lat, lng) {
     },
   });
 }
-
 function handleLocationError(browserHasGeolocation, marcador, pos) {
   marcador = new google.maps.Marker({
     position: pos,
@@ -123,3 +118,4 @@ function handleLocationError(browserHasGeolocation, marcador, pos) {
 }
 
 var map = new MapaDinamico();
+mapaDinamico.initMap = map.initMap;
