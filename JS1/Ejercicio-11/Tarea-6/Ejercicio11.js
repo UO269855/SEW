@@ -6,7 +6,7 @@ class MapaDinamico {
   constructor() {}
   initMap() {
     var centre = { lat: 43.3672702, lng: -5.8502461 };
-    mapa = new google.maps.Map(document.querySelector("section[name='map']"), {
+    mapa = new google.maps.Map($("article")[0], {
       zoom: 9,
       center: centre,
     });
@@ -96,7 +96,7 @@ function meteo(lat, lng) {
         "https://openweathermap.org/img/w/" + datos.weather[0].icon + ".png";
       stringDatos +=
         "<img src=" + pictureUrl + " alt='Icono del clima'/> </ul>";
-      $("section").after(stringDatos);
+      $("article").after(stringDatos);
     },
     error: function () {
       console.log("no va");

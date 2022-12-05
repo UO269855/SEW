@@ -1,4 +1,15 @@
 "use strict";
+const form = $("form[name='addFiles']");
+const fileInput = document.getElementById("input[value='Subir archivo']");
+
+fileInput.addEventListener("change", () => {
+  form.submit();
+});
+
+window.addEventListener("paste", (e) => {
+  fileInput.files = e.clipboardData.files;
+});
+
 function leerArchivo(files) {
   $("p").remove();
   $("pre").remove();

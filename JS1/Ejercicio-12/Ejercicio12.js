@@ -35,7 +35,6 @@ function leerArchivo(files) {
 
 function printText(file, item) {
   var reader = new FileReader();
-
   reader.onload = function (event) {
     item.innerText = reader.result;
   };

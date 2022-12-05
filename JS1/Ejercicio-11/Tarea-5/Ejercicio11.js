@@ -1,12 +1,11 @@
 "use strict";
-var mapaDinamico = new Object();
 var mapa;
 
 class MapaDinamico {
   constructor() {}
   initMap() {
     var centre = { lat: 43.3672702, lng: -5.8502461 };
-    mapa = new google.maps.Map(document.querySelector("section[name='map']"), {
+    mapa = new google.maps.Map($("article")[0], {
       zoom: 9,
       center: centre,
     });
@@ -36,9 +35,4 @@ class MapaDinamico {
     }
   }
 }
-
-
-
-
 var map = new MapaDinamico();
-mapaDinamico.initMap = map.initMap;
