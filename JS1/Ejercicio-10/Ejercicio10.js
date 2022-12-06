@@ -25,14 +25,14 @@ class PanelGas {
   }
   calculateGas() {
     this.createUrl();
-    $("p:first").remove();
+    $("p[name='moneda']").remove();
     $.ajax({
       dataType: "json",
       url: this.url,
       method: "GET",
       success: function (datos) {
         var stringDatos =
-          "<p>Para la fecha: " +
+          "<p name='moneda'>Para la fecha: " +
           datos.data.date +
           " el precio del gas natural por " +
           datos.data.unit.substring(4) +
