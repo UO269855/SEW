@@ -5,21 +5,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-            43.3603,-5.84476
+          43.3603,-5.84476
         ]
       }},
       {"type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
-            43.28726995,-5.64469123297325
+          43.28726995,-5.64469123297325
         ]
       }},
       {"type": "Feature",
       "geometry": {
         "type": "Point",
         "coordinates": [
-            43.2964,-5.68254
+          40.4167,-3.70325
         ]
       }}
       ,
@@ -27,7 +27,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-            43.2149,-5.54073
+          43.2964,-5.68254
         ]
       }}
       ,
@@ -35,7 +35,156 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-            43.259900,-5.573500
+          43.2149,-5.54073
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.2599,-5.5735
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.38879,2.15899
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.182171999371334,-3.6075800581628528
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.23282,-8.72264
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.46667,-2.45
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.55473,-5.92483
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.35,-5.9167
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.56939,2.65024
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.60003,-5.57032
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.46975,-0.37739
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.34517,-0.48149
+        ]
+      }}
+      ,
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.46472,-3.80444
+        ]
+      }}
+      ,
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.21563,-5.565584
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.2957,-5.6842
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.348995,-5.084258
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.34106,-3.70184
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.4120284,-5.7902107
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.8581,-4.02263
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          43.391049,-5.661695
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          41.14961,-8.61099
+        ]
+      }},
+      {"type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.87789,-6.97061
         ]
       }}]
     }

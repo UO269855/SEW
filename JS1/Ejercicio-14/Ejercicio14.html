@@ -22,15 +22,19 @@
   <body>
     <header>
       <h1>Ejercicio 14</h1>
+      <h2>Indique los archivos que quiera subir</h2>
     </header>
     <main>
-      <h2>Indique los archivos que quiera subir</h2>
-      <input type="file" onchange="leerArchivo(this.files)" multiple />
+      <article
+        ondrop="dropHandler(event);"
+        ondragover="dragOverHandler(event);"
+      >
+        <h2>
+          Arrastre los archivos que quiera subir aquí o pulse el siguiente botón
+        </h2>
+        <input type="file" onchange="leerArchivo(this.files)" multiple />
+      </article>
     </main>
-
-    <article ondrop="drop(event)">
-      <p>Hola Buenas</p>
-    </article>
     <footer>
       <p>Práctica JavaScript</p>
     </footer>

@@ -110,7 +110,7 @@
 			<name>Granada</name>
 			<description> Lugar de residencia de Pedro Riesco Lopez</description>
 			<Point>
-				<coordinates>12.1167000,-61.6667000,738</coordinates>
+				<coordinates>-3.6075800581628528, 37.182171999371334,738</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark>
@@ -124,7 +124,7 @@
 			<name>Vigo</name>
 			<description> Lugar de nacimiento de Deva Leal Vazquez</description>
 			<Point>
-				<coordinates>42.2328200,-8.7226400,6</coordinates>
+				<coordinates>-8.7226400,42.2328200,6</coordinates>
 			</Point>
 		</Placemark>
 		<Placemark>

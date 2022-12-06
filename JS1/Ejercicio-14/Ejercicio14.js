@@ -1,6 +1,6 @@
 "use strict";
 function leerArchivo(files) {
-  for (var value = files.length - 1; value >= 0; value--) {
+  for (var value = 0; value < files.length; value++) {
     var file = files[value];
 
     if (file.type.match(/video.*/)) {
@@ -9,8 +9,10 @@ function leerArchivo(files) {
       stringDatos +=
         "<video controls> <source src='" +
         file.name +
-        "' type='video/mp4;' /></video>";
-      $("article").after(stringDatos);
+        "' type='" +
+        file.type +
+        "' /></video>";
+      $("main").append(stringDatos);
     } else if (file.type.match(/image.*/)) {
       var stringDatos =
         "<p> Fichero número " + (value + 1) + " Nombre: " + file.name + "</p>";
@@ -22,7 +24,7 @@ function leerArchivo(files) {
         "' src='" +
         file.name +
         "' />";
-      $("article").after(stringDatos);
+      $("main").append(stringDatos);
     } else {
       $("input").after(stringDatos);
       stringDatos += "<p>Archivo no válido </p>";
@@ -30,16 +32,17 @@ function leerArchivo(files) {
   }
 }
 
-function textOver(ev) {
-  ev.stopPropagation();
+function dropHandler(ev) {
+  var files = [];
   ev.preventDefault();
-  $("p:first").hide();
+  for (var i = 0; i < ev.dataTransfer.items.length; i++) {
+    files[i] = ev.dataTransfer.items[i].getAsFile();
+  }
+  leerArchivo(files);
 }
 
-function drop(ev) {
-  ev.stopPropagation();
+function dragOverHandler(ev) {
   ev.preventDefault();
-  leerArchivo(ev.dataTransfer.files);
 }
 
 document.onpaste = function (event) {
