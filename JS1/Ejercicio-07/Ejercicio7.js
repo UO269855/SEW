@@ -39,14 +39,14 @@ class Panel {
     $("table thead tr th").each(function () {
       columns = columns + 1;
     });
-    alert(
-      "La tabla tiene " +
+    $("table").after(
+      "<p>La tabla tiene " +
         columns +
         " columnas, " +
         rows +
         " filas, y suman un total de " +
         (rows + columns) +
-        " filas y columnas"
+        " filas y columnas</p>"
     );
   }
 }
