@@ -102,17 +102,14 @@ class PanelMeteo {
           "<li>PrecipitaciÃ³n modo: " + precipitacionMode + "</li>";
         stringDatos += "<li>DescripciÃ³n: " + descripcion + "</li>";
         stringDatos += "<li>Hora de la medida: " + horaMedidaLocal + "</li>";
-        stringDatos += "<li>Fecha de la medida: " + fechaMedidaLocal + "</li>";
-        var pictureUrl = "https://openweathermap.org/img/w/" + icon + ".png";
         stringDatos +=
-          "<li><img src=" + pictureUrl + " alt='Icono del clima'/></li>";
-        stringDatos += "</ul>";
-        $("p").html(stringDatos);
+          "<li>Fecha de la medida: " + fechaMedidaLocal + "</li></ul>";
+        var pictureUrl = "https://openweathermap.org/img/w/" + icon + ".png";
+        stringDatos += "<img src=" + pictureUrl + " alt='Icono del clima'/>";
+        $("input").after(stringDatos);
       },
       error: function () {
-        $("h3").html(
-          "Â¡Tenemos problemas! No puedo obtener XML de <a href='http://openweathermap.org'>OpenWeatherMap</a>"
-        );
+        $("h3").html("No se puede obtener el JSON");
         $("h4").remove();
         $("h5").remove();
         $("p").remove();

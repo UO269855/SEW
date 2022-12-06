@@ -63,18 +63,15 @@ class PanelMeteo {
         stringDatos +=
           "<li>Descripción: " + datos.weather[0].description + "</li>";
         stringDatos += "<li>Visibilidad: " + datos.visibility + " metros</li>";
-        stringDatos += "<li>Nubosidad: " + datos.clouds.all + " %</li>";
+        stringDatos += "<li>Nubosidad: " + datos.clouds.all + " %</li></ul>";
         var pictureUrl =
           "https://openweathermap.org/img/w/" + datos.weather[0].icon + ".png";
-        stringDatos +=
-          "<img src=" + pictureUrl + " alt='Icono del clima'/> </ul>";
+        stringDatos += "<img src=" + pictureUrl + " alt='Icono del clima'/> ";
 
-        $("p").html(stringDatos);
+        $("input").after(stringDatos);
       },
       error: function () {
-        $("h3").html(
-          "Â¡Tenemos problemas! No puedo obtener JSON de <a href='http://openweathermap.org'>OpenWeatherMap</a>"
-        );
+        $("h3").html("No se puede obtener el JSON");
         $("h4").remove();
         $("pre").remove();
         $("p").remove();
