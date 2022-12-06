@@ -13,7 +13,8 @@ class PanelMeteo {
   }
   meteo(desiredCity) {
     this.createUrl(desiredCity);
-    console.log(this.url);
+    $("ul").remove();
+    $("img").remove();
     $.ajax({
       dataType: "xml",
       url: this.url,

@@ -28,7 +28,7 @@ class Panel {
           " es del tipo " +
           $(this).get(0).tagName +
           " y su padre es del tipo " +
-          padre.tagName +
+          padre +
           "<p>"
       );
     });

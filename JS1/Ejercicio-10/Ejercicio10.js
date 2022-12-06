@@ -25,7 +25,7 @@ class PanelGas {
   }
   calculateGas() {
     this.createUrl();
-    console.log(this.url);
+    $("p:first").remove();
     $.ajax({
       dataType: "json",
       url: this.url,
@@ -47,7 +47,6 @@ class PanelGas {
       error: function () {
         $("h3").html("No se pudo obtener JSON");
         $("h4").remove();
-        $("pre").remove();
         $("p").remove();
       },
     });

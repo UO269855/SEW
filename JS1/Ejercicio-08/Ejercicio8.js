@@ -13,7 +13,8 @@ class PanelMeteo {
   }
   meteo(desiredCity) {
     this.createUrl(desiredCity);
-    console.log(this.url);
+    $("ul").remove();
+    $("img").remove();
     $.ajax({
       dataType: "json",
       url: this.url,
@@ -73,7 +74,6 @@ class PanelMeteo {
       error: function () {
         $("h3").html("No se puede obtener el JSON");
         $("h4").remove();
-        $("pre").remove();
         $("p").remove();
       },
     });
