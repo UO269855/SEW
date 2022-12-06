@@ -5,8 +5,7 @@ class MapaDinamico {
   constructor() {}
   initMap() {
     var oviedo = { lat: 43.3672702, lng: -5.8502461 };
-    console.log($("article")[0]);
-    mapaOviedo = new google.maps.Map($("article")[0], {
+    mapaOviedo = new google.maps.Map($("main")[0], {
       zoom: 11,
       center: oviedo,
     });

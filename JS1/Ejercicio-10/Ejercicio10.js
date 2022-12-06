@@ -9,7 +9,6 @@ class PanelGas {
     var values = [];
     $("input", document.body).each(function () {
       var element = $(this).get(0);
-      console.log(element.type);
       if (element.type.toString() == "text") {
         values.push($(this).get(0).value);
       }

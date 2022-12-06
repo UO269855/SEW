@@ -31,14 +31,16 @@ class Geolocation {
     this.heading = posicion.coords.heading;
   }
   mostrarDatos() {
-    var datos = "";
-    datos += "<p>" + this.mensaje + "</p>";
-    datos += "<ul><li>Longitud: " + this.longitud + " grados</li>";
-    datos += "<li>Latitud: " + this.latitud + " grados</li>";
-    datos += "<li>Altitud: " + this.altitude + " metros</li>";
-    datos += "<li>Velocidad: " + this.speed + " grados</li>";
-    datos += "<li>Dirección: " + this.heading + " metros</li></ul>";
-    $("p").html(datos);
+    if (this.mensaje == "Se ha realizado correctamente la petición") {
+      var datos = "";
+      datos += "<p>" + this.mensaje + "</p>";
+      datos += "<ul><li>Longitud: " + this.longitud + " grados</li>";
+      datos += "<li>Latitud: " + this.latitud + " grados</li>";
+      datos += "<li>Altitud: " + this.altitude + " metros</li>";
+      datos += "<li>Velocidad: " + this.speed + " grados</li>";
+      datos += "<li>Dirección: " + this.heading + " metros</li></ul>";
+      $("input:last").after(datos);
+    }
   }
 }
 var geo = new Geolocation();

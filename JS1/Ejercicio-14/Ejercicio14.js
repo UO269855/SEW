@@ -37,7 +37,6 @@ function textOver(ev) {
 }
 
 function drop(ev) {
-  console.log(ev.dataTransfer);
   ev.stopPropagation();
   ev.preventDefault();
   leerArchivo(ev.dataTransfer.files);

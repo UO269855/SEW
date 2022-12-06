@@ -4,7 +4,6 @@ class Geolocation {
     navigator.geolocation.getCurrentPosition(this.getPosicion.bind(this));
   }
   getPosicion(posicion) {
-    console.log(posicion);
     this.longitud = posicion.coords.longitude;
     this.latitud = posicion.coords.latitude;
     this.altitud = posicion.coords.altitude;
@@ -18,7 +17,7 @@ class Geolocation {
     datos += "<li>Altitud: " + this.altitude + " metros</li>";
     datos += "<li>Velocidad: " + this.speed + " grados</li>";
     datos += "<li>Dirección: " + this.heading + " metros</li></ul>";
-    $("p").html(datos);
+    $("input:last").after(datos);
   }
 }
 var geo = new Geolocation();

@@ -10,7 +10,10 @@ class MapaDinamico {
       zoom: 9,
       center: centre,
     });
-    var marcador = new google.maps.Marker();
+    var marcador = new google.maps.Marker({
+      position: centre,
+      map: mapa,
+    });
     if (navigator.geolocation) {
       $("h2").after("<p>Se muestra en el mapa su localización actual</p>");
       navigator.geolocation.getCurrentPosition(
@@ -31,7 +34,6 @@ class MapaDinamico {
         }
       );
     } else {
-      // Browser doesn't support Geolocation
       handleLocationError(false, marcador, mapa.getCenter());
     }
   }
@@ -99,7 +101,6 @@ function meteo(lat, lng) {
       $("article").after(stringDatos);
     },
     error: function () {
-      console.log("no va");
       $("h3").html(
         "Â¡Tenemos problemas! No puedo obtener JSON de <a href='http://openweathermap.org'>OpenWeatherMap</a>"
       );

@@ -31,26 +31,28 @@ class Geolocation {
     this.heading = posicion.coords.heading;
   }
   mostrarDatos() {
-    var datos = "";
-    datos += "<p>" + this.mensaje + "</p>";
-    datos += "<ul><li>Longitud: " + this.longitud + " grados</li>";
-    datos += "<li>Latitud: " + this.latitud + " grados</li>";
-    datos += "<li>Altitud: " + this.altitude + " metros</li>";
-    datos += "<li>Velocidad: " + this.speed + " grados</li>";
-    datos += "<li>Dirección: " + this.heading + " metros</li></ul>";
-    var url =
-      "https://maps.googleapis.com/maps/api/staticmap?" +
-      "center=" +
-      this.latitud +
-      "," +
-      this.longitud +
-      "&zoom=15&size=800x600&markers=color:red%7Clabel:S%7C" +
-      this.latitud +
-      "," +
-      this.longitud +
-      "&sensor=false&key=AIzaSyDJldNJqaYu8tF4W0mKpUyO5Pjvg1U8rJA";
-    datos += "<img src='" + url + "' alt='Mapa estático de google' />";
-    $("p").html(datos);
+    if (this.mensaje == "Se ha realizado correctamente la petición") {
+      var datos = "";
+      datos += "<p>" + this.mensaje + "</p>";
+      datos += "<ul><li>Longitud: " + this.longitud + " grados</li>";
+      datos += "<li>Latitud: " + this.latitud + " grados</li>";
+      datos += "<li>Altitud: " + this.altitude + " metros</li>";
+      datos += "<li>Velocidad: " + this.speed + " grados</li>";
+      datos += "<li>Dirección: " + this.heading + " metros</li></ul>";
+      var url =
+        "https://maps.googleapis.com/maps/api/staticmap?" +
+        "center=" +
+        this.latitud +
+        "," +
+        this.longitud +
+        "&zoom=15&size=800x600&markers=color:red%7Clabel:S%7C" +
+        this.latitud +
+        "," +
+        this.longitud +
+        "&sensor=false&key=AIzaSyDJldNJqaYu8tF4W0mKpUyO5Pjvg1U8rJA";
+      datos += "<img src='" + url + "' alt='Mapa estático de google' />";
+      $("input:last").after(datos);
+    }
   }
 }
 var geo = new Geolocation();
