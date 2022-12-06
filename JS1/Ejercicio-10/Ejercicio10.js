@@ -42,7 +42,7 @@ class PanelGas {
           datos.data.base +
           "</p>";
 
-        $("input").after(stringDatos);
+        $("input:last").after(stringDatos);
       },
       error: function () {
         $("h3").html("No se pudo obtener JSON");
