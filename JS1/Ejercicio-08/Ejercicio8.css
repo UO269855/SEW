@@ -19,27 +19,8 @@
   }
 
   /*001*/
-  h3 {
-      font: 1.25em Arial, monospace;
-  }
-
-  /*001*/
   p {
       padding: 0.5em;
-  }
-
-  /*011*/
-  a:link,
-  a:visited {
-      color: #030C45;
-  }
-
-  /*001*/
-  table,
-  th,
-  td {
-      border: 0.06em solid #000000;
-      padding: 0.2em;
   }
 
   input[type=button] {

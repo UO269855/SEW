@@ -32,7 +32,13 @@
         <h2>
           Arrastre los archivos que quiera subir aquí o pulse el siguiente botón
         </h2>
-        <input type="file" onchange="leerArchivo(this.files)" multiple />
+        <label for="file">Fichero:</label>
+        <input
+          id="file"
+          type="file"
+          onchange="leerArchivo(this.files)"
+          multiple
+        />
       </article>
     </main>
     <footer>

@@ -22,11 +22,7 @@
   p {
       padding: 0.5em;
   }
-
-  input[type=button] {
-      font: 1.25em Arial, sans-serif;
-  }
-
+  /*001*/
 main {
     height: 30vw;
     width: 90%;

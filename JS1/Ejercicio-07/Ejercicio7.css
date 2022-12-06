@@ -32,6 +32,12 @@
   a:link,
   a:visited {
     color: #030C45;
+    background-color: #ffffff;
+  }
+
+  /*001*/
+  h4 {
+    font: 1.15em Arial, monospace;
   }
   
   /*001*/
@@ -42,6 +48,7 @@
     padding: 0.2em;
   }
 
+    /*011*/
   input[type=button] { 
     font: 1.25em Arial, sans-serif;
   } 
