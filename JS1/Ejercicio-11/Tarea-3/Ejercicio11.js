@@ -33,7 +33,7 @@ class Geolocation {
   mostrarDatos() {
     if (this.mensaje == "Se ha realizado correctamente la petición") {
       var datos = "";
-      datos += "<p>" + this.mensaje + "</p>";
+      datos += "<h3>" + this.mensaje + "</h3>";
       datos += "<ul><li>Longitud: " + this.longitud + " grados</li>";
       datos += "<li>Latitud: " + this.latitud + " grados</li>";
       datos += "<li>Altitud: " + this.altitude + " metros</li>";
@@ -49,7 +49,7 @@ class Geolocation {
         this.latitud +
         "," +
         this.longitud +
-        "&sensor=false&key=AIzaSyDJldNJqaYu8tF4W0mKpUyO5Pjvg1U8rJA";
+        "&sensor=false&key=AIzaSyB43s4v7kZkqlBqERYv_oXb6N-87w1dnYE";
       datos += "<img src='" + url + "' alt='Mapa estático de google' />";
       $("input:last").after(datos);
     }
