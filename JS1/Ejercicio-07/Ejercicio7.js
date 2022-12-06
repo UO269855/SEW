@@ -19,13 +19,16 @@ class Panel {
     $("h4").remove();
   }
   identificarElementos() {
+    $("table").after("<article></article>");
     $("*", document.body).each(function () {
       var padre = $(this).parent().get(0).tagName;
-      $(this).after(
-        "<p>Este elemento es del tipo " +
+      $("article").append(
+        "<p> El elemento " +
+          $(this).text() +
+          " es del tipo " +
           $(this).get(0).tagName +
           " y su padre es del tipo " +
-          padre +
+          padre.tagName +
           "<p>"
       );
     });
