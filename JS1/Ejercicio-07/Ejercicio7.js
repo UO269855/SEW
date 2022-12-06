@@ -22,13 +22,11 @@ class Panel {
     $("*", document.body).each(function () {
       var padre = $(this).parent().get(0).tagName;
       $(this).after(
-        document.createTextNode(
-          "Este elemento es del tipo " +
-            $(this).get(0).tagName +
-            " y su padre es del tipo " +
-            padre +
-            "\n"
-        )
+        "<p>Este elemento es del tipo " +
+          $(this).get(0).tagName +
+          " y su padre es del tipo " +
+          padre +
+          "<p>"
       );
     });
   }
