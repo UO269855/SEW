@@ -68,7 +68,7 @@ class PanelMeteo {
           "https://openweathermap.org/img/w/" + datos.weather[0].icon + ".png";
         stringDatos += "<img src=" + pictureUrl + " alt='Icono del clima'/> ";
 
-        $("input").after(stringDatos);
+        $("input:last").after(stringDatos);
       },
       error: function () {
         $("h3").html("No se puede obtener el JSON");
