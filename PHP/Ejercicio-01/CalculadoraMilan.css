@@ -1,0 +1,197 @@
+/*001*/
+body{
+    background-color:rgb(255, 255, 255);
+    font: 16px Arial, sans-serif;
+    color:rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas:
+        'header'
+        'main'
+        'footer';
+    align-items: center;
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 1em 5em;
+    background-color: #e3afff;
+}
+
+/*001*/
+h1{
+    font: 2em Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        '. . label . .'
+        'pantalla pantalla pantalla pantalla pantalla'
+        'C CE masmenos root percent'
+        'seven eight nine mul div'
+        'four five six minus mrc'
+        'one two three plus mminus'
+        'zero-number point enter plus mplus';
+    gap: 1em 0.5em;
+    border-radius: 5%;
+    justify-self: center;
+    padding: 2% 2%;
+    background-color:#e3afff;
+}
+
+label{
+    grid-area: label;
+    font: 1.5em Arial, sans-serif; 
+}
+
+input[type=button] { 
+    font: 1.5em Arial, sans-serif;
+    border-radius: 20%;
+} 
+
+input[type=text] { 
+    grid-area: pantalla;
+    font: 2em Arial, sans-serif;
+    background-color:#ffffff;
+} 
+
+input[type=button][value="C"] { 
+    grid-area: C;
+    background-color:#9affce;
+} 
+
+input[type=button][value="CE"] { 
+    grid-area: CE;
+    background-color:#9affce;
+} 
+
+input[type=button][value="+/-"] { 
+    grid-area: masmenos;
+    background-color:#9affce;
+} 
+
+input[type=button][value="MRC"]{ 
+    grid-area: mrc;
+    background-color:#9affce;
+}
+
+input[type=button][value="M+"]{ 
+    grid-area: mplus;
+    background-color:#9affce;
+}
+
+input[type=button][value="M-"]{ 
+    grid-area: mminus;
+    background-color:#9affce;
+}
+
+input[type=button][value="7"] { 
+    grid-area: seven;
+    background-color:#f8ff9a;
+} 
+
+input[type=button][value="8"] { 
+    grid-area: eight;
+    background-color:#f8ff9a;
+} 
+
+input[type=button][value="9"] { 
+    grid-area: nine;
+    background-color:#f8ff9a;
+} 
+
+input[type=button][value="X"] { 
+    grid-area: mul;
+    background-color:#9affce;
+} 
+
+input[type=button][value="/"] { 
+    grid-area: div;
+    background-color:#9affce;
+} 
+
+input[type=button][value="4"] { 
+    grid-area: four;
+    background-color:#f8ff9a;
+} 
+
+input[type=button][value="5"] { 
+    grid-area: five;
+    background-color:#f8ff9a;
+} 
+
+input[type=button][value="6"] { 
+    grid-area: six;
+    background-color:#f8ff9a;
+} 
+
+input[type=button][value="-"] { 
+    grid-area: minus;
+    background-color:#9affce;
+} 
+
+input[type=button][value="1"] { 
+    grid-area: one;
+    background-color:#f8ff9a;
+} 
+
+input[type=button][value="2"] { 
+    grid-area: two;
+    background-color:#f8ff9a;
+} 
+
+input[type=button][value="3"] { 
+    grid-area: three;
+    background-color:#f8ff9a;
+} 
+
+input[type=button][value="+"] { 
+    grid-area: plus;
+    grid-row: span 2;
+    background-color:#9affce;
+} 
+
+input[type=button][value="0"] { 
+    grid-area: zero-number;
+    background-color:#f8ff9a;
+} 
+
+input[type=button][value="."] { 
+    grid-area: point; 
+    background-color:#f8ff9a;
+} 
+
+input[type=button][value="="] { 
+    grid-area: enter;
+    background-color:#f8ff9a;
+}  
+
+input[type=button][value="√"]{ 
+    grid-area: root;
+    background-color:#9affce;
+}
+
+input[type=button][value="%"]{ 
+    grid-area: percent;
+    background-color:#9affce;
+} 
+
+footer{
+    grid-area: footer;
+    display: flex;
+    font: 1.25em Arial, sans-serif;
+    align-items: center;
+    justify-self: center;
+    background-color:#e3afff;
+    color: #000000;
+}
