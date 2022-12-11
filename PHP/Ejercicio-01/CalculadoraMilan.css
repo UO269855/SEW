@@ -32,11 +32,25 @@ h1{
 main {
     grid-area: main;
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 5fr;
+    grid-template-areas:
+        ' . label .'
+        'pantalla pantalla pantalla'
+        'botones botones botones';
+    gap: 1em 0.5em;
+    border-radius: 5%;
+    justify-self: center;
+    padding: 2% 2%;
+    background-color:#e3afff;
+}
+
+form {
+    grid-area: botones;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        '. . label . .'
-        'pantalla pantalla pantalla pantalla pantalla'
         'C CE masmenos root percent'
         'seven eight nine mul div'
         'four five six minus mrc'
@@ -54,134 +68,134 @@ label{
     font: 1.5em Arial, sans-serif; 
 }
 
-input[type=button] { 
+input[class=button] { 
     font: 1.5em Arial, sans-serif;
     border-radius: 20%;
 } 
 
 input[type=text] { 
     grid-area: pantalla;
-    font: 2em Arial, sans-serif;
+    font: 1em Arial, sans-serif;
     background-color:#ffffff;
 } 
 
-input[type=button][value="C"] { 
+input[class=button][value="C"] { 
     grid-area: C;
     background-color:#9affce;
 } 
 
-input[type=button][value="CE"] { 
+input[class=button][value="CE"] { 
     grid-area: CE;
     background-color:#9affce;
 } 
 
-input[type=button][value="+/-"] { 
+input[class=button][value="+/-"] { 
     grid-area: masmenos;
     background-color:#9affce;
 } 
 
-input[type=button][value="MRC"]{ 
+input[class=button][value="MRC"]{ 
     grid-area: mrc;
     background-color:#9affce;
 }
 
-input[type=button][value="M+"]{ 
+input[class=button][value="M+"]{ 
     grid-area: mplus;
     background-color:#9affce;
 }
 
-input[type=button][value="M-"]{ 
+input[class=button][value="M-"]{ 
     grid-area: mminus;
     background-color:#9affce;
 }
 
-input[type=button][value="7"] { 
+input[class=button][value="7"] { 
     grid-area: seven;
     background-color:#f8ff9a;
 } 
 
-input[type=button][value="8"] { 
+input[class=button][value="8"] { 
     grid-area: eight;
     background-color:#f8ff9a;
 } 
 
-input[type=button][value="9"] { 
+input[class=button][value="9"] { 
     grid-area: nine;
     background-color:#f8ff9a;
 } 
 
-input[type=button][value="X"] { 
+input[class=button][value="X"] { 
     grid-area: mul;
     background-color:#9affce;
 } 
 
-input[type=button][value="/"] { 
+input[class=button][value="/"] { 
     grid-area: div;
     background-color:#9affce;
 } 
 
-input[type=button][value="4"] { 
+input[class=button][value="4"] { 
     grid-area: four;
     background-color:#f8ff9a;
 } 
 
-input[type=button][value="5"] { 
+input[class=button][value="5"] { 
     grid-area: five;
     background-color:#f8ff9a;
 } 
 
-input[type=button][value="6"] { 
+input[class=button][value="6"] { 
     grid-area: six;
     background-color:#f8ff9a;
 } 
 
-input[type=button][value="-"] { 
+input[class=button][value="-"] { 
     grid-area: minus;
     background-color:#9affce;
 } 
 
-input[type=button][value="1"] { 
+input[class=button][value="1"] { 
     grid-area: one;
     background-color:#f8ff9a;
 } 
 
-input[type=button][value="2"] { 
+input[class=button][value="2"] { 
     grid-area: two;
     background-color:#f8ff9a;
 } 
 
-input[type=button][value="3"] { 
+input[class=button][value="3"] { 
     grid-area: three;
     background-color:#f8ff9a;
 } 
 
-input[type=button][value="+"] { 
+input[class=button][value="+"] { 
     grid-area: plus;
     grid-row: span 2;
     background-color:#9affce;
 } 
 
-input[type=button][value="0"] { 
+input[class=button][value="0"] { 
     grid-area: zero-number;
     background-color:#f8ff9a;
 } 
 
-input[type=button][value="."] { 
+input[class=button][value="."] { 
     grid-area: point; 
     background-color:#f8ff9a;
 } 
 
-input[type=button][value="="] { 
+input[class=button][value="="] { 
     grid-area: enter;
     background-color:#f8ff9a;
 }  
 
-input[type=button][value="√"]{ 
+input[class=button][value="√"]{ 
     grid-area: root;
     background-color:#9affce;
 }
 
-input[type=button][value="%"]{ 
+input[class=button][value="%"]{ 
     grid-area: percent;
     background-color:#9affce;
 } 
