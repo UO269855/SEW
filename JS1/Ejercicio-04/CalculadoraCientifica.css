@@ -232,7 +232,7 @@ input[type=button][value="cos"], input[type=button][value="acos"], input[type=bu
 } 
 
 input[type=button][value="tan"], input[type=button][value="atan"], input[type=button][value="tanh"], input[type=button][value="atanh"] { 
-    grid-area: tan;
+    grid-area: tang;
     
 } 
 
