@@ -24,7 +24,7 @@
         class CalculadoraMilan
         {
             public $screen;
-            public $hiddenScreen;
+            protected $hiddenScreen;
             protected $operand1;
             protected $operand2;
             protected $lastOperand;
@@ -47,38 +47,15 @@
                 $this->operand1 = "";
                 $this->operand2 = "";
                 $this->lastOperand = "";
-
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['hiddenScreen'] = $this->hiddenScreen;
-                $_SESSION['operand1'] = $this->operand1;
-                $_SESSION['operand2'] = $this->operand2;
-                $_SESSION['lastOperand'] = $this->lastOperand;
             }
 
             public function ce()
             {
-                if (!(str_ends_with(strval($this->hiddenScreen), "+") || str_ends_with(strval($this->hiddenScreen), "-") || str_ends_with(strval($this->hiddenScreen), "*") || str_ends_with(strval($this->hiddenScreen), "/"))) {
-                    $startindex = 0;
-                    for ($i = strlen($this->hiddenScreen) - 1; $i > 0; $i--) {
-                        if ($this->hiddenScreen[$i] == $this->lastOperand) {
-                            $startindex = $i;
-                        }
-                    }
-                    if (!($this->lastOperand == "") && $startindex > 0) {
-                        $this->hiddenScreen = substr($this->hiddenScreen, 0, $startindex + 1);
-                        $this->operand2 = "";
-                    } else {
-                        $this->hiddenScreen = "";
-                        $this->operand2 = "";
-                    }
+                if(substr($this->hiddenScreen, (strlen($this->hiddenScreen) - strlen($this->operand2)), strlen($this->operand2)) == $this->operand2 && $this->operand2!= $this->operand1){
+                    $this->hiddenScreen = substr($this->hiddenScreen, 0, (strlen($this->hiddenScreen) - strlen($this->operand2)));
                     $this->screen = "";
+                    $this->operand2 = "";
                 }
-
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['hiddenScreen'] = $this->hiddenScreen;
-                $_SESSION['operand1'] = $this->operand1;
-                $_SESSION['operand2'] = $this->operand2;
-                $_SESSION['lastOperand'] = $this->lastOperand;
             }
 
             public function changeSign()
@@ -95,13 +72,6 @@
                 } catch (Error | Exception $e) {
                     $this->screen = "Error = " . $e->getMessage();
                 }
-
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['hiddenScreen'] = $this->hiddenScreen;
-                $_SESSION['operand1'] = $this->operand1;
-                $_SESSION['operand2'] = $this->operand2;
-                $_SESSION['lastOperand'] = $this->lastOperand;
             }
 
             public function raiz()
@@ -117,26 +87,13 @@
                 } catch (Error | Exception $e) {
                     $this->screen = "Error = " . $e->getMessage();
                 }
-
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['hiddenScreen'] = $this->hiddenScreen;
-                $_SESSION['operand1'] = $this->operand1;
-                $_SESSION['operand2'] = $this->operand2;
-                $_SESSION['lastOperand'] = $this->lastOperand;
             }
 
             public function porcentaje()
             {
                 $this->screen .= "%";
-                $this->operand2 = $this->operand2 . "%";
-
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['hiddenScreen'] = $this->hiddenScreen;
-                $_SESSION['operand1'] = $this->operand1;
-                $_SESSION['operand2'] = $this->operand2;
-                $_SESSION['lastOperand'] = $this->lastOperand;
+                $this->hiddenScreen .= "%";
+                $this->operand2 =$this->screen ;       
             }
 
             public function addNumber($value)
@@ -148,20 +105,11 @@
                 $this->hiddenScreen .= $value;
                 $this->operand2 = $this->screen;
 
-                $_SESSION['operand1'] = $this->operand1;
-                $_SESSION['operand2'] = $this->operand2;
-                $_SESSION['lastOperand'] = $this->lastOperand;
-                $_SESSION['screen'] =
-                    $this->screen;
-                $_SESSION['hiddenScreen'] =
-                    $this->hiddenScreen;
-
-
             }
             public function add()
             {
                 try {
-                    $this->operand1 = (int) eval("return $this->hiddenScreen;");
+                    $this->operand1 = (float) eval("return $this->hiddenScreen;");
 
                 } catch (Error | Exception $e) {
                     $this->screen = "Error = " . $e->getMessage();
@@ -174,100 +122,62 @@
                 $this->operand2 = "";
                 $this->hiddenScreen .= "+";
                 $this->lastOperand = "+";
-
-                $_SESSION['operand1'] = $this->operand1;
-                $_SESSION['operand2'] = $this->operand2;
-                $_SESSION['lastOperand'] = $this->lastOperand;
-                $_SESSION['screen'] =
-                    $this->screen;
-                $_SESSION['hiddenScreen'] =
-                    $this->hiddenScreen;
-
-
             }
 
             public function multiply()
             {
                 try {
-                    $this->operand1 = (int) eval("return $this->hiddenScreen;");
-                    $this->operand2 = $this->operand1;
+                    $this->operand1 = (float) eval("return $this->hiddenScreen;");
 
-                    if (strlen(strval($this->lastOperand)) > 0) {
-                        $this->screen = $this->operand1;
-                    } else {
-                        $this->screen = "";
-                    }
-                    $this->hiddenScreen .= "*";
-                    $this->lastOperand = "*";
-
-                    $_SESSION['operand1'] = $this->operand1;
-                    $_SESSION['operand2'] = $this->operand2;
-                    $_SESSION['lastOperand'] = $this->lastOperand;
-                    $_SESSION['screen'] =
-                        $this->screen;
-                    $_SESSION['hiddenScreen'] =
-                        $this->hiddenScreen;
                 } catch (Error | Exception $e) {
                     $this->screen = "Error = " . $e->getMessage();
-                    $_SESSION['screen'] =
-                        $this->screen;
                 }
+                if (strlen(strval($this->lastOperand)) > 0) {
+                    $this->screen = $this->operand1;
+                } else {
+                    $this->screen = "";
+                }
+                $this->operand2 = "";
+                $this->hiddenScreen .= "*";
+                $this->lastOperand = "*";
             }
 
             public function divide()
             {
                 try {
-                    $this->operand1 = (int) eval("return $this->hiddenScreen;");
-                    $this->operand2 = $this->operand1;
+                    $this->operand1 = (float) eval("return $this->hiddenScreen;");
 
-                    if (strlen(strval($this->lastOperand)) > 0) {
-                        $this->screen = $this->operand1;
-                    } else {
-                        $this->screen = "";
-                    }
-                    $this->hiddenScreen .= "/";
-                    $this->lastOperand = "/";
-
-                    $_SESSION['operand1'] = $this->operand1;
-                    $_SESSION['operand2'] = $this->operand2;
-                    $_SESSION['lastOperand'] = $this->lastOperand;
-                    $_SESSION['screen'] =
-                        $this->screen;
-                    $_SESSION['hiddenScreen'] =
-                        $this->hiddenScreen;
                 } catch (Error | Exception $e) {
                     $this->screen = "Error = " . $e->getMessage();
-                    $_SESSION['screen'] =
-                        $this->screen;
                 }
+                if (strlen(strval($this->lastOperand)) > 0) {
+                    $this->screen = $this->operand1;
+                } else {
+                    $this->screen = "";
+                }
+                $this->operand2 = "";
+                $this->hiddenScreen .= "/";
+                $this->lastOperand = "/";
+                           
             }
 
             public function substract()
             {
                 try {
-                    $this->operand1 = (int) eval("return $this->hiddenScreen;");
-                    $this->operand2 = $this->operand1;
+                    $this->operand1 = (float) eval("return $this->hiddenScreen;");
 
-                    if (strlen(strval($this->lastOperand)) > 0) {
-                        $this->screen = $this->operand1;
-                    } else {
-                        $this->screen = "";
-                    }
-                    $this->hiddenScreen .= "-";
-                    $this->lastOperand = "-";
-
-                    $_SESSION['operand1'] = $this->operand1;
-                    $_SESSION['operand2'] = $this->operand2;
-                    $_SESSION['lastOperand'] = $this->lastOperand;
-                    $_SESSION['screen'] =
-                        $this->screen;
-                    $_SESSION['hiddenScreen'] =
-                        $this->hiddenScreen;
                 } catch (Error | Exception $e) {
                     $this->screen = "Error = " . $e->getMessage();
-                    $_SESSION['screen'] =
-                        $this->screen;
                 }
+                if (strlen(strval($this->lastOperand)) > 0) {
+                    $this->screen = $this->operand1;
+                } else {
+                    $this->screen = "";
+                }
+                $this->operand2 = "";
+                $this->hiddenScreen .= "-";
+                $this->lastOperand = "-";
+                     
             }
 
 
@@ -276,17 +186,6 @@
             {
                 $this->ce();
                 $this->addNumber($this->memory);
-                if ($this->lastOperand == "") {
-                    $this->screen = $_SESSION['screen'];
-                }
-
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['hiddenScreen'] = $this->hiddenScreen;
-                $_SESSION['operand1'] = $this->operand1;
-                $_SESSION['operand2'] = $this->operand2;
-                $_SESSION['lastOperand'] = $this->lastOperand;
-                $_SESSION['memory'] = $this->memory;
             }
 
             public function mminus()
@@ -297,14 +196,6 @@
                     $this->screen = "Error = " . $e->getMessage();
                     $this->memory = 0;
                 }
-
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['hiddenScreen'] = $this->hiddenScreen;
-                $_SESSION['operand1'] = $this->operand1;
-                $_SESSION['operand2'] = $this->operand2;
-                $_SESSION['lastOperand'] = $this->lastOperand;
-                $_SESSION['memory'] = $this->memory;
             }
 
             public function mplus()
@@ -316,95 +207,66 @@
                     $this->screen = "Error = " . $e->getMessage();
                     $this->memory = 0;
                 }
-
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['screen'] = $this->screen;
-                $_SESSION['hiddenScreen'] = $this->hiddenScreen;
-                $_SESSION['operand1'] = $this->operand1;
-                $_SESSION['operand2'] = $this->operand2;
-                $_SESSION['lastOperand'] = $this->lastOperand;
-                $_SESSION['memory'] = $this->memory;
             }
 
             public function point()
             {
-                if (str_ends_with(strval($this->hiddenScreen), "+") || str_ends_with(strval($this->hiddenScreen), "-") || str_ends_with(strval($this->hiddenScreen), "*") || str_ends_with(strval($this->hiddenScreen), "/")) {
-                    $this->screen = "";
-                }
                 $this->screen .= ".";
                 $this->hiddenScreen .= ".";
-                if ($this->operand1 == $this->operand2) {
-                    $this->operand2 = "";
-                }
-                $this->operand2 = strval($this->operand2) . ".";
-                $_SESSION['operand1'] = $this->operand1;
-                $_SESSION['operand2'] = $this->operand2;
-                $_SESSION['lastOperand'] = $this->lastOperand;
-                $_SESSION['screen'] =
-                    $this->screen;
-                $_SESSION['hiddenScreen'] =
-                    $this->hiddenScreen;
+                $this->operand2 =$this->screen ;  
             }
 
             public function equals()
             {
-                try {
-                    if (str_contains(strval($this->operand2), "%")) {
+                    if (str_ends_with($this->hiddenScreen, "%")) {
                         switch ($this->lastOperand) {
                             case "*":
                                 $operation =
-                                    (int) $this->operand1 *
-                                    ((int) 
-                                        substr(strval($this->operand2), 0, strlen(strval($this->operand2)))) / 100;
-                                $this->screen = $operation;
-                                $this->operand1 = (int) $this->screen;
-                                break;
-                            case "/":
-                                $operation =
-                                    (int) $this->operand1 /
-                                    (int) 
-                                    substr(strval($this->operand2), 0, strlen(strval($this->operand2)));
-                                $this->screen = $operation;
-                                $this->operand1 = (int) $this->screen;
-                                break;
-                            case "+":
-                                $operation =
-                                    (int) $this->operand1 +
-                                    (int) 
-                                    substr(strval($this->operand2), 0, strlen(strval($this->operand2)));
+                                    (float) $this->operand1 *
+                                    (float) 
+                                    substr(strval($this->operand2), 0, strlen(strval($this->operand2))) / 100;
+
                                 $this->operand1 = $operation;
                                 $this->screen = $operation;
                                 $this->hiddenScreen = $operation;
-
-                                $_SESSION['operand1'] = $this->operand1;
-                                $_SESSION['lastOperand'] = $this->lastOperand;
-                                $_SESSION['screen'] =
-                                    $this->screen;
-                                $_SESSION['hiddenScreen'] =
-                                    $this->hiddenScreen;
+                                break;
+                            case "/":
+                                $operation =
+                                    (float) $this->operand1 /
+                                    (float) 
+                                    substr(strval($this->operand2), 0, strlen(strval($this->operand2))) * 100;
+                                $this->operand1 = $operation;
+                                $this->screen = $operation;
+                                $this->hiddenScreen = $operation;
+                                break;
+                            case "+":
+                                $operation =
+                                    (float) $this->operand1 +
+                                    ((float) 
+                                    substr($this->operand2, 0, strlen($this->operand2)) * (float) $this->operand1 /100);
+                                $this->operand1 = $operation;
+                                $this->screen = $operation;
+                                $this->hiddenScreen = $operation;
                                 break;
                             case "-":
                                 $operation =
-                                    (int) $this->operand1 -
-                                    (int) 
-                                    substr(strval($this->operand2), 0, strlen(strval($this->operand2)));
+                                    (float) $this->operand1 -
+                                    ((float) 
+                                    substr($this->operand2, 0, strlen($this->operand2)) * (float) $this->operand1 /100);
+                                $this->operand1 = $operation;
                                 $this->screen = $operation;
-                                $this->operand1 = (int) $this->screen;
+                                $this->hiddenScreen = $operation;
                                 break;
                             default:
                                 break;
                         }
                         try {
                             $this->screen = eval("return $operation;");
-                            $this->operand1 = (int) $this->screen;
+                            $this->operand1 = (float) $this->screen;
                         } catch (Error | Exception $e) {
                             $this->screen = "Error = " . $e->getMessage();
                         }
-                        $_SESSION['screen'] =
-                            $this->screen;
                     } else if (strval($this->hiddenScreen) === strval($this->operand1)) {
-
-                        $this->operand2 = $_SESSION['operand2'];
                         try {
                             $result = eval(
                                 "return " . $this->operand1 . $this->lastOperand . $this->operand2 . ";")
@@ -412,60 +274,35 @@
                             $this->operand1 = $result;
                             $this->screen = $result;
                             $this->hiddenScreen = $result;
-
-                            $_SESSION['operand1'] = $this->operand1;
-                            $_SESSION['operand2'] = $this->operand2;
-                            $_SESSION['lastOperand'] = $this->lastOperand;
-                            $_SESSION['screen'] =
-                                $this->screen;
-                            $_SESSION['hiddenScreen'] =
-                                $this->hiddenScreen;
                         } catch (Error | Exception $e) {
-                            $this->screen = "Error = " + $e->getMessage();
+                            $this->screen = "Error = " . $e->getMessage();
                         }
 
                     } else if ($this->checkSelf()) {
-                        $result = eval("return " . $this->operand1 . $this->lastOperand . $this->operand2 . ";");
+
+                        $result = eval("return " . $this->operand1 . $this->lastOperand . $this->operand1 . ";");
+
                         $this->operand2 = $this->operand1;
                         $this->operand1 = $result;
                         $this->screen = $result;
                         $this->hiddenScreen = $result;
-                        var_dump($this->operand2);
-                        $_SESSION['operand1'] = $this->operand1;
-                        $_SESSION['operand2'] = $this->operand2;
-                        $_SESSION['lastOperand'] = $this->lastOperand;
-                        $_SESSION['screen'] =
-                            $this->screen;
-                        $_SESSION['hiddenScreen'] =
-                            $this->hiddenScreen;
+
                     } else {
                         try {
                             $result = eval("return $this->hiddenScreen;");
                             $this->operand1 = $result;
                             $this->screen = $result;
                             $this->hiddenScreen = $result;
-
-                            $_SESSION['operand1'] = $this->operand1;
-                            $_SESSION['lastOperand'] = $this->lastOperand;
-                            $_SESSION['screen'] =
-                                $this->screen;
-                            $_SESSION['hiddenScreen'] =
-                                $this->hiddenScreen;
                         } catch (Error | Exception $e) {
-                            $this->screen = "Error = " + $e->getMessage();
+                            $this->screen = "Error = " . $e->getMessage();
                         }
-                        $_SESSION['screen'] =
-                            $this->screen;
                     }
-                } catch (Error | Exception $e) {
-                    $this->screen = "";
-                    $_SESSION['screen'] =
-                        "Syntax Error";
-                }
-                var_dump($this->operand1 . $this->lastOperand . $this->operand2);
             }
 
-
+            public function getScreen()
+            { 
+                return $this->screen;
+            }
 
             public function checkSelf()
             {
@@ -479,14 +316,13 @@
 
         session_start();
 
-        if (isset($_SESSION['screen'])) {
-            if (count($_POST) > 0) {
-                if (isset($_SESSION['hiddenScreen'])) {
-                    if (isset($_SESSION['operand1'])) {
-                        if (isset($_SESSION['operand2'])) {
-                            if (isset($_SESSION['lastOperand'])) {
-                                if (isset($_SESSION['memory'])) {
-                                    $calculadora = new CalculadoraMilan($_SESSION['screen'], $_SESSION['hiddenScreen'], $_SESSION['operand1'], $_SESSION['operand1'], $_SESSION['lastOperand'], $_SESSION['memory']);
+        
+    if (!isset($_SESSION['calculadoraM'])) {
+        $_SESSION['calculadoraM']  = new CalculadoraMilan("", "", "", "", "", "");
+    }
+
+    $calculadora = $_SESSION['calculadoraM'];
+            if (count($_POST) > 0) {   
                                     if (isset($_POST['clearAll']))
                                         $calculadora->clearAll();
                                     if (isset($_POST['ce']))
@@ -535,27 +371,10 @@
                                         $calculadora->equals();
                                     if (isset($_POST['mplus']))
                                         $calculadora->mplus();
-                                } else {
-                                    $_SESSION['memory'] = 0;
-                                }
-                            } else {
-                                $_SESSION['lastOperand'] = "";
-                            }
-                        } else {
-                            $_SESSION['operand2'] = 0;
-                        }
-                    } else {
-                        $_SESSION['operand1'] = 0;
-                    }
-                } else {
-                    $_SESSION['hiddenScreen'] = 0;
-                }
-            }
-        } else {
-            $_SESSION['screen'] = "";
-        }
+                                } 
+                
 
-        $screen = $_SESSION['screen'];
+        $screen = $calculadora->getScreen();
 
         echo "<label for='resultado'>Pantalla:</label>
               <input type='text' id='resultado' value='$screen' readonly />";
@@ -592,12 +411,6 @@
             <input type="submit" class='button' value="M+" name="mplus" />
         </form>
     </main>
-    <footer>
-        <p>Práctica JavaScript</p>
-    </footer>
-</body>
-
-</html>ain>
 <footer>
     <p>Práctica JavaScript</p>
 </footer>
