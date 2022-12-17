@@ -1,0 +1,241 @@
+/*001*/
+body{
+    background-color:rgb(255, 255, 255);
+    font: 16px Arial, sans-serif;
+    color:rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 8fr 0.5fr;
+    grid-template-areas:
+        'header'
+        'nav'
+        'main'
+        'footer';
+
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 0.5em 2em;
+    background-color:#e1aaff;
+}
+
+/*001*/
+h1{
+    font: 1.5em Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        'labelstack . . .'
+        'stack stack stack stack'
+        'labelpantalla . . .'
+        'pantalla pantalla pantalla pantalla'
+        'pow2 sin cos tang'
+        'root pow10 log mod'
+        'shift CE del enter'
+        'seven eight nine div'
+        'four five six mul'
+        'one two three minus'
+        'masmenos zero-number point plus';
+    gap: 1em 0.5em;
+    border-radius: 5%;
+    justify-self: center;
+    padding: 2% 2%;
+    background-color:#99B3FF;
+}
+
+/*013*/
+a:link,
+a:visited {
+  color: #030C45;
+}
+
+label[for="Stack"] {
+    grid-area: labelstack;
+    font: 1.5em Arial, sans-serif;
+}
+
+label[for="Pantalla"] {
+    grid-area: labelpantalla;
+    font: 1.5em Arial, sans-serif;
+}
+
+textarea {
+    grid-area: stack;
+    resize: none;
+    height: 7em;
+    font: 1.25em Arial, sans-serif;
+}
+input[type=button] { 
+    font: 1.5em Arial, sans-serif;
+    border-radius: 20%;
+} 
+
+input[type=text] { 
+    grid-area: pantalla;
+    font: 1.5em Arial, sans-serif;
+    background-color:rgb(255, 255, 255);
+
+} 
+
+input[type=button][value="CE"] { 
+    grid-area: CE;
+    
+} 
+
+input[type=button][value="+/-"] { 
+    grid-area: masmenos;
+    
+} 
+
+input[type=button][value="√"], input[type=button][value="1/x"] { 
+    grid-area: root;
+    
+}
+
+input[type=button][value="7"] { 
+    grid-area: seven;
+
+} 
+
+input[type=button][value="8"] { 
+    grid-area: eight;
+
+} 
+
+input[type=button][value="9"] { 
+    grid-area: nine;
+
+} 
+
+input[type=button][value="X"] { 
+    grid-area: mul;
+    
+} 
+
+input[type=button][value="/"] { 
+    grid-area: div;
+    
+} 
+
+input[type=button][value="4"] { 
+    grid-area: four;
+
+} 
+
+input[type=button][value="5"] { 
+    grid-area: five;
+
+} 
+
+input[type=button][value="6"] { 
+    grid-area: six;
+
+} 
+
+input[type=button][value="-"] { 
+    grid-area: minus;
+    
+} 
+
+input[type=button][value="1"] { 
+    grid-area: one;
+
+} 
+
+input[type=button][value="2"] { 
+    grid-area: two;
+
+} 
+
+input[type=button][value="3"] { 
+    grid-area: three;
+
+} 
+
+input[type=button][value="+"] { 
+    grid-area: plus;
+    
+} 
+
+input[type=button][value="0"] { 
+    grid-area: zero-number;
+
+} 
+
+input[type=button][value="."] { 
+    grid-area: point; 
+    
+} 
+
+input[type=button][value="Enter"] { 
+    grid-area: enter;
+    
+}  
+
+input[type=button][value="x^2"], input[type=button][value="x^y"] { 
+    grid-area: pow2;
+    
+} 
+
+input[type=button][value="√"], input[type=button][value="x√y"] { 
+    grid-area: root;
+    
+} 
+
+input[type=button][value="sin"], input[type=button][value="asin"]{ 
+    grid-area: sin;
+    
+} 
+
+input[type=button][value="cos"], input[type=button][value="acos"] { 
+    grid-area: cos;
+    
+} 
+
+input[type=button][value="tan"], input[type=button][value="atan"] { 
+    grid-area: tang;
+    
+} 
+
+input[type=button][value="10^x"], input[type=button][value="e^x"] { 
+    grid-area: pow10;
+    
+} 
+
+input[type=button][value="log"], input[type=button][value="ln"] { 
+    grid-area: log;
+    
+} 
+
+input[type=button][value="Mod"], input[type=button][value="1/x"] { 
+    grid-area: mod;
+    
+} 
+
+input[type=button][value="↑"] { 
+    grid-area: shift;
+    
+} 
+
+input[type=button][value="Del"] { 
+    grid-area: del;
+    
+} 
+
+footer{
+    grid-area: footer;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    background-color: #e1aaff;
+}
