@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Datos que describen el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta name="description" content="Página web del Ejercicio 7 de PHP" />
+
+    <title>Ejercicio 7</title>
+
+    <link rel="stylesheet" type="text/css" href="Ejercicio7.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Base de Datos sobre Fórmula 1</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Clasificación de constructores:</h2>
+        <table>
+          <tbody>
+            <tr>
+              <th>Equipo</th>
+              <th>Motor</th>
+              <th>Puntos</th>
+            </tr>
+            <tr>
+              <td>Campos Racing</td>
+              <td>Ferrari</td>
+              <td>162</td>
+            </tr>
+            <tr>
+              <td>Mclaren</td>
+              <td>Mercedes</td>
+              <td>104</td>
+            </tr>
+            <tr>
+              <td>Chip Ganassi</td>
+              <td>Honda</td>
+              <td>70</td>
+            </tr>
+            <tr>
+              <td>Virtuiosi</td>
+              <td>Mercedes</td>
+              <td>56</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <article>
+        <h2>Acciones posibles de la base de datos</h2>
+        <form action="#" method="post" name="botones">
+          <input
+            type="submit"
+            class="button"
+            value="Clasificación de Pilotos"
+            name="standings"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Clasificación de Equipos"
+            name="cStandings"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Estadísticas de los pilotos"
+            name="driversStats"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Estadísticas equipos"
+            name="teamsStats"
+          />
+        </form>
+      </article>
+    </main>
+    <footer>
+      <p>Práctica PHP</p>
+    </footer>
+  </body>
+</html>

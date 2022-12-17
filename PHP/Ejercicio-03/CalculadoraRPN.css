@@ -91,11 +91,6 @@ input[type=text] {
     background-color: #ffffff;
 }
 
-input[class=button][value="C"] {
-    grid-area: C;
-    
-}
-
 input[class=button][value="CE"] {
     grid-area: CE;
     
@@ -103,21 +98,6 @@ input[class=button][value="CE"] {
 
 input[class=button][value="+/-"] {
     grid-area: masmenos;
-    
-}
-
-input[class=button][value="MR"] {
-    grid-area: mr;
-    
-}
-
-input[class=button][value="M+"] {
-    grid-area: mplus;
-    
-}
-
-input[class=button][value="M-"] {
-    grid-area: mminus;
     
 }
 
@@ -196,42 +176,13 @@ input[class=button][value="."] {
    
 }
 
-input[class=button][value="="] {
-    grid-area: equals;
-   
-}
-
 input[class=button][value="√"] {
     grid-area: root;
     
 }
 
-input[class=button][value="3√"] {
-    grid-area: 3root;
-    
-}
-
-input[class=button][value="%"] {
-    grid-area: percent;
-    
-}
-
-input[class=button][value="MC"] {
-    grid-area: mc;
-    
-}
-
-input[class=button][value="MS"] {
-    grid-area: ms;
-    
-}
-
 input[class=button][value="x^2"] {
     grid-area: pow2;
-    
-}
-input[class=button][value="x^y"] {
-    grid-area: pow;
     
 }
 
@@ -265,11 +216,6 @@ input[class=button][value="log10"] {
     
 }
 
-input[class=button][value="Exp"] { 
-    grid-area: exp;
-    
-} 
-
 input[class=button][value="Mod"] { 
     grid-area: mod;
     
@@ -278,21 +224,6 @@ input[class=button][value="Mod"] {
 input[class=button][value="Del"] { 
     grid-area: del;
     
-} 
-
-input[class=button][value="pi"] { 
-    grid-area: pi;
-    
-} 
-
-input[class=button][value="("] { 
-    grid-area: leftpar;
-    
-} 
-
-input[class=button][value=")"] { 
-    grid-area: rightpar;
-
 } 
 
 footer {

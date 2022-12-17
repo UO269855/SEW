@@ -1,2 +1,4 @@
 Id, Nombre, Apellidos, Correo, Telefono, Edad, Sexo, Habilidad, Tiempo, Superada, Comentarios, Propuestas, Valoración
-212222, Álex, Caso, aleexcaso@gmail.com, 684612942, 22, H, 9, 5, Si, dfsdf, sdfsdf, 4
+1, Elias, Llera, correoDeElias, 123245, 23, H, 10, 6, Si, comment, propuesta, 9
+2, Sara, Ramirez, correoDeSara, 45673, 21, M, 8, 6, Si, comment, propuesta, 8
+3, Pepe, Persona, correoPepe, 65647, 56, N, 5, 67, No, comment, propuesta, 4

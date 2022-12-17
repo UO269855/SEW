@@ -52,7 +52,7 @@ form {
     'mc mr mplus mminus ms'
     'log log10 sin cos tang'
     'root pow10 pow2 pow exp'
-    '3root CE C del div'
+    'root3 CE C del div'
     'pi seven eight nine mul'
     'mod four five six minus'
     'masmenos one two three plus'
@@ -196,7 +196,7 @@ input[class=button][value="√"] {
 }
 
 input[class=button][value="3√"] {
-    grid-area: 3root;
+    grid-area: root3;
     
 }
 

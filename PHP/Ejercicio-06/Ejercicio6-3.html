@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Datos que describen el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta name="description" content="Página web del Ejercicio 6 de PHP" />
+
+    <title>Ejercicio 6</title>
+
+    <link rel="stylesheet" type="text/css" href="Ejercicio6.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Base de Datos</h1>
+    </header>
+    <main>
+      <section>
+        <h2>
+          Los resultados de la búsqueda en la tabla 'PruebasUsabilidad' son:
+        </h2>
+        <table>
+          <tbody>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Correo</th>
+              <th>Telefono</th>
+              <th>Edad</th>
+              <th>Sexo</th>
+              <th>Habilidad</th>
+              <th>Tiempo</th>
+              <th>Superada</th>
+              <th>Comentarios</th>
+              <th>Propuestas</th>
+              <th>Valoracion</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Elias</td>
+              <td>Llera</td>
+              <td>correoDeElias</td>
+              <td>123245</td>
+              <td>23</td>
+              <td>H</td>
+              <td>10</td>
+              <td>6</td>
+              <td>Si</td>
+              <td>comment</td>
+              <td>propuesta</td>
+              <td>9</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <article>
+        <h2>Acciones posibles de la base de datos</h2>
+        <form action="#" method="post" name="botones">
+          <input
+            type="submit"
+            class="button"
+            value="Crear Base de Datos"
+            name="createdb"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Crear Tabla"
+            name="createtable"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Insertar Datos"
+            name="insert"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Buscar Datos"
+            name="select"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Modificar Datos"
+            name="update"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Eliminar Datos"
+            name="delete"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Generar Informe"
+            name="generate"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Cargar datos desde CSV"
+            name="loadData"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Exportar datos a CSV"
+            name="exportData"
+          />
+        </form>
+      </article>
+    </main>
+    <footer>
+      <p>Práctica PHP</p>
+    </footer>
+  </body>
+</html>

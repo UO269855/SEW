@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Datos que describen el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta name="description" content="Página web del Ejercicio 3 de PHP" />
+
+    <title>Ejercicio 3</title>
+
+    <link rel="stylesheet" type="text/css" href="CalculadoraRPN.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Calculadora RPN</h1>
+    </header>
+    <main>
+      <label for="Stack">Stack:</label>
+      <textarea id="Stack" name="Stack" disabled=""></textarea>
+      <label for="resultado">Pantalla:</label>
+      <input type="text" id="resultado" value="" readonly="" />
+      <form action="#" method="post" name="botones">
+        <input type="submit" class="button" value="x^2" name="pow2" />
+        <input type="submit" class="button" value="sin" name="sin" />
+        <input type="submit" class="button" value="cos" name="cos" />
+        <input type="submit" class="button" value="tan" name="tan" />
+
+        <input type="submit" class="button" value="√" name="sqrt" />
+        <input type="submit" class="button" value="10^x" name="pow10" />
+        <input type="submit" class="button" value="log" name="log" />
+        <input type="submit" class="button" value="Mod" name="mod" />
+
+        <input type="submit" class="button" value="log10" name="log10" />
+        <input type="submit" class="button" value="CE" name="ce" />
+        <input type="submit" class="button" value="Del" name="del" />
+        <input type="submit" class="button" value="Enter" name="enter" />
+
+        <input type="submit" class="button" value="7" name="addNumber7" />
+        <input type="submit" class="button" value="8" name="addNumber8" />
+        <input type="submit" class="button" value="9" name="addNumber9" />
+        <input type="submit" class="button" value="/" name="divide" />
+
+        <input type="submit" class="button" value="4" name="addNumber4" />
+        <input type="submit" class="button" value="5" name="addNumber5" />
+        <input type="submit" class="button" value="6" name="addNumber6" />
+        <input type="submit" class="button" value="X" name="multiply" />
+
+        <input type="submit" class="button" value="1" name="addNumber1" />
+        <input type="submit" class="button" value="2" name="addNumber2" />
+        <input type="submit" class="button" value="3" name="addNumber3" />
+        <input type="submit" class="button" value="-" name="substract" />
+
+        <input type="submit" class="button" value="+/-" name="changeSign" />
+        <input type="submit" class="button" value="0" name="addNumber0" />
+        <input type="submit" class="button" value="." name="point" />
+        <input type="submit" class="button" value="+" name="add" />
+      </form>
+    </main>
+    <footer>
+      <p>Práctica PHP</p>
+    </footer>
+  </body>
+</html>

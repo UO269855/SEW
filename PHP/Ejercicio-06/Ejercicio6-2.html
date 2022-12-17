@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Datos que describen el documento -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+
+    <meta name="author" content="Álex Caso Díaz" />
+    <meta name="description" content="Página web del Ejercicio 6 de PHP" />
+
+    <title>Ejercicio 6</title>
+
+    <link rel="stylesheet" type="text/css" href="Ejercicio6.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Base de Datos</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Insertar datos en una tabla</h2>
+        <h3>
+          Rellene los siguientes datos para introducir datos en la tabla
+          PruebaUsabilidad
+        </h3>
+        <form name="datos" method="post" action="#">
+          <p>
+            <label for="ident">Identificador:</label>
+            <input
+              id="ident"
+              name="id"
+              type="text"
+              placeholder="DNI/NIE"
+              required=""
+            />
+          </p>
+          <p>
+            <label for="name">Nombre:</label>
+            <input
+              id="name"
+              name="nombre"
+              type="text"
+              placeholder="Nombre"
+              required=""
+            />
+          </p>
+          <p>
+            <label for="surname">Apellidos:</label>
+            <input
+              id="surname"
+              name="apellido"
+              type="text"
+              placeholder="Apellidos"
+              required=""
+            />
+          </p>
+          <p>
+            <label for="email">Email:</label>
+            <input
+              id="email"
+              name="correo"
+              type="text"
+              placeholder="Email"
+              required=""
+            />
+          </p>
+          <p>
+            <label for="phone">Telefono:</label>
+            <input
+              id="phone"
+              name="telefono"
+              type="text"
+              placeholder="Telefono"
+              required=""
+            />
+          </p>
+          <p>
+            <label for="age">Edad:</label>
+            <input
+              id="age"
+              name="edad"
+              type="text"
+              placeholder="Edad"
+              required=""
+            />
+          </p>
+          <fieldset name="genero">
+            <legend>Por favor, indique su género</legend>
+            <input
+              id="genero-hombre"
+              type="radio"
+              name="genero"
+              value="Hombre"
+              required=""
+            />
+            <label for="genero-hombre">Hombre</label>
+
+            <input id="genero-mujer" type="radio" name="genero" value="Mujer" />
+            <label for="genero-mujer">Mujer</label>
+
+            <input
+              id="genero-nobinario"
+              type="radio"
+              name="genero"
+              value="No Binario"
+            />
+            <label for="genero-nobinario">No binario</label>
+          </fieldset>
+          <p>
+            <label for="skill">Habilidad:</label>
+            <input
+              id="skill"
+              name="habilidad"
+              type="text"
+              placeholder="Habilidad"
+              required=""
+            />
+          </p>
+          <p>
+            <label for="time">Tiempo:</label>
+            <input
+              id="time"
+              name="tiempo"
+              type="text"
+              placeholder="Tiempo"
+              required=""
+            />
+          </p>
+          <fieldset name="superado">
+            <legend>¿Ha superado la prueba?</legend>
+            <input
+              id="superado-si"
+              type="radio"
+              name="superado"
+              value="Si"
+              required=""
+            />
+            <label for="superado-si">Si</label>
+
+            <input id="superado-no" type="radio" name="superado" value="No" />
+            <label for="superado-no">No</label>
+          </fieldset>
+          <p>
+            <label for="comment">Comentario:</label>
+            <input
+              id="comment"
+              name="comentario"
+              type="text"
+              placeholder="Comentario"
+              required=""
+            />
+          </p>
+          <p>
+            <label for="help">Propuesta:</label>
+            <input
+              id="help"
+              name="propuesta"
+              type="text"
+              placeholder="Propuesta"
+              required=""
+            />
+          </p>
+          <p>
+            <label for="value">Valoracion:</label>
+            <input
+              id="value"
+              name="valor"
+              type="text"
+              placeholder="Valoracion"
+              required=""
+            />
+          </p>
+          <input
+            type="submit"
+            class="button"
+            value="Insertar Datos"
+            name="InsertarDatos"
+          />
+        </form>
+      </section>
+      <article>
+        <h2>Acciones posibles de la base de datos</h2>
+        <form action="#" method="post" name="botones">
+          <input
+            type="submit"
+            class="button"
+            value="Crear Base de Datos"
+            name="createdb"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Crear Tabla"
+            name="createtable"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Insertar Datos"
+            name="insert"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Buscar Datos"
+            name="select"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Modificar Datos"
+            name="update"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Eliminar Datos"
+            name="delete"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Generar Informe"
+            name="generate"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Cargar datos desde CSV"
+            name="loadData"
+          />
+          <input
+            type="submit"
+            class="button"
+            value="Exportar datos a CSV"
+            name="exportData"
+          />
+        </form>
+      </article>
+    </main>
+    <footer>
+      <p>Práctica PHP</p>
+    </footer>
+  </body>
+</html>

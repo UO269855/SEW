@@ -3,6 +3,59 @@
     font: 16px Arial, sans-serif;
     background-color: #ffffff;
     color: #000000;
+    display: grid;
+    grid-template-areas:
+        'header'
+        'main'
+        'footer';
+    gap: 0.5em 0.5em;
+    padding: 1.25em;
+}
+
+/*001*/
+header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*001*/
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas:
+        'article'
+        'section';
+    gap: 0.5em 0.5em;
+    padding: 1.25em;
+}
+
+/*001*/
+section {
+    grid-area: section;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+
+/*001*/
+article {
+    grid-area: article;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    gap: 0.75em 0.75em;
 }
 
 /*001*/
@@ -21,13 +74,6 @@ h2 {
 /*001*/
 p {
     padding: 0.5em;
-}
-
-/*011*/
-a:link,
-a:visited {
-    color: #030C45;
-    background-color: #ffffff;
 }
 
 input[type=button] {

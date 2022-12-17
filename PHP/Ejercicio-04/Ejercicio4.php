@@ -17,7 +17,7 @@
 
 <body>
     <header>
-        <h1>Calculadora RPN</h1>
+        <h1>Precio del gas Natural</h1>
     </header>
     <main>
         <?php
@@ -34,7 +34,9 @@
 
                 $respuesta = file_get_contents($url);
                 $json = json_decode($respuesta);
-                echo "<p name='moneda'>Para la fecha: " .
+                echo "<section>
+                <h2> Datos obtenidos sobre el precio del gas natural hoy</h2>
+                <p>Para la fecha: " .
                     $json->data->date .
                     " el precio del gas natural por " .
                     substr($json->data->unit, 4) .
@@ -42,7 +44,8 @@
                     $json->data->rates->NG .
                     " " .
                     $json->data->base .
-                    "</p>";
+                    "</p>
+                    </section>";
             }
         }
 
@@ -60,10 +63,12 @@
                 $calculadora->createURL();
         }
         ?>
-
-        <form action='#' method='post' name='botones'>
-            <input type="submit" class='button' value="Obtener Datos" name="calculate" />
-        </form>
+        <article>
+            <h2>Pulse el botón para obtener datos</h2>
+            <form action='#' method='post' name='botones'>
+                <input type="submit" class='button' value="Obtener Datos" name="calculate" />
+            </form>
+        </article>
     </main>
     <footer>
         <p>Práctica PHP</p>

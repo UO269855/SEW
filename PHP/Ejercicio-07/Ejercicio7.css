@@ -76,6 +76,15 @@ p {
     padding: 0.5em;
 }
 
+/*011*/
 input[type=button] {
     font: 1.25em Arial, sans-serif;
+}
+
+/*001*/
+table,
+th,
+td {
+  border: 0.06em solid #000000;
+  padding: 0.2em;
 }

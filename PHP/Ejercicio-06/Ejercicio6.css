@@ -50,6 +50,7 @@ article {
     align-items: center;
 }
 
+/*001*/
 footer {
     grid-area: footer;
     display: flex;
@@ -72,10 +73,34 @@ h2 {
 }
 
 /*001*/
+h3 {
+    font: 1.25em Arial, monospace, bold;
+    font-weight: bold;
+}
+
+/*001*/
 p {
     padding: 0.5em;
 }
 
+/*001*/
+table,
+th,
+td {
+  border: 0.06em solid #000000;
+  padding: 0.2em;
+}
+
+ul {
+    padding: 0.2em;
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 2.5em;
+}
+
+/*011*/
 input[type=button] {
     font: 1.25em Arial, sans-serif;
 }

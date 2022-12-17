@@ -456,7 +456,7 @@
                 $numMujeres = $db->query("SELECT count(*) as numMujeres 
                 FROM PruebasUsabilidad WHERE sexo = 'M'");
                 $numOtro = $db->query("SELECT count(*) as numOtro 
-                FROM PruebasUsabilidad WHERE sexo = 'O'");
+                FROM PruebasUsabilidad WHERE sexo = 'N'");
 
                 $superados = $db->query("SELECT count(*) as superados 
                 FROM PruebasUsabilidad WHERE superada = 'Si'");
@@ -468,7 +468,7 @@
                     echo "<section><h2>Informe de datos</h2>";
 
                     while ($row = $medias->fetch_assoc()) {
-                        echo "<h3>Medias de los datos obtenidos: </h3>
+                        echo "<h3>Medias de los datos obtenidos: </h3><ul>
                         <li> Edad media de los usuarios: " . $row['edadMedia'] . " años</li>
                         <li> Habilidad informática media de los usuarios:" . $row['habilidadMedia'] . "</li>
                         <li> Tiempo medio para realizar la tarea: " . $row['tiempoMedio'] . "</li>
@@ -567,27 +567,31 @@
                             if (isset($column[12]))
                                 $valoracion = intval($column[12]);
 
-                            $SQLQuery = $db->prepare("INSERT INTO PruebasUsabilidad (Id, Nombre, Apellidos, Correo, Telefono, Edad, Sexo, Habilidad, Tiempo, Superada, Comentarios, Propuestas, Valoracion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                            $SQLQuery = $db->query("SELECT * FROM PruebasUsabilidad");
+                            if ($SQLQuery->num_rows == 0) {
+                                $SQLQuery = $db->prepare("INSERT INTO PruebasUsabilidad (Id, Nombre, Apellidos, Correo, Telefono, Edad, Sexo, Habilidad, Tiempo, Superada, Comentarios, Propuestas, Valoracion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-                            $SQLQuery->bind_param(
-                                'ssssiisiisssi',
-                                $id,
-                                $nombre,
-                                $apellidos,
-                                $email,
-                                $telefono,
-                                $edad,
-                                $sexo,
-                                $habilidad,
-                                $tiempo,
-                                $superada,
-                                $comentarios,
-                                $propuestas,
-                                $valoracion
-                            );
+                                $SQLQuery->bind_param(
+                                    'ssssiisiisssi',
+                                    $id,
+                                    $nombre,
+                                    $apellidos,
+                                    $email,
+                                    $telefono,
+                                    $edad,
+                                    $sexo,
+                                    $habilidad,
+                                    $tiempo,
+                                    $superada,
+                                    $comentarios,
+                                    $propuestas,
+                                    $valoracion
+                                );
 
-                            $SQLQuery->execute();
-                            $SQLQuery->close();
+                                $SQLQuery->execute();
+                                $SQLQuery->close();
+                            }
+
 
                         }
                     }
@@ -615,7 +619,7 @@
                     fwrite($f, utf8_decode($fields));
 
                     while ($row = $SQLQuery->fetch_assoc()) {
-                        $lineData = $row['Id'] . ', ' . $row['Nombre'] . ', ' . $row['Apellidos'] . ', ' . $row['Correo'] . ', ' . $row['Telefono'] . ', ' . $row['Edad'] . ', ' . $row['Sexo'] . ', ' . $row['Habilidad'] . ', ' . $row['Tiempo'] . ', ' . $row['Superada'] . ', ' . $row['Comentarios'] . ', ' . $row['Propuestas'] . ', ' . $row['Valoracion'] . PHP_EOL;
+                        $lineData = $row['Id'] . ',' . $row['Nombre'] . ',' . $row['Apellidos'] . ',' . $row['Correo'] . ',' . $row['Telefono'] . ',' . $row['Edad'] . ',' . $row['Sexo'] . ',' . $row['Habilidad'] . ',' . $row['Tiempo'] . ',' . $row['Superada'] . ',' . $row['Comentarios'] . ',' . $row['Propuestas'] . ',' . $row['Valoracion'] . PHP_EOL;
                         fwrite($f, utf8_decode($lineData));
                     }
 
