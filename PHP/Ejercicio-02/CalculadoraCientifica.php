@@ -750,7 +750,7 @@
         </form>
     </main>
     <footer>
-        <p>Práctica JavaScript</p>
+        <p>Práctica PHP</p>
     </footer>
 </body>
 

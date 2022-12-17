@@ -51,7 +51,7 @@
 
             public function ce()
             {
-                if(substr($this->hiddenScreen, (strlen($this->hiddenScreen) - strlen($this->operand2)), strlen($this->operand2)) == $this->operand2 && $this->operand2!= $this->operand1){
+                if (substr($this->hiddenScreen, (strlen($this->hiddenScreen) - strlen($this->operand2)), strlen($this->operand2)) == $this->operand2 && $this->operand2 != $this->operand1) {
                     $this->hiddenScreen = substr($this->hiddenScreen, 0, (strlen($this->hiddenScreen) - strlen($this->operand2)));
                     $this->screen = "";
                     $this->operand2 = "";
@@ -93,7 +93,7 @@
             {
                 $this->screen .= "%";
                 $this->hiddenScreen .= "%";
-                $this->operand2 =$this->screen ;       
+                $this->operand2 = $this->screen;
             }
 
             public function addNumber($value)
@@ -158,7 +158,7 @@
                 $this->operand2 = "";
                 $this->hiddenScreen .= "/";
                 $this->lastOperand = "/";
-                           
+
             }
 
             public function substract()
@@ -177,7 +177,7 @@
                 $this->operand2 = "";
                 $this->hiddenScreen .= "-";
                 $this->lastOperand = "-";
-                     
+
             }
 
 
@@ -213,94 +213,94 @@
             {
                 $this->screen .= ".";
                 $this->hiddenScreen .= ".";
-                $this->operand2 =$this->screen ;  
+                $this->operand2 = $this->screen;
             }
 
             public function equals()
             {
-                    if (str_ends_with($this->hiddenScreen, "%")) {
-                        switch ($this->lastOperand) {
-                            case "*":
-                                $operation =
-                                    (float) $this->operand1 *
-                                    (float) 
-                                    substr(strval($this->operand2), 0, strlen(strval($this->operand2))) / 100;
+                if (str_ends_with($this->hiddenScreen, "%")) {
+                    switch ($this->lastOperand) {
+                        case "*":
+                            $operation =
+                                (float) $this->operand1 *
+                                (float) 
+                                substr(strval($this->operand2), 0, strlen(strval($this->operand2))) / 100;
 
-                                $this->operand1 = $operation;
-                                $this->screen = $operation;
-                                $this->hiddenScreen = $operation;
-                                break;
-                            case "/":
-                                $operation =
-                                    (float) $this->operand1 /
-                                    (float) 
-                                    substr(strval($this->operand2), 0, strlen(strval($this->operand2))) * 100;
-                                $this->operand1 = $operation;
-                                $this->screen = $operation;
-                                $this->hiddenScreen = $operation;
-                                break;
-                            case "+":
-                                $operation =
-                                    (float) $this->operand1 +
-                                    ((float) 
-                                    substr($this->operand2, 0, strlen($this->operand2)) * (float) $this->operand1 /100);
-                                $this->operand1 = $operation;
-                                $this->screen = $operation;
-                                $this->hiddenScreen = $operation;
-                                break;
-                            case "-":
-                                $operation =
-                                    (float) $this->operand1 -
-                                    ((float) 
-                                    substr($this->operand2, 0, strlen($this->operand2)) * (float) $this->operand1 /100);
-                                $this->operand1 = $operation;
-                                $this->screen = $operation;
-                                $this->hiddenScreen = $operation;
-                                break;
-                            default:
-                                break;
-                        }
-                        try {
-                            $this->screen = eval("return $operation;");
-                            $this->operand1 = (float) $this->screen;
-                        } catch (Error | Exception $e) {
-                            $this->screen = "Error = " . $e->getMessage();
-                        }
-                    } else if (strval($this->hiddenScreen) === strval($this->operand1)) {
-                        try {
-                            $result = eval(
-                                "return " . $this->operand1 . $this->lastOperand . $this->operand2 . ";")
-                            ;
-                            $this->operand1 = $result;
-                            $this->screen = $result;
-                            $this->hiddenScreen = $result;
-                        } catch (Error | Exception $e) {
-                            $this->screen = "Error = " . $e->getMessage();
-                        }
-
-                    } else if ($this->checkSelf()) {
-
-                        $result = eval("return " . $this->operand1 . $this->lastOperand . $this->operand1 . ";");
-
-                        $this->operand2 = $this->operand1;
+                            $this->operand1 = $operation;
+                            $this->screen = $operation;
+                            $this->hiddenScreen = $operation;
+                            break;
+                        case "/":
+                            $operation =
+                                (float) $this->operand1 /
+                                (float) 
+                                substr(strval($this->operand2), 0, strlen(strval($this->operand2))) * 100;
+                            $this->operand1 = $operation;
+                            $this->screen = $operation;
+                            $this->hiddenScreen = $operation;
+                            break;
+                        case "+":
+                            $operation =
+                                (float) $this->operand1 +
+                                ((float) 
+                                    substr($this->operand2, 0, strlen($this->operand2)) * (float) $this->operand1 / 100);
+                            $this->operand1 = $operation;
+                            $this->screen = $operation;
+                            $this->hiddenScreen = $operation;
+                            break;
+                        case "-":
+                            $operation =
+                                (float) $this->operand1 -
+                                ((float) 
+                                    substr($this->operand2, 0, strlen($this->operand2)) * (float) $this->operand1 / 100);
+                            $this->operand1 = $operation;
+                            $this->screen = $operation;
+                            $this->hiddenScreen = $operation;
+                            break;
+                        default:
+                            break;
+                    }
+                    try {
+                        $this->screen = eval("return $operation;");
+                        $this->operand1 = (float) $this->screen;
+                    } catch (Error | Exception $e) {
+                        $this->screen = "Error = " . $e->getMessage();
+                    }
+                } else if (strval($this->hiddenScreen) === strval($this->operand1)) {
+                    try {
+                        $result = eval(
+                            "return " . $this->operand1 . $this->lastOperand . $this->operand2 . ";")
+                        ;
                         $this->operand1 = $result;
                         $this->screen = $result;
                         $this->hiddenScreen = $result;
-
-                    } else {
-                        try {
-                            $result = eval("return $this->hiddenScreen;");
-                            $this->operand1 = $result;
-                            $this->screen = $result;
-                            $this->hiddenScreen = $result;
-                        } catch (Error | Exception $e) {
-                            $this->screen = "Error = " . $e->getMessage();
-                        }
+                    } catch (Error | Exception $e) {
+                        $this->screen = "Error = " . $e->getMessage();
                     }
+
+                } else if ($this->checkSelf()) {
+
+                    $result = eval("return " . $this->operand1 . $this->lastOperand . $this->operand1 . ";");
+
+                    $this->operand2 = $this->operand1;
+                    $this->operand1 = $result;
+                    $this->screen = $result;
+                    $this->hiddenScreen = $result;
+
+                } else {
+                    try {
+                        $result = eval("return $this->hiddenScreen;");
+                        $this->operand1 = $result;
+                        $this->screen = $result;
+                        $this->hiddenScreen = $result;
+                    } catch (Error | Exception $e) {
+                        $this->screen = "Error = " . $e->getMessage();
+                    }
+                }
             }
 
             public function getScreen()
-            { 
+            {
                 return $this->screen;
             }
 
@@ -316,63 +316,63 @@
 
         session_start();
 
-        
-    if (!isset($_SESSION['calculadoraM'])) {
-        $_SESSION['calculadoraM']  = new CalculadoraMilan("", "", "", "", "", "");
-    }
 
-    $calculadora = $_SESSION['calculadoraM'];
-            if (count($_POST) > 0) {   
-                                    if (isset($_POST['clearAll']))
-                                        $calculadora->clearAll();
-                                    if (isset($_POST['ce']))
-                                        $calculadora->ce();
-                                    if (isset($_POST['changeSign']))
-                                        $calculadora->changeSign();
-                                    if (isset($_POST['raiz']))
-                                        $calculadora->raiz();
-                                    if (isset($_POST['porcentaje']))
-                                        $calculadora->porcentaje();
-                                    if (isset($_POST['addNumber1']))
-                                        $calculadora->addNumber(1);
-                                    if (isset($_POST['addNumber2']))
-                                        $calculadora->addNumber(2);
-                                    if (isset($_POST['addNumber3']))
-                                        $calculadora->addNumber(3);
-                                    if (isset($_POST['addNumber4']))
-                                        $calculadora->addNumber(4);
-                                    if (isset($_POST['addNumber5']))
-                                        $calculadora->addNumber(5);
-                                    if (isset($_POST['addNumber6']))
-                                        $calculadora->addNumber(6);
-                                    if (isset($_POST['addNumber7']))
-                                        $calculadora->addNumber(7);
-                                    if (isset($_POST['addNumber8']))
-                                        $calculadora->addNumber(8);
-                                    if (isset($_POST['addNumber9']))
-                                        $calculadora->addNumber(9);
-                                    if (isset($_POST['multiply']))
-                                        $calculadora->multiply();
-                                    if (isset($_POST['divide']))
-                                        $calculadora->divide();
-                                    if (isset($_POST['substract']))
-                                        $calculadora->substract();
-                                    if (isset($_POST['mrc']))
-                                        $calculadora->mrc();
-                                    if (isset($_POST['add']))
-                                        $calculadora->add();
-                                    if (isset($_POST['mminus']))
-                                        $calculadora->mminus();
-                                    if (isset($_POST['addNumber0']))
-                                        $calculadora->addNumber(0);
-                                    if (isset($_POST['point']))
-                                        $calculadora->point();
-                                    if (isset($_POST['equals']))
-                                        $calculadora->equals();
-                                    if (isset($_POST['mplus']))
-                                        $calculadora->mplus();
-                                } 
-                
+        if (!isset($_SESSION['calculadoraM'])) {
+            $_SESSION['calculadoraM'] = new CalculadoraMilan("", "", "", "", "", "");
+        }
+
+        $calculadora = $_SESSION['calculadoraM'];
+        if (count($_POST) > 0) {
+            if (isset($_POST['clearAll']))
+                $calculadora->clearAll();
+            if (isset($_POST['ce']))
+                $calculadora->ce();
+            if (isset($_POST['changeSign']))
+                $calculadora->changeSign();
+            if (isset($_POST['raiz']))
+                $calculadora->raiz();
+            if (isset($_POST['porcentaje']))
+                $calculadora->porcentaje();
+            if (isset($_POST['addNumber1']))
+                $calculadora->addNumber(1);
+            if (isset($_POST['addNumber2']))
+                $calculadora->addNumber(2);
+            if (isset($_POST['addNumber3']))
+                $calculadora->addNumber(3);
+            if (isset($_POST['addNumber4']))
+                $calculadora->addNumber(4);
+            if (isset($_POST['addNumber5']))
+                $calculadora->addNumber(5);
+            if (isset($_POST['addNumber6']))
+                $calculadora->addNumber(6);
+            if (isset($_POST['addNumber7']))
+                $calculadora->addNumber(7);
+            if (isset($_POST['addNumber8']))
+                $calculadora->addNumber(8);
+            if (isset($_POST['addNumber9']))
+                $calculadora->addNumber(9);
+            if (isset($_POST['multiply']))
+                $calculadora->multiply();
+            if (isset($_POST['divide']))
+                $calculadora->divide();
+            if (isset($_POST['substract']))
+                $calculadora->substract();
+            if (isset($_POST['mrc']))
+                $calculadora->mrc();
+            if (isset($_POST['add']))
+                $calculadora->add();
+            if (isset($_POST['mminus']))
+                $calculadora->mminus();
+            if (isset($_POST['addNumber0']))
+                $calculadora->addNumber(0);
+            if (isset($_POST['point']))
+                $calculadora->point();
+            if (isset($_POST['equals']))
+                $calculadora->equals();
+            if (isset($_POST['mplus']))
+                $calculadora->mplus();
+        }
+
 
         $screen = $calculadora->getScreen();
 
@@ -411,9 +411,9 @@
             <input type="submit" class='button' value="M+" name="mplus" />
         </form>
     </main>
-<footer>
-    <p>Práctica JavaScript</p>
-</footer>
+    <footer>
+        <p>Práctica PHP</p>
+    </footer>
 </body>
 
 </html>
